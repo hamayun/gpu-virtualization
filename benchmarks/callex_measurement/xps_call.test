@@ -1,0 +1,2100 @@
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.009552685544
+cudaGetDevice(&intie), time=0.000394583010
+cudaGetDeviceProperties(&prop, intie), time=0.000461305986
+cudaStreamCreate(&stream), time=0.000399462995
+cudaStreamQuery(stream), time=0.000392451009
+cudaStreamDestroy(stream), time=0.000318119011
+cudaEventCreate(&event1), time=0.000379217992
+cudaEventRecord(event1, 0), time=0.000394873990
+cudaEventSynchronize(event1), time=0.000321303000
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000388629996
+cudaEventDestroy(event1), time=0.000309577008
+cudaMalloc(&devPtr, SIZE), time=0.000691547990
+cudaMemset(devPtr, 1337, SIZE), time=0.000440697011
+cudaFree(devPtr), time=0.000805273012
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000335120014
+cudaGetDevice(&intie), time=0.000347407011
+cudaGetDeviceProperties(&prop, intie), time=0.000442335004
+cudaStreamCreate(&stream), time=0.000322333013
+cudaStreamQuery(stream), time=0.000308824994
+cudaStreamDestroy(stream), time=0.000395172014
+cudaEventCreate(&event1), time=0.000373668008
+cudaEventRecord(event1, 0), time=0.000316649996
+cudaEventSynchronize(event1), time=0.000469176011
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000380162994
+cudaEventDestroy(event1), time=0.000376892014
+cudaMalloc(&devPtr, SIZE), time=0.000675014977
+cudaMemset(devPtr, 1337, SIZE), time=0.000488397025
+cudaFree(devPtr), time=0.000761940028
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000333172007
+cudaGetDevice(&intie), time=0.000332378986
+cudaGetDeviceProperties(&prop, intie), time=0.000418176991
+cudaStreamCreate(&stream), time=0.000325019006
+cudaStreamQuery(stream), time=0.000551040983
+cudaStreamDestroy(stream), time=0.000393218012
+cudaEventCreate(&event1), time=0.009612689726
+cudaEventRecord(event1, 0), time=0.000401624013
+cudaEventSynchronize(event1), time=0.000377360004
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000317750993
+cudaEventDestroy(event1), time=0.000346024986
+cudaMalloc(&devPtr, SIZE), time=0.002648547990
+cudaMemset(devPtr, 1337, SIZE), time=0.002112942981
+cudaFree(devPtr), time=0.001318993978
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000583764981
+cudaGetDevice(&intie), time=0.000309124007
+cudaGetDeviceProperties(&prop, intie), time=0.000563869020
+cudaStreamCreate(&stream), time=0.002594246995
+cudaStreamQuery(stream), time=0.000756143010
+cudaStreamDestroy(stream), time=0.000434182992
+cudaEventCreate(&event1), time=0.004225445911
+cudaEventRecord(event1, 0), time=0.006913172081
+cudaEventSynchronize(event1), time=0.000301497988
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000406326988
+cudaEventDestroy(event1), time=0.000325683010
+cudaMalloc(&devPtr, SIZE), time=0.000679280027
+cudaMemset(devPtr, 1337, SIZE), time=0.000533188984
+cudaFree(devPtr), time=0.000817321998
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000333253003
+cudaGetDevice(&intie), time=0.000331755989
+cudaGetDeviceProperties(&prop, intie), time=0.000579058018
+cudaStreamCreate(&stream), time=0.000324104010
+cudaStreamQuery(stream), time=0.000306514994
+cudaStreamDestroy(stream), time=0.000377199001
+cudaEventCreate(&event1), time=0.000320479012
+cudaEventRecord(event1, 0), time=0.000320652995
+cudaEventSynchronize(event1), time=0.000294439989
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000422215991
+cudaEventDestroy(event1), time=0.000381249993
+cudaMalloc(&devPtr, SIZE), time=0.000668513007
+cudaMemset(devPtr, 1337, SIZE), time=0.000496839988
+cudaFree(devPtr), time=0.000778316986
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000280965003
+cudaGetDevice(&intie), time=0.010189942084
+cudaGetDeviceProperties(&prop, intie), time=0.000462717988
+cudaStreamCreate(&stream), time=0.000391040987
+cudaStreamQuery(stream), time=0.000395673007
+cudaStreamDestroy(stream), time=0.000384762010
+cudaEventCreate(&event1), time=0.000398528005
+cudaEventRecord(event1, 0), time=0.000386400992
+cudaEventSynchronize(event1), time=0.000382788014
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000316557009
+cudaEventDestroy(event1), time=0.000539966975
+cudaMalloc(&devPtr, SIZE), time=0.000501644972
+cudaMemset(devPtr, 1337, SIZE), time=0.004839561880
+cudaFree(devPtr), time=0.000761213014
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000341058010
+cudaGetDevice(&intie), time=0.000334634009
+cudaGetDeviceProperties(&prop, intie), time=0.000579381012
+cudaStreamCreate(&stream), time=0.000324327993
+cudaStreamQuery(stream), time=0.000305900990
+cudaStreamDestroy(stream), time=0.000380229001
+cudaEventCreate(&event1), time=0.000320777996
+cudaEventRecord(event1, 0), time=0.000319737999
+cudaEventSynchronize(event1), time=0.000403231010
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000327415008
+cudaEventDestroy(event1), time=0.000383600011
+cudaMalloc(&devPtr, SIZE), time=0.000679838995
+cudaMemset(devPtr, 1337, SIZE), time=0.000443852012
+cudaFree(devPtr), time=0.000764244993
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000333233998
+cudaGetDevice(&intie), time=0.000410134991
+cudaGetDeviceProperties(&prop, intie), time=0.000446010992
+cudaStreamCreate(&stream), time=0.000330554991
+cudaStreamQuery(stream), time=0.000318381004
+cudaStreamDestroy(stream), time=0.000316710997
+cudaEventCreate(&event1), time=0.000316288002
+cudaEventRecord(event1, 0), time=0.000380367012
+cudaEventSynchronize(event1), time=0.000402006001
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000322537991
+cudaEventDestroy(event1), time=0.000374744995
+cudaMalloc(&devPtr, SIZE), time=0.000685926003
+cudaMemset(devPtr, 1337, SIZE), time=0.000487403013
+cudaFree(devPtr), time=0.000721355027
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000328686001
+cudaGetDevice(&intie), time=0.000329850009
+cudaGetDeviceProperties(&prop, intie), time=0.000507355027
+cudaStreamCreate(&stream), time=0.000380859012
+cudaStreamQuery(stream), time=0.000325639994
+cudaStreamDestroy(stream), time=0.000319417013
+cudaEventCreate(&event1), time=0.000316565012
+cudaEventRecord(event1, 0), time=0.000377710006
+cudaEventSynchronize(event1), time=0.000301652995
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000387578009
+cudaEventDestroy(event1), time=0.000448664010
+cudaMalloc(&devPtr, SIZE), time=0.000764338998
+cudaMemset(devPtr, 1337, SIZE), time=0.000507040008
+cudaFree(devPtr), time=0.000779962982
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000331952993
+cudaGetDevice(&intie), time=0.000356939010
+cudaGetDeviceProperties(&prop, intie), time=0.000447519997
+cudaStreamCreate(&stream), time=0.000312494987
+cudaStreamQuery(stream), time=0.000383384991
+cudaStreamDestroy(stream), time=0.000321727013
+cudaEventCreate(&event1), time=0.000380086014
+cudaEventRecord(event1, 0), time=0.000382458995
+cudaEventSynchronize(event1), time=0.000398008007
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000306325004
+cudaEventDestroy(event1), time=0.000384751009
+cudaMalloc(&devPtr, SIZE), time=0.000722891011
+cudaMemset(devPtr, 1337, SIZE), time=0.000519577006
+cudaFree(devPtr), time=0.000753886008
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000352211006
+cudaGetDevice(&intie), time=0.000352798990
+cudaGetDeviceProperties(&prop, intie), time=0.000444406993
+cudaStreamCreate(&stream), time=0.000382836995
+cudaStreamQuery(stream), time=0.000329092989
+cudaStreamDestroy(stream), time=0.000406668987
+cudaEventCreate(&event1), time=0.000375711999
+cudaEventRecord(event1, 0), time=0.000325670000
+cudaEventSynchronize(event1), time=0.000313241995
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000382811006
+cudaEventDestroy(event1), time=0.000380531012
+cudaMalloc(&devPtr, SIZE), time=0.000664503023
+cudaMemset(devPtr, 1337, SIZE), time=0.000498732028
+cudaFree(devPtr), time=0.000736841990
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000390478002
+cudaGetDevice(&intie), time=0.000340338011
+cudaGetDeviceProperties(&prop, intie), time=0.000638735015
+cudaStreamCreate(&stream), time=0.000399037992
+cudaStreamQuery(stream), time=0.000328994007
+cudaStreamDestroy(stream), time=0.000323482003
+cudaEventCreate(&event1), time=0.000314620993
+cudaEventRecord(event1, 0), time=0.000375528005
+cudaEventSynchronize(event1), time=0.000321028987
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000318867998
+cudaEventDestroy(event1), time=0.000315623998
+cudaMalloc(&devPtr, SIZE), time=0.000656484975
+cudaMemset(devPtr, 1337, SIZE), time=0.000489215017
+cudaFree(devPtr), time=0.000809304009
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000336289988
+cudaGetDevice(&intie), time=0.000355027994
+cudaGetDeviceProperties(&prop, intie), time=0.000443752011
+cudaStreamCreate(&stream), time=0.000330158015
+cudaStreamQuery(stream), time=0.000306473987
+cudaStreamDestroy(stream), time=0.000395932002
+cudaEventCreate(&event1), time=0.000375803007
+cudaEventRecord(event1, 0), time=0.000509942998
+cudaEventSynchronize(event1), time=0.000311948999
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000383815990
+cudaEventDestroy(event1), time=0.000375244999
+cudaMalloc(&devPtr, SIZE), time=0.000681979000
+cudaMemset(devPtr, 1337, SIZE), time=0.000480629998
+cudaFree(devPtr), time=0.000729880994
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.005019216798
+cudaGetDevice(&intie), time=0.000370580994
+cudaGetDeviceProperties(&prop, intie), time=0.000447139988
+cudaStreamCreate(&stream), time=0.000327017013
+cudaStreamQuery(stream), time=0.000306786009
+cudaStreamDestroy(stream), time=0.000524213014
+cudaEventCreate(&event1), time=0.000825660012
+cudaEventRecord(event1, 0), time=0.005198601168
+cudaEventSynchronize(event1), time=0.000541816989
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000201853996
+cudaEventDestroy(event1), time=0.001291680965
+cudaMalloc(&devPtr, SIZE), time=0.000666336971
+cudaMemset(devPtr, 1337, SIZE), time=0.000472452986
+cudaFree(devPtr), time=0.000738631992
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000335332006
+cudaGetDevice(&intie), time=0.000355438009
+cudaGetDeviceProperties(&prop, intie), time=0.000443091005
+cudaStreamCreate(&stream), time=0.000386469008
+cudaStreamQuery(stream), time=0.000378995988
+cudaStreamDestroy(stream), time=0.000323721993
+cudaEventCreate(&event1), time=0.000380146987
+cudaEventRecord(event1, 0), time=0.000324608991
+cudaEventSynchronize(event1), time=0.000400479010
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000324522000
+cudaEventDestroy(event1), time=0.000319142011
+cudaMalloc(&devPtr, SIZE), time=0.000672567985
+cudaMemset(devPtr, 1337, SIZE), time=0.000493659987
+cudaFree(devPtr), time=0.000765371020
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000352936011
+cudaGetDevice(&intie), time=0.000357022014
+cudaGetDeviceProperties(&prop, intie), time=0.000441898010
+cudaStreamCreate(&stream), time=0.000440709991
+cudaStreamQuery(stream), time=0.000325937988
+cudaStreamDestroy(stream), time=0.000308193004
+cudaEventCreate(&event1), time=0.000378247001
+cudaEventRecord(event1, 0), time=0.000325149012
+cudaEventSynchronize(event1), time=0.000301872991
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000409091997
+cudaEventDestroy(event1), time=0.000378024008
+cudaMalloc(&devPtr, SIZE), time=0.000659545010
+cudaMemset(devPtr, 1337, SIZE), time=0.000677953998
+cudaFree(devPtr), time=0.005750658922
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000338034995
+cudaGetDevice(&intie), time=0.000356208999
+cudaGetDeviceProperties(&prop, intie), time=0.000532919017
+cudaStreamCreate(&stream), time=0.000400135992
+cudaStreamQuery(stream), time=0.000328241003
+cudaStreamDestroy(stream), time=0.000307070994
+cudaEventCreate(&event1), time=0.000398884993
+cudaEventRecord(event1, 0), time=0.000322670996
+cudaEventSynchronize(event1), time=0.000408799009
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000311075011
+cudaEventDestroy(event1), time=0.000354949996
+cudaMalloc(&devPtr, SIZE), time=0.000743172015
+cudaMemset(devPtr, 1337, SIZE), time=0.000573416997
+cudaFree(devPtr), time=0.000832705991
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000333845994
+cudaGetDevice(&intie), time=0.000331888004
+cudaGetDeviceProperties(&prop, intie), time=0.006594771985
+cudaStreamCreate(&stream), time=0.000598363986
+cudaStreamQuery(stream), time=0.001505585969
+cudaStreamDestroy(stream), time=0.001029341947
+cudaEventCreate(&event1), time=0.000348581991
+cudaEventRecord(event1, 0), time=0.000311579992
+cudaEventSynchronize(event1), time=0.000318648992
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000317430007
+cudaEventDestroy(event1), time=0.000305013993
+cudaMalloc(&devPtr, SIZE), time=0.000671393005
+cudaMemset(devPtr, 1337, SIZE), time=0.000476849993
+cudaFree(devPtr), time=0.005857435986
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000336539990
+cudaGetDevice(&intie), time=0.000358804013
+cudaGetDeviceProperties(&prop, intie), time=0.000456748006
+cudaStreamCreate(&stream), time=0.000412533002
+cudaStreamQuery(stream), time=0.000324369990
+cudaStreamDestroy(stream), time=0.000306992995
+cudaEventCreate(&event1), time=0.000382594997
+cudaEventRecord(event1, 0), time=0.000316196994
+cudaEventSynchronize(event1), time=0.000436516013
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000322173990
+cudaEventDestroy(event1), time=0.000318840001
+cudaMalloc(&devPtr, SIZE), time=0.000795701984
+cudaMemset(devPtr, 1337, SIZE), time=0.000524799980
+cudaFree(devPtr), time=0.000728041981
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000498779991
+cudaGetDevice(&intie), time=0.004427139182
+cudaGetDeviceProperties(&prop, intie), time=0.011819433421
+cudaStreamCreate(&stream), time=0.000862750981
+cudaStreamQuery(stream), time=0.005343941040
+cudaStreamDestroy(stream), time=0.000342376996
+cudaEventCreate(&event1), time=0.000312432006
+cudaEventRecord(event1, 0), time=0.000397702999
+cudaEventSynchronize(event1), time=0.000340171013
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000395756011
+cudaEventDestroy(event1), time=0.000395215000
+cudaMalloc(&devPtr, SIZE), time=0.000710283988
+cudaMemset(devPtr, 1337, SIZE), time=0.000499111018
+cudaFree(devPtr), time=0.000739449984
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000354596006
+cudaGetDevice(&intie), time=0.000281623012
+cudaGetDeviceProperties(&prop, intie), time=0.000696871022
+cudaStreamCreate(&stream), time=0.000199218004
+cudaStreamQuery(stream), time=0.006986999884
+cudaStreamDestroy(stream), time=0.005754943937
+cudaEventCreate(&event1), time=0.000363456988
+cudaEventRecord(event1, 0), time=0.000377451011
+cudaEventSynchronize(event1), time=0.000288904004
+cudaEventElapsedTime(&floatie, event2, event1), time=0.010537646711
+cudaEventDestroy(event1), time=0.000414735987
+cudaMalloc(&devPtr, SIZE), time=0.000660817022
+cudaMemset(devPtr, 1337, SIZE), time=0.000510111975
+cudaFree(devPtr), time=0.000741317985
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000328135007
+cudaGetDevice(&intie), time=0.000328594004
+cudaGetDeviceProperties(&prop, intie), time=0.000395993993
+cudaStreamCreate(&stream), time=0.000389518013
+cudaStreamQuery(stream), time=0.000302147993
+cudaStreamDestroy(stream), time=0.000356612989
+cudaEventCreate(&event1), time=0.000353956013
+cudaEventRecord(event1, 0), time=0.000357865996
+cudaEventSynchronize(event1), time=0.005670479033
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000321600004
+cudaEventDestroy(event1), time=0.000384637999
+cudaMalloc(&devPtr, SIZE), time=0.000663441024
+cudaMemset(devPtr, 1337, SIZE), time=0.000655160984
+cudaFree(devPtr), time=0.000633076008
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000348359987
+cudaGetDevice(&intie), time=0.000350702991
+cudaGetDeviceProperties(&prop, intie), time=0.000430613989
+cudaStreamCreate(&stream), time=0.000636144017
+cudaStreamQuery(stream), time=0.000318383012
+cudaStreamDestroy(stream), time=0.010277342051
+cudaEventCreate(&event1), time=0.000425389997
+cudaEventRecord(event1, 0), time=0.000397852011
+cudaEventSynchronize(event1), time=0.000316123012
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000385276013
+cudaEventDestroy(event1), time=0.000398856006
+cudaMalloc(&devPtr, SIZE), time=0.000673455012
+cudaMemset(devPtr, 1337, SIZE), time=0.008539715782
+cudaFree(devPtr), time=0.000655945973
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000337283011
+cudaGetDevice(&intie), time=0.000333665987
+cudaGetDeviceProperties(&prop, intie), time=0.000423735997
+cudaStreamCreate(&stream), time=0.000320861989
+cudaStreamQuery(stream), time=0.000381758000
+cudaStreamDestroy(stream), time=0.000307937997
+cudaEventCreate(&event1), time=0.000648027984
+cudaEventRecord(event1, 0), time=0.000302019995
+cudaEventSynchronize(event1), time=0.000429598003
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000327277987
+cudaEventDestroy(event1), time=0.000381021004
+cudaMalloc(&devPtr, SIZE), time=0.000679588993
+cudaMemset(devPtr, 1337, SIZE), time=0.000485210010
+cudaFree(devPtr), time=0.000766090001
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000353396987
+cudaGetDevice(&intie), time=0.000354830001
+cudaGetDeviceProperties(&prop, intie), time=0.000421619014
+cudaStreamCreate(&stream), time=0.000388465007
+cudaStreamQuery(stream), time=0.000324930996
+cudaStreamDestroy(stream), time=0.000321686006
+cudaEventCreate(&event1), time=0.000314102013
+cudaEventRecord(event1, 0), time=0.000379929988
+cudaEventSynchronize(event1), time=0.000375984004
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000432155008
+cudaEventDestroy(event1), time=0.000387423992
+cudaMalloc(&devPtr, SIZE), time=0.000679882010
+cudaMemset(devPtr, 1337, SIZE), time=0.000495688990
+cudaFree(devPtr), time=0.000735617010
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000341175008
+cudaGetDevice(&intie), time=0.000335141987
+cudaGetDeviceProperties(&prop, intie), time=0.000424602011
+cudaStreamCreate(&stream), time=0.000326748006
+cudaStreamQuery(stream), time=0.000385469000
+cudaStreamDestroy(stream), time=0.000323229004
+cudaEventCreate(&event1), time=0.000381627004
+cudaEventRecord(event1, 0), time=0.000305018009
+cudaEventSynchronize(event1), time=0.000375489995
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000323554006
+cudaEventDestroy(event1), time=0.002319671912
+cudaMalloc(&devPtr, SIZE), time=0.000677107018
+cudaMemset(devPtr, 1337, SIZE), time=0.000536551990
+cudaFree(devPtr), time=0.000737985014
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000334854994
+cudaGetDevice(&intie), time=0.000335318007
+cudaGetDeviceProperties(&prop, intie), time=0.000426771003
+cudaStreamCreate(&stream), time=0.000325319008
+cudaStreamQuery(stream), time=0.000509961974
+cudaStreamDestroy(stream), time=0.000377215008
+cudaEventCreate(&event1), time=0.000317344995
+cudaEventRecord(event1, 0), time=0.000382964994
+cudaEventSynchronize(event1), time=0.000376523007
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000323490007
+cudaEventDestroy(event1), time=0.000378908007
+cudaMalloc(&devPtr, SIZE), time=0.000707056024
+cudaMemset(devPtr, 1337, SIZE), time=0.000486937002
+cudaFree(devPtr), time=0.000867326977
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000538443972
+cudaGetDevice(&intie), time=0.000946283981
+cudaGetDeviceProperties(&prop, intie), time=0.006050345954
+cudaStreamCreate(&stream), time=0.009934764355
+cudaStreamQuery(stream), time=0.000316443999
+cudaStreamDestroy(stream), time=0.000383203995
+cudaEventCreate(&event1), time=0.000391737005
+cudaEventRecord(event1, 0), time=0.000392974005
+cudaEventSynchronize(event1), time=0.000376612006
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000324482011
+cudaEventDestroy(event1), time=0.000385449996
+cudaMalloc(&devPtr, SIZE), time=0.000724339974
+cudaMemset(devPtr, 1337, SIZE), time=0.000511397026
+cudaFree(devPtr), time=0.000744373014
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000332625990
+cudaGetDevice(&intie), time=0.000334717013
+cudaGetDeviceProperties(&prop, intie), time=0.000428588013
+cudaStreamCreate(&stream), time=0.000545715971
+cudaStreamQuery(stream), time=0.001890299027
+cudaStreamDestroy(stream), time=0.003060284071
+cudaEventCreate(&event1), time=0.002430668101
+cudaEventRecord(event1, 0), time=0.007132503204
+cudaEventSynchronize(event1), time=0.004277226981
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000399726006
+cudaEventDestroy(event1), time=0.000327996997
+cudaMalloc(&devPtr, SIZE), time=0.000668274995
+cudaMemset(devPtr, 1337, SIZE), time=0.000620317995
+cudaFree(devPtr), time=0.000621390995
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000469458988
+cudaGetDevice(&intie), time=0.006698539015
+cudaGetDeviceProperties(&prop, intie), time=0.000902166008
+cudaStreamCreate(&stream), time=0.000383982988
+cudaStreamQuery(stream), time=0.000329979986
+cudaStreamDestroy(stream), time=0.000320424006
+cudaEventCreate(&event1), time=0.000322912005
+cudaEventRecord(event1, 0), time=0.000326245005
+cudaEventSynchronize(event1), time=0.006495254114
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000400318007
+cudaEventDestroy(event1), time=0.000329828006
+cudaMalloc(&devPtr, SIZE), time=0.000663470011
+cudaMemset(devPtr, 1337, SIZE), time=0.000510000973
+cudaFree(devPtr), time=0.000740308024
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000327532995
+cudaGetDevice(&intie), time=0.001073741005
+cudaGetDeviceProperties(&prop, intie), time=0.000482516014
+cudaStreamCreate(&stream), time=0.000498850015
+cudaStreamQuery(stream), time=0.000337481993
+cudaStreamDestroy(stream), time=0.000329403993
+cudaEventCreate(&event1), time=0.000386431988
+cudaEventRecord(event1, 0), time=0.000317261991
+cudaEventSynchronize(event1), time=0.000380089012
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000321481988
+cudaEventDestroy(event1), time=0.000374230993
+cudaMalloc(&devPtr, SIZE), time=0.000670832989
+cudaMemset(devPtr, 1337, SIZE), time=0.000492559979
+cudaFree(devPtr), time=0.000761104980
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000341376988
+cudaGetDevice(&intie), time=0.000356692006
+cudaGetDeviceProperties(&prop, intie), time=0.000460714014
+cudaStreamCreate(&stream), time=0.000397466996
+cudaStreamQuery(stream), time=0.000395714014
+cudaStreamDestroy(stream), time=0.000385630992
+cudaEventCreate(&event1), time=0.000386948988
+cudaEventRecord(event1, 0), time=0.000581243017
+cudaEventSynchronize(event1), time=0.000322690001
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000320468011
+cudaEventDestroy(event1), time=0.000317902013
+cudaMalloc(&devPtr, SIZE), time=0.000664627994
+cudaMemset(devPtr, 1337, SIZE), time=0.000530236983
+cudaFree(devPtr), time=0.000899427978
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000339569990
+cudaGetDevice(&intie), time=0.000516230008
+cudaGetDeviceProperties(&prop, intie), time=0.000449326995
+cudaStreamCreate(&stream), time=0.000330240990
+cudaStreamQuery(stream), time=0.000386711996
+cudaStreamDestroy(stream), time=0.000322284992
+cudaEventCreate(&event1), time=0.000379828998
+cudaEventRecord(event1, 0), time=0.000324891007
+cudaEventSynchronize(event1), time=0.000313594996
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000306647009
+cudaEventDestroy(event1), time=0.006317371968
+cudaMalloc(&devPtr, SIZE), time=0.009604007937
+cudaMemset(devPtr, 1337, SIZE), time=0.000465374003
+cudaFree(devPtr), time=0.000748216000
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000330490991
+cudaGetDevice(&intie), time=0.000242713999
+cudaGetDeviceProperties(&prop, intie), time=0.005520650186
+cudaStreamCreate(&stream), time=0.010273135267
+cudaStreamQuery(stream), time=0.000827562995
+cudaStreamDestroy(stream), time=0.000348837988
+cudaEventCreate(&event1), time=0.000313552999
+cudaEventRecord(event1, 0), time=0.000381858990
+cudaEventSynchronize(event1), time=0.000313461001
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000306339993
+cudaEventDestroy(event1), time=0.000380726007
+cudaMalloc(&devPtr, SIZE), time=0.006248599850
+cudaMemset(devPtr, 1337, SIZE), time=0.000467134989
+cudaFree(devPtr), time=0.000763464021
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000336877012
+cudaGetDevice(&intie), time=0.000353829004
+cudaGetDeviceProperties(&prop, intie), time=0.000484997989
+cudaStreamCreate(&stream), time=0.000323376997
+cudaStreamQuery(stream), time=0.000306011993
+cudaStreamDestroy(stream), time=0.000399020006
+cudaEventCreate(&event1), time=0.000308518007
+cudaEventRecord(event1, 0), time=0.000400313002
+cudaEventSynchronize(event1), time=0.000324566005
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000317761005
+cudaEventDestroy(event1), time=0.000316524995
+cudaMalloc(&devPtr, SIZE), time=0.000654112024
+cudaMemset(devPtr, 1337, SIZE), time=0.000594854995
+cudaFree(devPtr), time=0.000735824986
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000335643999
+cudaGetDevice(&intie), time=0.000338162004
+cudaGetDeviceProperties(&prop, intie), time=0.000426676997
+cudaStreamCreate(&stream), time=0.000331037008
+cudaStreamQuery(stream), time=0.000307328999
+cudaStreamDestroy(stream), time=0.000392982998
+cudaEventCreate(&event1), time=0.000498557987
+cudaEventRecord(event1, 0), time=0.000326982990
+cudaEventSynchronize(event1), time=0.000411757006
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000382178987
+cudaEventDestroy(event1), time=0.000322662992
+cudaMalloc(&devPtr, SIZE), time=0.000700944976
+cudaMemset(devPtr, 1337, SIZE), time=0.000518259010
+cudaFree(devPtr), time=0.000732699002
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000337375008
+cudaGetDevice(&intie), time=0.000334356999
+cudaGetDeviceProperties(&prop, intie), time=0.000533778977
+cudaStreamCreate(&stream), time=0.009724622592
+cudaStreamQuery(stream), time=0.000385713996
+cudaStreamDestroy(stream), time=0.000383097009
+cudaEventCreate(&event1), time=0.000321764994
+cudaEventRecord(event1, 0), time=0.000383639999
+cudaEventSynchronize(event1), time=0.000290194992
+cudaEventElapsedTime(&floatie, event2, event1), time=0.010504528880
+cudaEventDestroy(event1), time=0.000319979008
+cudaMalloc(&devPtr, SIZE), time=0.000666307984
+cudaMemset(devPtr, 1337, SIZE), time=0.000508254976
+cudaFree(devPtr), time=0.000737664988
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000341164006
+cudaGetDevice(&intie), time=0.000341600011
+cudaGetDeviceProperties(&prop, intie), time=0.000421242992
+cudaStreamCreate(&stream), time=0.000321836997
+cudaStreamQuery(stream), time=0.000305850001
+cudaStreamDestroy(stream), time=0.000377888995
+cudaEventCreate(&event1), time=0.000327321002
+cudaEventRecord(event1, 0), time=0.000377187011
+cudaEventSynchronize(event1), time=0.000313107012
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000298566010
+cudaEventDestroy(event1), time=0.000378444005
+cudaMalloc(&devPtr, SIZE), time=0.000692146015
+cudaMemset(devPtr, 1337, SIZE), time=0.000488021004
+cudaFree(devPtr), time=0.000720690005
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.010146345012
+cudaGetDevice(&intie), time=0.000680188998
+cudaGetDeviceProperties(&prop, intie), time=0.007529500872
+cudaStreamCreate(&stream), time=0.000375169999
+cudaStreamQuery(stream), time=0.000323882996
+cudaStreamDestroy(stream), time=0.000308424991
+cudaEventCreate(&event1), time=0.000402342004
+cudaEventRecord(event1, 0), time=0.000395952986
+cudaEventSynchronize(event1), time=0.000400832010
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000323840999
+cudaEventDestroy(event1), time=0.000386160013
+cudaMalloc(&devPtr, SIZE), time=0.000734198024
+cudaMemset(devPtr, 1337, SIZE), time=0.000491044018
+cudaFree(devPtr), time=0.000756605004
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000357579003
+cudaGetDevice(&intie), time=0.000384112005
+cudaGetDeviceProperties(&prop, intie), time=0.000426223996
+cudaStreamCreate(&stream), time=0.000382677012
+cudaStreamQuery(stream), time=0.000325219007
+cudaStreamDestroy(stream), time=0.000382792001
+cudaEventCreate(&event1), time=0.000304751011
+cudaEventRecord(event1, 0), time=0.000392154994
+cudaEventSynchronize(event1), time=0.000321057014
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000317225000
+cudaEventDestroy(event1), time=0.000322968001
+cudaMalloc(&devPtr, SIZE), time=0.000661519007
+cudaMemset(devPtr, 1337, SIZE), time=0.000533445971
+cudaFree(devPtr), time=0.000699247990
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000337081001
+cudaGetDevice(&intie), time=0.000354188989
+cudaGetDeviceProperties(&prop, intie), time=0.000429729000
+cudaStreamCreate(&stream), time=0.000312088989
+cudaStreamQuery(stream), time=0.000378706987
+cudaStreamDestroy(stream), time=0.000320682011
+cudaEventCreate(&event1), time=0.000467106001
+cudaEventRecord(event1, 0), time=0.000399284996
+cudaEventSynchronize(event1), time=0.000317770988
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000317060010
+cudaEventDestroy(event1), time=0.000320566003
+cudaMalloc(&devPtr, SIZE), time=0.000729646010
+cudaMemset(devPtr, 1337, SIZE), time=0.000477824011
+cudaFree(devPtr), time=0.000749762985
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.004938479979
+cudaGetDevice(&intie), time=0.000375817006
+cudaGetDeviceProperties(&prop, intie), time=0.000453157001
+cudaStreamCreate(&stream), time=0.000334231008
+cudaStreamQuery(stream), time=0.000307584007
+cudaStreamDestroy(stream), time=0.000398386997
+cudaEventCreate(&event1), time=0.000308751012
+cudaEventRecord(event1, 0), time=0.000395612995
+cudaEventSynchronize(event1), time=0.000315036013
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000383037986
+cudaEventDestroy(event1), time=0.000425943988
+cudaMalloc(&devPtr, SIZE), time=0.006837759167
+cudaMemset(devPtr, 1337, SIZE), time=0.006482033059
+cudaFree(devPtr), time=0.000653358991
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000407985994
+cudaGetDevice(&intie), time=0.000368209003
+cudaGetDeviceProperties(&prop, intie), time=0.000395935989
+cudaStreamCreate(&stream), time=0.000338276994
+cudaStreamQuery(stream), time=0.000336297002
+cudaStreamDestroy(stream), time=0.000355883007
+cudaEventCreate(&event1), time=0.000359689002
+cudaEventRecord(event1, 0), time=0.000348906993
+cudaEventSynchronize(event1), time=0.000393969007
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000365268992
+cudaEventDestroy(event1), time=0.000367375003
+cudaMalloc(&devPtr, SIZE), time=0.000700186007
+cudaMemset(devPtr, 1337, SIZE), time=0.000551496982
+cudaFree(devPtr), time=0.000743195007
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000249953999
+cudaGetDevice(&intie), time=0.000267127005
+cudaGetDeviceProperties(&prop, intie), time=0.000541130023
+cudaStreamCreate(&stream), time=0.006916862912
+cudaStreamQuery(stream), time=0.000702515012
+cudaStreamDestroy(stream), time=0.000904950022
+cudaEventCreate(&event1), time=0.009881240316
+cudaEventRecord(event1, 0), time=0.000438241987
+cudaEventSynchronize(event1), time=0.000395673997
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000332508993
+cudaEventDestroy(event1), time=0.000493274012
+cudaMalloc(&devPtr, SIZE), time=0.000919803977
+cudaMemset(devPtr, 1337, SIZE), time=0.000664338993
+cudaFree(devPtr), time=0.000728451007
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000240333000
+cudaGetDevice(&intie), time=0.000255279010
+cudaGetDeviceProperties(&prop, intie), time=0.000624531007
+cudaStreamCreate(&stream), time=0.000321948988
+cudaStreamQuery(stream), time=0.000309013994
+cudaStreamDestroy(stream), time=0.000419552991
+cudaEventCreate(&event1), time=0.000414948008
+cudaEventRecord(event1, 0), time=0.000332747004
+cudaEventSynchronize(event1), time=0.000419371005
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000394389004
+cudaEventDestroy(event1), time=0.000324163993
+cudaMalloc(&devPtr, SIZE), time=0.000695634983
+cudaMemset(devPtr, 1337, SIZE), time=0.000496815017
+cudaFree(devPtr), time=0.000738860981
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000343918015
+cudaGetDevice(&intie), time=0.000347254012
+cudaGetDeviceProperties(&prop, intie), time=0.000439135998
+cudaStreamCreate(&stream), time=0.000329063012
+cudaStreamQuery(stream), time=0.000388432993
+cudaStreamDestroy(stream), time=0.000441439013
+cudaEventCreate(&event1), time=0.000458975992
+cudaEventRecord(event1, 0), time=0.000389788998
+cudaEventSynchronize(event1), time=0.000462180993
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000466784986
+cudaEventDestroy(event1), time=0.000376476004
+cudaMalloc(&devPtr, SIZE), time=0.000952458999
+cudaMemset(devPtr, 1337, SIZE), time=0.000555087987
+cudaFree(devPtr), time=0.001085186028
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000341117004
+cudaGetDevice(&intie), time=0.002671391005
+cudaGetDeviceProperties(&prop, intie), time=0.000551074976
+cudaStreamCreate(&stream), time=0.008674782701
+cudaStreamQuery(stream), time=0.000415448012
+cudaStreamDestroy(stream), time=0.000385558989
+cudaEventCreate(&event1), time=0.000386683998
+cudaEventRecord(event1, 0), time=0.000386133994
+cudaEventSynchronize(event1), time=0.000306717004
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000384062994
+cudaEventDestroy(event1), time=0.000325645990
+cudaMalloc(&devPtr, SIZE), time=0.000822683971
+cudaMemset(devPtr, 1337, SIZE), time=0.000379594014
+cudaFree(devPtr), time=0.000728312996
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000335613993
+cudaGetDevice(&intie), time=0.000354190997
+cudaGetDeviceProperties(&prop, intie), time=0.000437623006
+cudaStreamCreate(&stream), time=0.000323085987
+cudaStreamQuery(stream), time=0.000548949989
+cudaStreamDestroy(stream), time=0.000562486006
+cudaEventCreate(&event1), time=0.002574607031
+cudaEventRecord(event1, 0), time=0.002385376021
+cudaEventSynchronize(event1), time=0.000749694998
+cudaEventElapsedTime(&floatie, event2, event1), time=0.006627126131
+cudaEventDestroy(event1), time=0.000357509998
+cudaMalloc(&devPtr, SIZE), time=0.000676061027
+cudaMemset(devPtr, 1337, SIZE), time=0.000533465005
+cudaFree(devPtr), time=0.000777392997
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000413889997
+cudaGetDevice(&intie), time=0.000333759002
+cudaGetDeviceProperties(&prop, intie), time=0.000420599012
+cudaStreamCreate(&stream), time=0.000378822995
+cudaStreamQuery(stream), time=0.000322522013
+cudaStreamDestroy(stream), time=0.000380240002
+cudaEventCreate(&event1), time=0.000305717986
+cudaEventRecord(event1, 0), time=0.000422337005
+cudaEventSynchronize(event1), time=0.000389002991
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000319698011
+cudaEventDestroy(event1), time=0.000385057996
+cudaMalloc(&devPtr, SIZE), time=0.000685916981
+cudaMemset(devPtr, 1337, SIZE), time=0.000477961992
+cudaFree(devPtr), time=0.010635989718
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000330985000
+cudaGetDevice(&intie), time=0.000331997988
+cudaGetDeviceProperties(&prop, intie), time=0.000452190987
+cudaStreamCreate(&stream), time=0.000321569998
+cudaStreamQuery(stream), time=0.000379250996
+cudaStreamDestroy(stream), time=0.000323787011
+cudaEventCreate(&event1), time=0.000380732003
+cudaEventRecord(event1, 0), time=0.000380598009
+cudaEventSynchronize(event1), time=0.000373006013
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000316983991
+cudaEventDestroy(event1), time=0.000385675987
+cudaMalloc(&devPtr, SIZE), time=0.000663286017
+cudaMemset(devPtr, 1337, SIZE), time=0.000513956998
+cudaFree(devPtr), time=0.000734719972
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000354847987
+cudaGetDevice(&intie), time=0.000355761993
+cudaGetDeviceProperties(&prop, intie), time=0.000444011996
+cudaStreamCreate(&stream), time=0.000391882000
+cudaStreamQuery(stream), time=0.000321989995
+cudaStreamDestroy(stream), time=0.000448433013
+cudaEventCreate(&event1), time=0.010521492921
+cudaEventRecord(event1, 0), time=0.000552446989
+cudaEventSynchronize(event1), time=0.000315799000
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000398634991
+cudaEventDestroy(event1), time=0.008269773796
+cudaMalloc(&devPtr, SIZE), time=0.000702280027
+cudaMemset(devPtr, 1337, SIZE), time=0.000462841010
+cudaFree(devPtr), time=0.000737424998
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000330687006
+cudaGetDevice(&intie), time=0.000331170013
+cudaGetDeviceProperties(&prop, intie), time=0.000420789002
+cudaStreamCreate(&stream), time=0.000326567009
+cudaStreamQuery(stream), time=0.000323857006
+cudaStreamDestroy(stream), time=0.000396916992
+cudaEventCreate(&event1), time=0.000319805986
+cudaEventRecord(event1, 0), time=0.000298725994
+cudaEventSynchronize(event1), time=0.000318220002
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000378338998
+cudaEventDestroy(event1), time=0.000320343010
+cudaMalloc(&devPtr, SIZE), time=0.000834645994
+cudaMemset(devPtr, 1337, SIZE), time=0.000513422012
+cudaFree(devPtr), time=0.000739393989
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000351111987
+cudaGetDevice(&intie), time=0.000369493006
+cudaGetDeviceProperties(&prop, intie), time=0.000444718986
+cudaStreamCreate(&stream), time=0.000313763012
+cudaStreamQuery(stream), time=0.000456415990
+cudaStreamDestroy(stream), time=0.000322408014
+cudaEventCreate(&event1), time=0.000383904000
+cudaEventRecord(event1, 0), time=0.000390178990
+cudaEventSynchronize(event1), time=0.000403159007
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000319724990
+cudaEventDestroy(event1), time=0.000427185994
+cudaMalloc(&devPtr, SIZE), time=0.000680187019
+cudaMemset(devPtr, 1337, SIZE), time=0.000490505015
+cudaFree(devPtr), time=0.000991518027
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000328852009
+cudaGetDevice(&intie), time=0.000327399990
+cudaGetDeviceProperties(&prop, intie), time=0.000420688011
+cudaStreamCreate(&stream), time=0.000329381990
+cudaStreamQuery(stream), time=0.000379589997
+cudaStreamDestroy(stream), time=0.000327663001
+cudaEventCreate(&event1), time=0.000320023013
+cudaEventRecord(event1, 0), time=0.000312902004
+cudaEventSynchronize(event1), time=0.000316654012
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000377343997
+cudaEventDestroy(event1), time=0.000364709995
+cudaMalloc(&devPtr, SIZE), time=0.000663825020
+cudaMemset(devPtr, 1337, SIZE), time=0.005059396848
+cudaFree(devPtr), time=0.000638258003
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000248705997
+cudaGetDevice(&intie), time=0.000233287996
+cudaGetDeviceProperties(&prop, intie), time=0.000956913980
+cudaStreamCreate(&stream), time=0.000241817004
+cudaStreamQuery(stream), time=0.000418090989
+cudaStreamDestroy(stream), time=0.007918922231
+cudaEventCreate(&event1), time=0.000336514000
+cudaEventRecord(event1, 0), time=0.000316182006
+cudaEventSynchronize(event1), time=0.000384788989
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000319285988
+cudaEventDestroy(event1), time=0.000306520000
+cudaMalloc(&devPtr, SIZE), time=0.000699252007
+cudaMemset(devPtr, 1337, SIZE), time=0.000464553013
+cudaFree(devPtr), time=0.000744455028
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000334865996
+cudaGetDevice(&intie), time=0.000354171003
+cudaGetDeviceProperties(&prop, intie), time=0.000535155996
+cudaStreamCreate(&stream), time=0.000405288010
+cudaStreamQuery(stream), time=0.000327832007
+cudaStreamDestroy(stream), time=0.000380646001
+cudaEventCreate(&event1), time=0.000325016998
+cudaEventRecord(event1, 0), time=0.000382388011
+cudaEventSynchronize(event1), time=0.000312518008
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000389919005
+cudaEventDestroy(event1), time=0.000318408012
+cudaMalloc(&devPtr, SIZE), time=0.000708896026
+cudaMemset(devPtr, 1337, SIZE), time=0.000495799002
+cudaFree(devPtr), time=0.000711229979
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000400954013
+cudaGetDevice(&intie), time=0.000332955999
+cudaGetDeviceProperties(&prop, intie), time=0.000418826996
+cudaStreamCreate(&stream), time=0.000321444008
+cudaStreamQuery(stream), time=0.000378786004
+cudaStreamDestroy(stream), time=0.000323098997
+cudaEventCreate(&event1), time=0.000393027003
+cudaEventRecord(event1, 0), time=0.000325180998
+cudaEventSynchronize(event1), time=0.000300385989
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000379589997
+cudaEventDestroy(event1), time=0.000325270987
+cudaMalloc(&devPtr, SIZE), time=0.000740994990
+cudaMemset(devPtr, 1337, SIZE), time=0.000445401995
+cudaFree(devPtr), time=0.000728577026
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000334203010
+cudaGetDevice(&intie), time=0.000333667995
+cudaGetDeviceProperties(&prop, intie), time=0.000423352001
+cudaStreamCreate(&stream), time=0.000330350013
+cudaStreamQuery(stream), time=0.000306625996
+cudaStreamDestroy(stream), time=0.000390333997
+cudaEventCreate(&event1), time=0.000316308986
+cudaEventRecord(event1, 0), time=0.000424769998
+cudaEventSynchronize(event1), time=0.000316793012
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000377605000
+cudaEventDestroy(event1), time=0.000319796003
+cudaMalloc(&devPtr, SIZE), time=0.000654920994
+cudaMemset(devPtr, 1337, SIZE), time=0.000415841991
+cudaFree(devPtr), time=0.011032564566
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000335249992
+cudaGetDevice(&intie), time=0.000334373995
+cudaGetDeviceProperties(&prop, intie), time=0.000423663005
+cudaStreamCreate(&stream), time=0.000326459005
+cudaStreamQuery(stream), time=0.000388635992
+cudaStreamDestroy(stream), time=0.000320944004
+cudaEventCreate(&event1), time=0.000379075005
+cudaEventRecord(event1, 0), time=0.000395109993
+cudaEventSynchronize(event1), time=0.000317172002
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000383820996
+cudaEventDestroy(event1), time=0.000400479999
+cudaMalloc(&devPtr, SIZE), time=0.000653732975
+cudaMemset(devPtr, 1337, SIZE), time=0.000484944001
+cudaFree(devPtr), time=0.000737698982
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000327785994
+cudaGetDevice(&intie), time=0.000327459013
+cudaGetDeviceProperties(&prop, intie), time=0.000391979003
+cudaStreamCreate(&stream), time=0.000472257001
+cudaStreamQuery(stream), time=0.000297950988
+cudaStreamDestroy(stream), time=0.000667172018
+cudaEventCreate(&event1), time=0.000310495001
+cudaEventRecord(event1, 0), time=0.000471011008
+cudaEventSynchronize(event1), time=0.000555580016
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000434513000
+cudaEventDestroy(event1), time=0.000417367992
+cudaMalloc(&devPtr, SIZE), time=0.000715891016
+cudaMemset(devPtr, 1337, SIZE), time=0.000519210007
+cudaFree(devPtr), time=0.000754559995
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000220322996
+cudaGetDevice(&intie), time=0.004038895946
+cudaGetDeviceProperties(&prop, intie), time=0.000453201996
+cudaStreamCreate(&stream), time=0.000333292992
+cudaStreamQuery(stream), time=0.000309808005
+cudaStreamDestroy(stream), time=0.000396455987
+cudaEventCreate(&event1), time=0.000386848988
+cudaEventRecord(event1, 0), time=0.000314620993
+cudaEventSynchronize(event1), time=0.000305688998
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000394175004
+cudaEventDestroy(event1), time=0.000306308008
+cudaMalloc(&devPtr, SIZE), time=0.000666741980
+cudaMemset(devPtr, 1337, SIZE), time=0.000539095025
+cudaFree(devPtr), time=0.000689462002
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000333119999
+cudaGetDevice(&intie), time=0.000351903000
+cudaGetDeviceProperties(&prop, intie), time=0.000447074999
+cudaStreamCreate(&stream), time=0.000395058014
+cudaStreamQuery(stream), time=0.000373299001
+cudaStreamDestroy(stream), time=0.000324291002
+cudaEventCreate(&event1), time=0.000322712993
+cudaEventRecord(event1, 0), time=0.000473955006
+cudaEventSynchronize(event1), time=0.000317316997
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000316696009
+cudaEventDestroy(event1), time=0.000379055011
+cudaMalloc(&devPtr, SIZE), time=0.000676868018
+cudaMemset(devPtr, 1337, SIZE), time=0.000522301008
+cudaFree(devPtr), time=0.000729562016
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000365399988
+cudaGetDevice(&intie), time=0.000328218011
+cudaGetDeviceProperties(&prop, intie), time=0.000407754997
+cudaStreamCreate(&stream), time=0.000310006988
+cudaStreamQuery(stream), time=0.000397492986
+cudaStreamDestroy(stream), time=0.000308535004
+cudaEventCreate(&event1), time=0.000625337998
+cudaEventRecord(event1, 0), time=0.000386183994
+cudaEventSynchronize(event1), time=0.000313739991
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000427989988
+cudaEventDestroy(event1), time=0.000369627989
+cudaMalloc(&devPtr, SIZE), time=0.000634038006
+cudaMemset(devPtr, 1337, SIZE), time=0.000479635986
+cudaFree(devPtr), time=0.000745814003
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000248883996
+cudaGetDevice(&intie), time=0.000244783994
+cudaGetDeviceProperties(&prop, intie), time=0.000631049974
+cudaStreamCreate(&stream), time=0.000421295990
+cudaStreamQuery(stream), time=0.000393919006
+cudaStreamDestroy(stream), time=0.000327493006
+cudaEventCreate(&event1), time=0.000619371014
+cudaEventRecord(event1, 0), time=0.000982385012
+cudaEventSynchronize(event1), time=0.009788960218
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000507573015
+cudaEventDestroy(event1), time=0.009209030308
+cudaMalloc(&devPtr, SIZE), time=0.000695520022
+cudaMemset(devPtr, 1337, SIZE), time=0.000513158971
+cudaFree(devPtr), time=0.000740075018
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000336425001
+cudaGetDevice(&intie), time=0.000335772987
+cudaGetDeviceProperties(&prop, intie), time=0.000425342005
+cudaStreamCreate(&stream), time=0.000327232992
+cudaStreamQuery(stream), time=0.000332597003
+cudaStreamDestroy(stream), time=0.000530225981
+cudaEventCreate(&event1), time=0.000401950005
+cudaEventRecord(event1, 0), time=0.000324135006
+cudaEventSynchronize(event1), time=0.000304237998
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000381538994
+cudaEventDestroy(event1), time=0.000321920001
+cudaMalloc(&devPtr, SIZE), time=0.000699374999
+cudaMemset(devPtr, 1337, SIZE), time=0.000500751019
+cudaFree(devPtr), time=0.000731481006
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000335576013
+cudaGetDevice(&intie), time=0.000357237994
+cudaGetDeviceProperties(&prop, intie), time=0.000450263004
+cudaStreamCreate(&stream), time=0.000396013987
+cudaStreamQuery(stream), time=0.000323068001
+cudaStreamDestroy(stream), time=0.000444661011
+cudaEventCreate(&event1), time=0.000353570998
+cudaEventRecord(event1, 0), time=0.000548547017
+cudaEventSynchronize(event1), time=0.000319337996
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000445462007
+cudaEventDestroy(event1), time=0.005993548781
+cudaMalloc(&devPtr, SIZE), time=0.000661735015
+cudaMemset(devPtr, 1337, SIZE), time=0.000500691007
+cudaFree(devPtr), time=0.000742195989
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.010337035172
+cudaGetDevice(&intie), time=0.002229135018
+cudaGetDeviceProperties(&prop, intie), time=0.007633925881
+cudaStreamCreate(&stream), time=0.000318356004
+cudaStreamQuery(stream), time=0.000386057014
+cudaStreamDestroy(stream), time=0.000321827014
+cudaEventCreate(&event1), time=0.000386967004
+cudaEventRecord(event1, 0), time=0.000392493006
+cudaEventSynchronize(event1), time=0.000370839000
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000320777006
+cudaEventDestroy(event1), time=0.000306994014
+cudaMalloc(&devPtr, SIZE), time=0.000656566001
+cudaMemset(devPtr, 1337, SIZE), time=0.000446661987
+cudaFree(devPtr), time=0.000735096983
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000342562009
+cudaGetDevice(&intie), time=0.000332658994
+cudaGetDeviceProperties(&prop, intie), time=0.000436149014
+cudaStreamCreate(&stream), time=0.000330340001
+cudaStreamQuery(stream), time=0.000318867009
+cudaStreamDestroy(stream), time=0.000319070998
+cudaEventCreate(&event1), time=0.000318408012
+cudaEventRecord(event1, 0), time=0.000379161007
+cudaEventSynchronize(event1), time=0.000316777994
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000320649007
+cudaEventDestroy(event1), time=0.000379400008
+cudaMalloc(&devPtr, SIZE), time=0.000686861982
+cudaMemset(devPtr, 1337, SIZE), time=0.000453224988
+cudaFree(devPtr), time=0.000757971022
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000333651988
+cudaGetDevice(&intie), time=0.000334892015
+cudaGetDeviceProperties(&prop, intie), time=0.006806461141
+cudaStreamCreate(&stream), time=0.000598689017
+cudaStreamQuery(stream), time=0.000233551997
+cudaStreamDestroy(stream), time=0.001032351982
+cudaEventCreate(&event1), time=0.000350210990
+cudaEventRecord(event1, 0), time=0.000311379990
+cudaEventSynchronize(event1), time=0.000317775004
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000317563012
+cudaEventDestroy(event1), time=0.000318073988
+cudaMalloc(&devPtr, SIZE), time=0.000669959001
+cudaMemset(devPtr, 1337, SIZE), time=0.000457976013
+cudaFree(devPtr), time=0.000765206001
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000370769994
+cudaGetDevice(&intie), time=0.000337964011
+cudaGetDeviceProperties(&prop, intie), time=0.000427708001
+cudaStreamCreate(&stream), time=0.000322800013
+cudaStreamQuery(stream), time=0.000392893999
+cudaStreamDestroy(stream), time=0.000387657987
+cudaEventCreate(&event1), time=0.000318631006
+cudaEventRecord(event1, 0), time=0.000320027990
+cudaEventSynchronize(event1), time=0.000344406988
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000322701002
+cudaEventDestroy(event1), time=0.000380629004
+cudaMalloc(&devPtr, SIZE), time=0.000681797974
+cudaMemset(devPtr, 1337, SIZE), time=0.000494883978
+cudaFree(devPtr), time=0.000702573976
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000336597004
+cudaGetDevice(&intie), time=0.000338999991
+cudaGetDeviceProperties(&prop, intie), time=0.000628434995
+cudaStreamCreate(&stream), time=0.005264278036
+cudaStreamQuery(stream), time=0.002030458068
+cudaStreamDestroy(stream), time=0.000390294008
+cudaEventCreate(&event1), time=0.000388340995
+cudaEventRecord(event1, 0), time=0.000381799997
+cudaEventSynchronize(event1), time=0.000380782993
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000322572014
+cudaEventDestroy(event1), time=0.000411951012
+cudaMalloc(&devPtr, SIZE), time=0.000699321972
+cudaMemset(devPtr, 1337, SIZE), time=0.000445959013
+cudaFree(devPtr), time=0.000861043984
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000336336991
+cudaGetDevice(&intie), time=0.000355719996
+cudaGetDeviceProperties(&prop, intie), time=0.000445718993
+cudaStreamCreate(&stream), time=0.000313458004
+cudaStreamQuery(stream), time=0.000386107014
+cudaStreamDestroy(stream), time=0.000507848978
+cudaEventCreate(&event1), time=0.000354765012
+cudaEventRecord(event1, 0), time=0.000353173993
+cudaEventSynchronize(event1), time=0.000380902988
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000352105009
+cudaEventDestroy(event1), time=0.000326378009
+cudaMalloc(&devPtr, SIZE), time=0.000709949993
+cudaMemset(devPtr, 1337, SIZE), time=0.000510648999
+cudaFree(devPtr), time=0.000729930995
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000332383992
+cudaGetDevice(&intie), time=0.000426965998
+cudaGetDeviceProperties(&prop, intie), time=0.000445643003
+cudaStreamCreate(&stream), time=0.000328697002
+cudaStreamQuery(stream), time=0.000317717000
+cudaStreamDestroy(stream), time=0.000320191990
+cudaEventCreate(&event1), time=0.000319362007
+cudaEventRecord(event1, 0), time=0.000313346012
+cudaEventSynchronize(event1), time=0.000401079014
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000831382000
+cudaEventDestroy(event1), time=0.004129399080
+cudaMalloc(&devPtr, SIZE), time=0.004957802128
+cudaMemset(devPtr, 1337, SIZE), time=0.000456233014
+cudaFree(devPtr), time=0.000730760978
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000341814011
+cudaGetDevice(&intie), time=0.000521349022
+cudaGetDeviceProperties(&prop, intie), time=0.000920129998
+cudaStreamCreate(&stream), time=0.006033923943
+cudaStreamQuery(stream), time=0.002401090926
+cudaStreamDestroy(stream), time=0.000402539998
+cudaEventCreate(&event1), time=0.000329923991
+cudaEventRecord(event1, 0), time=0.000317669008
+cudaEventSynchronize(event1), time=0.000319151994
+cudaEventElapsedTime(&floatie, event2, event1), time=0.006093272939
+cudaEventDestroy(event1), time=0.000404224993
+cudaMalloc(&devPtr, SIZE), time=0.000705649029
+cudaMemset(devPtr, 1337, SIZE), time=0.000511593011
+cudaFree(devPtr), time=0.000763353019
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000334243989
+cudaGetDevice(&intie), time=0.000351903989
+cudaGetDeviceProperties(&prop, intie), time=0.000526239979
+cudaStreamCreate(&stream), time=0.012100853957
+cudaStreamQuery(stream), time=0.002423268976
+cudaStreamDestroy(stream), time=0.005305433180
+cudaEventCreate(&event1), time=0.000265162002
+cudaEventRecord(event1, 0), time=0.001007725019
+cudaEventSynchronize(event1), time=0.000316941005
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000355458993
+cudaEventDestroy(event1), time=0.000396290008
+cudaMalloc(&devPtr, SIZE), time=0.000700894976
+cudaMemset(devPtr, 1337, SIZE), time=0.000571504002
+cudaFree(devPtr), time=0.000608408009
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000331894989
+cudaGetDevice(&intie), time=0.000330039999
+cudaGetDeviceProperties(&prop, intie), time=0.000485386001
+cudaStreamCreate(&stream), time=0.000379231991
+cudaStreamQuery(stream), time=0.000319579005
+cudaStreamDestroy(stream), time=0.000377255987
+cudaEventCreate(&event1), time=0.000376998010
+cudaEventRecord(event1, 0), time=0.000322228996
+cudaEventSynchronize(event1), time=0.000386469997
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000338156009
+cudaEventDestroy(event1), time=0.000385048013
+cudaMalloc(&devPtr, SIZE), time=0.000680516008
+cudaMemset(devPtr, 1337, SIZE), time=0.000503060000
+cudaFree(devPtr), time=0.000767168996
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000328360999
+cudaGetDevice(&intie), time=0.000330512004
+cudaGetDeviceProperties(&prop, intie), time=0.000417639996
+cudaStreamCreate(&stream), time=0.000556905987
+cudaStreamQuery(stream), time=0.000338256010
+cudaStreamDestroy(stream), time=0.000327046990
+cudaEventCreate(&event1), time=0.000306110014
+cudaEventRecord(event1, 0), time=0.000378506986
+cudaEventSynchronize(event1), time=0.000375309988
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000323193992
+cudaEventDestroy(event1), time=0.000384248007
+cudaMalloc(&devPtr, SIZE), time=0.000675196992
+cudaMemset(devPtr, 1337, SIZE), time=0.000447533006
+cudaFree(devPtr), time=0.008078853600
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000334885000
+cudaGetDevice(&intie), time=0.000335877994
+cudaGetDeviceProperties(&prop, intie), time=0.000423758989
+cudaStreamCreate(&stream), time=0.000327741000
+cudaStreamQuery(stream), time=0.000307946990
+cudaStreamDestroy(stream), time=0.000396137009
+cudaEventCreate(&event1), time=0.000504945987
+cudaEventRecord(event1, 0), time=0.000335905992
+cudaEventSynchronize(event1), time=0.000323852000
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000317032012
+cudaEventDestroy(event1), time=0.000385825988
+cudaMalloc(&devPtr, SIZE), time=0.000682620972
+cudaMemset(devPtr, 1337, SIZE), time=0.000504868978
+cudaFree(devPtr), time=0.000727350998
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000332902011
+cudaGetDevice(&intie), time=0.000353101990
+cudaGetDeviceProperties(&prop, intie), time=0.000424389989
+cudaStreamCreate(&stream), time=0.000305244001
+cudaStreamQuery(stream), time=0.000462603988
+cudaStreamDestroy(stream), time=0.000397433003
+cudaEventCreate(&event1), time=0.000377593009
+cudaEventRecord(event1, 0), time=0.000321997999
+cudaEventSynchronize(event1), time=0.000294469995
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000385124004
+cudaEventDestroy(event1), time=0.000411627989
+cudaMalloc(&devPtr, SIZE), time=0.000673557981
+cudaMemset(devPtr, 1337, SIZE), time=0.000446635007
+cudaFree(devPtr), time=0.000750289997
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000338075013
+cudaGetDevice(&intie), time=0.000335843011
+cudaGetDeviceProperties(&prop, intie), time=0.000428942993
+cudaStreamCreate(&stream), time=0.000328539987
+cudaStreamQuery(stream), time=0.000308754999
+cudaStreamDestroy(stream), time=0.000398233999
+cudaEventCreate(&event1), time=0.000482965988
+cudaEventRecord(event1, 0), time=0.010129611008
+cudaEventSynchronize(event1), time=0.000318484002
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000386191998
+cudaEventDestroy(event1), time=0.000322489010
+cudaMalloc(&devPtr, SIZE), time=0.000666597974
+cudaMemset(devPtr, 1337, SIZE), time=0.000519531022
+cudaFree(devPtr), time=0.000753118016
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000270294986
+cudaGetDevice(&intie), time=0.000391009991
+cudaGetDeviceProperties(&prop, intie), time=0.000460043986
+cudaStreamCreate(&stream), time=0.000433050998
+cudaStreamQuery(stream), time=0.000415154005
+cudaStreamDestroy(stream), time=0.000432962988
+cudaEventCreate(&event1), time=0.000416622002
+cudaEventRecord(event1, 0), time=0.000432936999
+cudaEventSynchronize(event1), time=0.000318031001
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000421064004
+cudaEventDestroy(event1), time=0.000319031009
+cudaMalloc(&devPtr, SIZE), time=0.000829628028
+cudaMemset(devPtr, 1337, SIZE), time=0.000329992006
+cudaFree(devPtr), time=0.000906403002
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000429126987
+cudaGetDevice(&intie), time=0.000268350996
+cudaGetDeviceProperties(&prop, intie), time=0.000683430000
+cudaStreamCreate(&stream), time=0.000326211011
+cudaStreamQuery(stream), time=0.000306113012
+cudaStreamDestroy(stream), time=0.000418251002
+cudaEventCreate(&event1), time=0.000619759026
+cudaEventRecord(event1, 0), time=0.000924627995
+cudaEventSynchronize(event1), time=0.000328172988
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000319662009
+cudaEventDestroy(event1), time=0.004097262863
+cudaMalloc(&devPtr, SIZE), time=0.000784575008
+cudaMemset(devPtr, 1337, SIZE), time=0.006270613056
+cudaFree(devPtr), time=0.000679748016
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000332794007
+cudaGetDevice(&intie), time=0.000371987000
+cudaGetDeviceProperties(&prop, intie), time=0.000419202988
+cudaStreamCreate(&stream), time=0.000550949015
+cudaStreamQuery(stream), time=0.000337478006
+cudaStreamDestroy(stream), time=0.000328379014
+cudaEventCreate(&event1), time=0.000319804996
+cudaEventRecord(event1, 0), time=0.000321233005
+cudaEventSynchronize(event1), time=0.000314823003
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000306987989
+cudaEventDestroy(event1), time=0.000468137994
+cudaMalloc(&devPtr, SIZE), time=0.010353318416
+cudaMemset(devPtr, 1337, SIZE), time=0.000534598017
+cudaFree(devPtr), time=0.000781285984
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000359778991
+cudaGetDevice(&intie), time=0.000347758003
+cudaGetDeviceProperties(&prop, intie), time=0.000402567995
+cudaStreamCreate(&stream), time=0.000337515987
+cudaStreamQuery(stream), time=0.000307778013
+cudaStreamDestroy(stream), time=0.000391774985
+cudaEventCreate(&event1), time=0.000363191997
+cudaEventRecord(event1, 0), time=0.000336219993
+cudaEventSynchronize(event1), time=0.000317866012
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000628741982
+cudaEventDestroy(event1), time=0.000373321003
+cudaMalloc(&devPtr, SIZE), time=0.000654753007
+cudaMemset(devPtr, 1337, SIZE), time=0.000489344995
+cudaFree(devPtr), time=0.000697369978
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000340958009
+cudaGetDevice(&intie), time=0.000358052988
+cudaGetDeviceProperties(&prop, intie), time=0.000464526005
+cudaStreamCreate(&stream), time=0.000312649994
+cudaStreamQuery(stream), time=0.000381783990
+cudaStreamDestroy(stream), time=0.000323223008
+cudaEventCreate(&event1), time=0.000319051003
+cudaEventRecord(event1, 0), time=0.000462419994
+cudaEventSynchronize(event1), time=0.000323896005
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000317314989
+cudaEventDestroy(event1), time=0.000315548998
+cudaMalloc(&devPtr, SIZE), time=0.000650526024
+cudaMemset(devPtr, 1337, SIZE), time=0.000451787986
+cudaFree(devPtr), time=0.000774566026
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000412049005
+cudaGetDevice(&intie), time=0.000426026992
+cudaGetDeviceProperties(&prop, intie), time=0.000522436982
+cudaStreamCreate(&stream), time=0.000398589007
+cudaStreamQuery(stream), time=0.000362807012
+cudaStreamDestroy(stream), time=0.000598477025
+cudaEventCreate(&event1), time=0.000410542998
+cudaEventRecord(event1, 0), time=0.000396452000
+cudaEventSynchronize(event1), time=0.000483589014
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000387603999
+cudaEventDestroy(event1), time=0.000455844012
+cudaMalloc(&devPtr, SIZE), time=0.000808593992
+cudaMemset(devPtr, 1337, SIZE), time=0.000557777006
+cudaFree(devPtr), time=0.000972327020
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000367417000
+cudaGetDevice(&intie), time=0.000366652006
+cudaGetDeviceProperties(&prop, intie), time=0.000422232988
+cudaStreamCreate(&stream), time=0.000329100993
+cudaStreamQuery(stream), time=0.000381026999
+cudaStreamDestroy(stream), time=0.000321903004
+cudaEventCreate(&event1), time=0.000390583009
+cudaEventRecord(event1, 0), time=0.000769935024
+cudaEventSynchronize(event1), time=0.000319131010
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000316115009
+cudaEventDestroy(event1), time=0.000337208010
+cudaMalloc(&devPtr, SIZE), time=0.000685954001
+cudaMemset(devPtr, 1337, SIZE), time=0.000493214000
+cudaFree(devPtr), time=0.000728395011
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000340222003
+cudaGetDevice(&intie), time=0.000391507987
+cudaGetDeviceProperties(&prop, intie), time=0.000421581004
+cudaStreamCreate(&stream), time=0.000327042013
+cudaStreamQuery(stream), time=0.000381833990
+cudaStreamDestroy(stream), time=0.000308349001
+cudaEventCreate(&event1), time=0.000395445997
+cudaEventRecord(event1, 0), time=0.000323646993
+cudaEventSynchronize(event1), time=0.000312288990
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000307189999
+cudaEventDestroy(event1), time=0.000501246017
+cudaMalloc(&devPtr, SIZE), time=0.000644079002
+cudaMemset(devPtr, 1337, SIZE), time=0.000681338017
+cudaFree(devPtr), time=0.004471444059
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000397224998
+cudaGetDevice(&intie), time=0.000413772010
+cudaGetDeviceProperties(&prop, intie), time=0.000488373975
+cudaStreamCreate(&stream), time=0.000394706993
+cudaStreamQuery(stream), time=0.000477593014
+cudaStreamDestroy(stream), time=0.000612577016
+cudaEventCreate(&event1), time=0.000393007998
+cudaEventRecord(event1, 0), time=0.000373324991
+cudaEventSynchronize(event1), time=0.000472666987
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000484463002
+cudaEventDestroy(event1), time=0.000414297014
+cudaMalloc(&devPtr, SIZE), time=0.000653646013
+cudaMemset(devPtr, 1337, SIZE), time=0.000487832993
+cudaFree(devPtr), time=0.000723290024
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000813563005
+cudaGetDevice(&intie), time=0.009147321805
+cudaGetDeviceProperties(&prop, intie), time=0.000474965986
+cudaStreamCreate(&stream), time=0.000383901992
+cudaStreamQuery(stream), time=0.000394508999
+cudaStreamDestroy(stream), time=0.000373018003
+cudaEventCreate(&event1), time=0.000310292991
+cudaEventRecord(event1, 0), time=0.000379253994
+cudaEventSynchronize(event1), time=0.000375959004
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000393850991
+cudaEventDestroy(event1), time=0.000495494984
+cudaMalloc(&devPtr, SIZE), time=0.000657344004
+cudaMemset(devPtr, 1337, SIZE), time=0.000446213991
+cudaFree(devPtr), time=0.000724037003
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000384157989
+cudaGetDevice(&intie), time=0.000338312006
+cudaGetDeviceProperties(&prop, intie), time=0.000428661995
+cudaStreamCreate(&stream), time=0.000331722986
+cudaStreamQuery(stream), time=0.000318734994
+cudaStreamDestroy(stream), time=0.000381024991
+cudaEventCreate(&event1), time=0.000305127993
+cudaEventRecord(event1, 0), time=0.000379230012
+cudaEventSynchronize(event1), time=0.000403267011
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000325311004
+cudaEventDestroy(event1), time=0.003357528010
+cudaMalloc(&devPtr, SIZE), time=0.010275118053
+cudaMemset(devPtr, 1337, SIZE), time=0.000508708006
+cudaFree(devPtr), time=0.001066458994
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000394920004
+cudaGetDevice(&intie), time=0.000330493000
+cudaGetDeviceProperties(&prop, intie), time=0.000421625009
+cudaStreamCreate(&stream), time=0.000325912988
+cudaStreamQuery(stream), time=0.000504244003
+cudaStreamDestroy(stream), time=0.000436769013
+cudaEventCreate(&event1), time=0.000388031011
+cudaEventRecord(event1, 0), time=0.000319567014
+cudaEventSynchronize(event1), time=0.000381027989
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000323126995
+cudaEventDestroy(event1), time=0.000383373990
+cudaMalloc(&devPtr, SIZE), time=0.000677245029
+cudaMemset(devPtr, 1337, SIZE), time=0.000492735009
+cudaFree(devPtr), time=0.000876657024
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.007205227856
+cudaGetDevice(&intie), time=0.006983053870
+cudaGetDeviceProperties(&prop, intie), time=0.010948359035
+cudaStreamCreate(&stream), time=0.000430977001
+cudaStreamQuery(stream), time=0.000399348995
+cudaStreamDestroy(stream), time=0.000383976003
+cudaEventCreate(&event1), time=0.000477710011
+cudaEventRecord(event1, 0), time=0.011360777542
+cudaEventSynchronize(event1), time=0.000310261996
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000387504988
+cudaEventDestroy(event1), time=0.000318181003
+cudaMalloc(&devPtr, SIZE), time=0.000670465990
+cudaMemset(devPtr, 1337, SIZE), time=0.000401160010
+cudaFree(devPtr), time=0.000891332980
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000349148002
+cudaGetDevice(&intie), time=0.000339746010
+cudaGetDeviceProperties(&prop, intie), time=0.000467975013
+cudaStreamCreate(&stream), time=0.000312421005
+cudaStreamQuery(stream), time=0.000380417012
+cudaStreamDestroy(stream), time=0.000317914004
+cudaEventCreate(&event1), time=0.000377738994
+cudaEventRecord(event1, 0), time=0.000413019996
+cudaEventSynchronize(event1), time=0.000379637000
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000319640007
+cudaEventDestroy(event1), time=0.000379030011
+cudaMalloc(&devPtr, SIZE), time=0.000657461002
+cudaMemset(devPtr, 1337, SIZE), time=0.000493902015
+cudaFree(devPtr), time=0.000719211996
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000394430012
+cudaGetDevice(&intie), time=0.000354733987
+cudaGetDeviceProperties(&prop, intie), time=0.000440898002
+cudaStreamCreate(&stream), time=0.000312894990
+cudaStreamQuery(stream), time=0.000380551006
+cudaStreamDestroy(stream), time=0.000321681000
+cudaEventCreate(&event1), time=0.000379953999
+cudaEventRecord(event1, 0), time=0.000392557005
+cudaEventSynchronize(event1), time=0.000318050006
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000315968995
+cudaEventDestroy(event1), time=0.000425245991
+cudaMalloc(&devPtr, SIZE), time=0.000656449003
+cudaMemset(devPtr, 1337, SIZE), time=0.000496271998
+cudaFree(devPtr), time=0.000734150992
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000333517994
+cudaGetDevice(&intie), time=0.000353242009
+cudaGetDeviceProperties(&prop, intie), time=0.000427789986
+cudaStreamCreate(&stream), time=0.000330696988
+cudaStreamQuery(stream), time=0.000390514004
+cudaStreamDestroy(stream), time=0.000351077993
+cudaEventCreate(&event1), time=0.000384532992
+cudaEventRecord(event1, 0), time=0.000324435008
+cudaEventSynchronize(event1), time=0.000304466987
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000399932003
+cudaEventDestroy(event1), time=0.000320397987
+cudaMalloc(&devPtr, SIZE), time=0.010397607461
+cudaMemset(devPtr, 1337, SIZE), time=0.000513202976
+cudaFree(devPtr), time=0.000733455992
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000264903996
+cudaGetDevice(&intie), time=0.004948713817
+cudaGetDeviceProperties(&prop, intie), time=0.000461435993
+cudaStreamCreate(&stream), time=0.000315663987
+cudaStreamQuery(stream), time=0.000382506987
+cudaStreamDestroy(stream), time=0.000393886992
+cudaEventCreate(&event1), time=0.000382588012
+cudaEventRecord(event1, 0), time=0.000395259005
+cudaEventSynchronize(event1), time=0.000344948989
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000463308010
+cudaEventDestroy(event1), time=0.000330392999
+cudaMalloc(&devPtr, SIZE), time=0.000652900024
+cudaMemset(devPtr, 1337, SIZE), time=0.000506797980
+cudaFree(devPtr), time=0.000735866022
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000259330001
+cudaGetDevice(&intie), time=0.000349773996
+cudaGetDeviceProperties(&prop, intie), time=0.000437821989
+cudaStreamCreate(&stream), time=0.000331274001
+cudaStreamQuery(stream), time=0.000415566989
+cudaStreamDestroy(stream), time=0.000323557004
+cudaEventCreate(&event1), time=0.000415499002
+cudaEventRecord(event1, 0), time=0.000395178999
+cudaEventSynchronize(event1), time=0.009914154187
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000306361006
+cudaEventDestroy(event1), time=0.000546584022
+cudaMalloc(&devPtr, SIZE), time=0.000876048987
+cudaMemset(devPtr, 1337, SIZE), time=0.000434727990
+cudaFree(devPtr), time=0.000769975013
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000281073997
+cudaGetDevice(&intie), time=0.002463099081
+cudaGetDeviceProperties(&prop, intie), time=0.000632198993
+cudaStreamCreate(&stream), time=0.000311003998
+cudaStreamQuery(stream), time=0.000545468007
+cudaStreamDestroy(stream), time=0.000329917995
+cudaEventCreate(&event1), time=0.000326198002
+cudaEventRecord(event1, 0), time=0.000422409008
+cudaEventSynchronize(event1), time=0.000558989006
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000313442986
+cudaEventDestroy(event1), time=0.000422976998
+cudaMalloc(&devPtr, SIZE), time=0.000848448020
+cudaMemset(devPtr, 1337, SIZE), time=0.000494080014
+cudaFree(devPtr), time=0.000721872027
+TEST END
+SUCESS
+Running on GeForce 8400M GS
+
+[./call_overhead] running..
+
+TEST_START
+cudaGetDeviceCount(&intie), time=0.000359697005
+cudaGetDevice(&intie), time=0.000270832010
+cudaGetDeviceProperties(&prop, intie), time=0.000635511999
+cudaStreamCreate(&stream), time=0.000322815002
+cudaStreamQuery(stream), time=0.000417458999
+cudaStreamDestroy(stream), time=0.000289629010
+cudaEventCreate(&event1), time=0.000573143014
+cudaEventRecord(event1, 0), time=0.000328280992
+cudaEventSynchronize(event1), time=0.000288782991
+cudaEventElapsedTime(&floatie, event2, event1), time=0.000547598989
+cudaEventDestroy(event1), time=0.000628923008
+cudaMalloc(&devPtr, SIZE), time=0.007640770171
+cudaMemset(devPtr, 1337, SIZE), time=0.000598490005
+cudaFree(devPtr), time=0.000648376998
+TEST END
+SUCESS
