@@ -6,7 +6,7 @@ CUresult CUDAAPI cuInit(unsigned int Flags){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuInitStruct *msg_p = (struct cuInitStruct*) malloc(sizeof(struct cuInitStruct));
+    struct cuInitStruct *msg_p = (struct cuInitStruct*) memptr;
 
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuInit;
@@ -16,14 +16,14 @@ CUresult CUDAAPI cuInit(unsigned int Flags){
     if(sendMessage((void*) msg_p, sizeof(struct cuInitStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -32,8 +32,7 @@ CUresult CUDAAPI cuDriverGetVersion(int *driverVersion){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuDriverGetVersionStruct *msg_p = (struct cuDriverGetVersionStruct*) malloc(sizeof(struct cuDriverGetVersionStruct));
-
+    struct cuDriverGetVersionStruct *msg_p = (struct cuDriverGetVersionStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuDriverGetVersion;
 
@@ -42,7 +41,7 @@ CUresult CUDAAPI cuDriverGetVersion(int *driverVersion){
     if(sendMessage((void*) msg_p, sizeof(struct cuDriverGetVersionStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -51,7 +50,7 @@ CUresult CUDAAPI cuDriverGetVersion(int *driverVersion){
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -60,8 +59,7 @@ CUresult CUDAAPI cuDeviceGet(CUdevice *device, int ordinal){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuDeviceGetStruct *msg_p = (struct cuDeviceGetStruct*) malloc(sizeof(struct cuDeviceGetStruct));
-
+    struct cuDeviceGetStruct *msg_p = (struct cuDeviceGetStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuDeviceGet;
 
@@ -71,7 +69,7 @@ CUresult CUDAAPI cuDeviceGet(CUdevice *device, int ordinal){
     if(sendMessage((void*) msg_p, sizeof(struct cuDeviceGetStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -80,7 +78,7 @@ CUresult CUDAAPI cuDeviceGet(CUdevice *device, int ordinal){
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -89,8 +87,7 @@ CUresult CUDAAPI cuDeviceGetCount(int *count){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuDeviceGetCountStruct *msg_p = (struct cuDeviceGetCountStruct*) malloc(sizeof(struct cuDeviceGetCountStruct));
-
+    struct cuDeviceGetCountStruct *msg_p = (struct cuDeviceGetCountStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuDeviceGetCount;
 
@@ -99,7 +96,7 @@ CUresult CUDAAPI cuDeviceGetCount(int *count){
     if(sendMessage((void*) msg_p, sizeof(struct cuDeviceGetCountStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -108,7 +105,7 @@ CUresult CUDAAPI cuDeviceGetCount(int *count){
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -117,8 +114,7 @@ CUresult CUDAAPI cuDeviceGetName(char *name, int len, CUdevice dev){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuDeviceGetNameStruct *msg_p = (struct cuDeviceGetNameStruct*) malloc(sizeof(struct cuDeviceGetNameStruct));
-
+    struct cuDeviceGetNameStruct *msg_p = (struct cuDeviceGetNameStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuDeviceGetName;
 
@@ -136,7 +132,7 @@ CUresult CUDAAPI cuDeviceGetName(char *name, int len, CUdevice dev){
     if(sendMessage((void*) msg_p, sizeof(struct cuDeviceGetNameStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -151,7 +147,7 @@ CUresult CUDAAPI cuDeviceGetName(char *name, int len, CUdevice dev){
     *dst = '\0';
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -160,8 +156,7 @@ CUresult CUDAAPI cuDeviceComputeCapability(int *major, int *minor, CUdevice dev)
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuDeviceComputeCapabilityStruct *msg_p = (struct cuDeviceComputeCapabilityStruct*) malloc(sizeof(struct cuDeviceComputeCapabilityStruct));
-
+    struct cuDeviceComputeCapabilityStruct *msg_p = (struct cuDeviceComputeCapabilityStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuDeviceComputeCapability;
 
@@ -172,7 +167,7 @@ CUresult CUDAAPI cuDeviceComputeCapability(int *major, int *minor, CUdevice dev)
     if(sendMessage((void*) msg_p, sizeof(struct cuDeviceComputeCapabilityStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -183,7 +178,7 @@ CUresult CUDAAPI cuDeviceComputeCapability(int *major, int *minor, CUdevice dev)
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -192,8 +187,7 @@ CUresult CUDAAPI cuDeviceTotalMem(size_t *bytes, CUdevice dev){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuDeviceTotalMemStruct *msg_p = (struct cuDeviceTotalMemStruct*) malloc(sizeof(struct cuDeviceTotalMemStruct));
-
+    struct cuDeviceTotalMemStruct *msg_p = (struct cuDeviceTotalMemStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuDeviceTotalMem;
 
@@ -203,7 +197,7 @@ CUresult CUDAAPI cuDeviceTotalMem(size_t *bytes, CUdevice dev){
     if(sendMessage((void*) msg_p, sizeof(struct cuDeviceTotalMemStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -212,7 +206,7 @@ CUresult CUDAAPI cuDeviceTotalMem(size_t *bytes, CUdevice dev){
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -221,8 +215,7 @@ CUresult CUDAAPI cuDeviceGetProperties(CUdevprop *prop, CUdevice dev){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuDeviceGetPropertiesStruct *msg_p = (struct cuDeviceGetPropertiesStruct*) malloc(sizeof(struct cuDeviceGetPropertiesStruct));
-
+    struct cuDeviceGetPropertiesStruct *msg_p = (struct cuDeviceGetPropertiesStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuDeviceGetProperties;
 
@@ -232,7 +225,7 @@ CUresult CUDAAPI cuDeviceGetProperties(CUdevprop *prop, CUdevice dev){
     if(sendMessage((void*) msg_p, sizeof(struct cuDeviceGetPropertiesStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -241,7 +234,7 @@ CUresult CUDAAPI cuDeviceGetProperties(CUdevprop *prop, CUdevice dev){
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -250,8 +243,7 @@ CUresult CUDAAPI cuDeviceGetAttribute(int *pi, CUdevice_attribute attrib, CUdevi
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuDeviceGetAttributeStruct *msg_p = (struct cuDeviceGetAttributeStruct*) malloc(sizeof(struct cuDeviceGetAttributeStruct));
-
+    struct cuDeviceGetAttributeStruct *msg_p = (struct cuDeviceGetAttributeStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuDeviceGetAttribute;
 
@@ -262,7 +254,7 @@ CUresult CUDAAPI cuDeviceGetAttribute(int *pi, CUdevice_attribute attrib, CUdevi
     if(sendMessage((void*) msg_p, sizeof(struct cuDeviceGetAttributeStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -271,7 +263,7 @@ CUresult CUDAAPI cuDeviceGetAttribute(int *pi, CUdevice_attribute attrib, CUdevi
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -280,8 +272,7 @@ CUresult CUDAAPI cuCtxCreate(CUcontext *pctx, unsigned int flags, CUdevice dev){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuCtxCreateStruct *msg_p = (struct cuCtxCreateStruct*) malloc(sizeof(struct cuCtxCreateStruct));
-
+    struct cuCtxCreateStruct *msg_p = (struct cuCtxCreateStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuCtxCreate;
 
@@ -292,7 +283,7 @@ CUresult CUDAAPI cuCtxCreate(CUcontext *pctx, unsigned int flags, CUdevice dev){
     if(sendMessage((void*) msg_p, sizeof(struct cuCtxCreateStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -301,7 +292,7 @@ CUresult CUDAAPI cuCtxCreate(CUcontext *pctx, unsigned int flags, CUdevice dev){
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -310,8 +301,7 @@ CUresult CUDAAPI cuCtxDestroy(CUcontext ctx){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuCtxDestroyStruct *msg_p = (struct cuCtxDestroyStruct*) malloc(sizeof(struct cuCtxDestroyStruct));
-
+    struct cuCtxDestroyStruct *msg_p = (struct cuCtxDestroyStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuCtxDestroy;
 
@@ -320,14 +310,14 @@ CUresult CUDAAPI cuCtxDestroy(CUcontext ctx){
     if(sendMessage((void*) msg_p, sizeof(struct cuCtxDestroyStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -336,8 +326,7 @@ CUresult CUDAAPI cuCtxAttach(CUcontext *pctx, unsigned int flags){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuCtxAttachStruct *msg_p = (struct cuCtxAttachStruct*) malloc(sizeof(struct cuCtxAttachStruct));
-
+    struct cuCtxAttachStruct *msg_p = (struct cuCtxAttachStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuCtxAttach;
 
@@ -347,7 +336,7 @@ CUresult CUDAAPI cuCtxAttach(CUcontext *pctx, unsigned int flags){
     if(sendMessage((void*) msg_p, sizeof(struct cuCtxAttachStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -356,7 +345,7 @@ CUresult CUDAAPI cuCtxAttach(CUcontext *pctx, unsigned int flags){
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -365,8 +354,7 @@ CUresult CUDAAPI cuCtxDetach(CUcontext ctx){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuCtxDetachStruct *msg_p = (struct cuCtxDetachStruct*) malloc(sizeof(struct cuCtxDetachStruct));
-
+    struct cuCtxDetachStruct *msg_p = (struct cuCtxDetachStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuCtxDetach;
 
@@ -375,14 +363,14 @@ CUresult CUDAAPI cuCtxDetach(CUcontext ctx){
     if(sendMessage((void*) msg_p, sizeof(struct cuCtxDetachStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -391,8 +379,7 @@ CUresult CUDAAPI cuCtxPushCurrent(CUcontext ctx){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuCtxPushCurrentStruct *msg_p = (struct cuCtxPushCurrentStruct*) malloc(sizeof(struct cuCtxPushCurrentStruct));
-
+    struct cuCtxPushCurrentStruct *msg_p = (struct cuCtxPushCurrentStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuCtxPushCurrent;
 
@@ -401,14 +388,14 @@ CUresult CUDAAPI cuCtxPushCurrent(CUcontext ctx){
     if(sendMessage((void*) msg_p, sizeof(struct cuCtxPushCurrentStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -417,8 +404,7 @@ CUresult CUDAAPI cuCtxPopCurrent(CUcontext *pctx){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuCtxPopCurrentStruct *msg_p = (struct cuCtxPopCurrentStruct*) malloc(sizeof(struct cuCtxPopCurrentStruct));
-
+    struct cuCtxPopCurrentStruct *msg_p = (struct cuCtxPopCurrentStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuCtxPopCurrent;
 
@@ -427,7 +413,7 @@ CUresult CUDAAPI cuCtxPopCurrent(CUcontext *pctx){
     if(sendMessage((void*) msg_p, sizeof(struct cuCtxPopCurrentStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -436,7 +422,7 @@ CUresult CUDAAPI cuCtxPopCurrent(CUcontext *pctx){
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -445,8 +431,7 @@ CUresult CUDAAPI cuCtxSetCurrent(CUcontext ctx){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuCtxSetCurrentStruct *msg_p = (struct cuCtxSetCurrentStruct*) malloc(sizeof(struct cuCtxSetCurrentStruct));
-
+    struct cuCtxSetCurrentStruct *msg_p = (struct cuCtxSetCurrentStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuCtxSetCurrent;
 
@@ -455,14 +440,14 @@ CUresult CUDAAPI cuCtxSetCurrent(CUcontext ctx){
     if(sendMessage((void*) msg_p, sizeof(struct cuCtxSetCurrentStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -471,8 +456,7 @@ CUresult CUDAAPI cuCtxGetCurrent(CUcontext *pctx){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuCtxGetCurrentStruct *msg_p = (struct cuCtxGetCurrentStruct*) malloc(sizeof(struct cuCtxGetCurrentStruct));
-
+    struct cuCtxGetCurrentStruct *msg_p = (struct cuCtxGetCurrentStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuCtxGetCurrent;
 
@@ -481,7 +465,7 @@ CUresult CUDAAPI cuCtxGetCurrent(CUcontext *pctx){
     if(sendMessage((void*) msg_p, sizeof(struct cuCtxGetCurrentStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -490,7 +474,7 @@ CUresult CUDAAPI cuCtxGetCurrent(CUcontext *pctx){
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -499,8 +483,7 @@ CUresult CUDAAPI cuCtxGetDevice(CUdevice *device){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuCtxGetDeviceStruct *msg_p = (struct cuCtxGetDeviceStruct*) malloc(sizeof(struct cuCtxGetDeviceStruct));
-
+    struct cuCtxGetDeviceStruct *msg_p = (struct cuCtxGetDeviceStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuCtxGetDevice;
 
@@ -509,7 +492,7 @@ CUresult CUDAAPI cuCtxGetDevice(CUdevice *device){
     if(sendMessage((void*) msg_p, sizeof(struct cuCtxGetDeviceStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -518,7 +501,7 @@ CUresult CUDAAPI cuCtxGetDevice(CUdevice *device){
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -527,8 +510,7 @@ CUresult CUDAAPI cuCtxSynchronize(void){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuCtxSynchronizeStruct *msg_p = (struct cuCtxSynchronizeStruct*) malloc(sizeof(struct cuCtxSynchronizeStruct));
-
+    struct cuCtxSynchronizeStruct *msg_p = (struct cuCtxSynchronizeStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuCtxSynchronize;
 
@@ -536,14 +518,14 @@ CUresult CUDAAPI cuCtxSynchronize(void){
     if(sendMessage((void*) msg_p, sizeof(struct cuCtxSynchronizeStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -552,8 +534,7 @@ CUresult CUDAAPI cuCtxSetLimit(CUlimit limit, size_t value){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuCtxSetLimitStruct *msg_p = (struct cuCtxSetLimitStruct*) malloc(sizeof(struct cuCtxSetLimitStruct));
-
+    struct cuCtxSetLimitStruct *msg_p = (struct cuCtxSetLimitStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuCtxSetLimit;
 
@@ -563,14 +544,14 @@ CUresult CUDAAPI cuCtxSetLimit(CUlimit limit, size_t value){
     if(sendMessage((void*) msg_p, sizeof(struct cuCtxSetLimitStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -579,8 +560,7 @@ CUresult CUDAAPI cuCtxGetLimit(size_t *pvalue, CUlimit limit){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuCtxGetLimitStruct *msg_p = (struct cuCtxGetLimitStruct*) malloc(sizeof(struct cuCtxGetLimitStruct));
-
+    struct cuCtxGetLimitStruct *msg_p = (struct cuCtxGetLimitStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuCtxGetLimit;
 
@@ -590,7 +570,7 @@ CUresult CUDAAPI cuCtxGetLimit(size_t *pvalue, CUlimit limit){
     if(sendMessage((void*) msg_p, sizeof(struct cuCtxGetLimitStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -599,7 +579,7 @@ CUresult CUDAAPI cuCtxGetLimit(size_t *pvalue, CUlimit limit){
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -608,8 +588,7 @@ CUresult CUDAAPI cuCtxGetCacheConfig(CUfunc_cache *pconfig){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuCtxGetCacheConfigStruct *msg_p = (struct cuCtxGetCacheConfigStruct*) malloc(sizeof(struct cuCtxGetCacheConfigStruct));
-
+    struct cuCtxGetCacheConfigStruct *msg_p = (struct cuCtxGetCacheConfigStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuCtxGetCacheConfig;
 
@@ -618,7 +597,7 @@ CUresult CUDAAPI cuCtxGetCacheConfig(CUfunc_cache *pconfig){
     if(sendMessage((void*) msg_p, sizeof(struct cuCtxGetCacheConfigStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -627,7 +606,7 @@ CUresult CUDAAPI cuCtxGetCacheConfig(CUfunc_cache *pconfig){
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -636,8 +615,7 @@ CUresult CUDAAPI cuCtxSetCacheConfig(CUfunc_cache config){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuCtxSetCacheConfigStruct *msg_p = (struct cuCtxSetCacheConfigStruct*) malloc(sizeof(struct cuCtxSetCacheConfigStruct));
-
+    struct cuCtxSetCacheConfigStruct *msg_p = (struct cuCtxSetCacheConfigStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuCtxSetCacheConfig;
 
@@ -646,14 +624,14 @@ CUresult CUDAAPI cuCtxSetCacheConfig(CUfunc_cache config){
     if(sendMessage((void*) msg_p, sizeof(struct cuCtxSetCacheConfigStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -662,8 +640,7 @@ CUresult CUDAAPI cuCtxGetApiVersion(CUcontext ctx, unsigned int *version){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuCtxGetApiVersionStruct *msg_p = (struct cuCtxGetApiVersionStruct*) malloc(sizeof(struct cuCtxGetApiVersionStruct));
-
+    struct cuCtxGetApiVersionStruct *msg_p = (struct cuCtxGetApiVersionStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuCtxGetApiVersion;
 
@@ -673,7 +650,7 @@ CUresult CUDAAPI cuCtxGetApiVersion(CUcontext ctx, unsigned int *version){
     if(sendMessage((void*) msg_p, sizeof(struct cuCtxGetApiVersionStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -682,7 +659,7 @@ CUresult CUDAAPI cuCtxGetApiVersion(CUcontext ctx, unsigned int *version){
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -691,8 +668,7 @@ CUresult CUDAAPI cuModuleLoad(CUmodule *module, const char *fname){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuModuleLoadStruct *msg_p = (struct cuModuleLoadStruct*) malloc(sizeof(struct cuModuleLoadStruct));
-
+    struct cuModuleLoadStruct *msg_p = (struct cuModuleLoadStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuModuleLoad;
 
@@ -709,7 +685,7 @@ CUresult CUDAAPI cuModuleLoad(CUmodule *module, const char *fname){
     if(sendMessage((void*) msg_p, sizeof(struct cuModuleLoadStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -718,7 +694,7 @@ CUresult CUDAAPI cuModuleLoad(CUmodule *module, const char *fname){
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -727,8 +703,7 @@ CUresult CUDAAPI cuModuleLoadData(CUmodule *module, const void *image){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuModuleLoadDataStruct *msg_p = (struct cuModuleLoadDataStruct*) malloc(sizeof(struct cuModuleLoadDataStruct));
-
+    struct cuModuleLoadDataStruct *msg_p = (struct cuModuleLoadDataStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuModuleLoadData;
 
@@ -738,7 +713,7 @@ CUresult CUDAAPI cuModuleLoadData(CUmodule *module, const void *image){
     if(sendMessage((void*) msg_p, sizeof(struct cuModuleLoadDataStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -747,7 +722,7 @@ CUresult CUDAAPI cuModuleLoadData(CUmodule *module, const void *image){
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -756,8 +731,7 @@ CUresult CUDAAPI cuModuleLoadDataEx(CUmodule *module, const void *image, unsigne
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuModuleLoadDataExStruct *msg_p = (struct cuModuleLoadDataExStruct*) malloc(sizeof(struct cuModuleLoadDataExStruct));
-
+    struct cuModuleLoadDataExStruct *msg_p = (struct cuModuleLoadDataExStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuModuleLoadDataEx;
 
@@ -770,7 +744,7 @@ CUresult CUDAAPI cuModuleLoadDataEx(CUmodule *module, const void *image, unsigne
     if(sendMessage((void*) msg_p, sizeof(struct cuModuleLoadDataExStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -782,7 +756,7 @@ CUresult CUDAAPI cuModuleLoadDataEx(CUmodule *module, const void *image, unsigne
     *optionValues = msg_p->optionValues;
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -791,8 +765,7 @@ CUresult CUDAAPI cuModuleLoadFatBinary(CUmodule *module, const void *fatCubin){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuModuleLoadFatBinaryStruct *msg_p = (struct cuModuleLoadFatBinaryStruct*) malloc(sizeof(struct cuModuleLoadFatBinaryStruct));
-
+    struct cuModuleLoadFatBinaryStruct *msg_p = (struct cuModuleLoadFatBinaryStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuModuleLoadFatBinary;
 
@@ -802,7 +775,7 @@ CUresult CUDAAPI cuModuleLoadFatBinary(CUmodule *module, const void *fatCubin){
     if(sendMessage((void*) msg_p, sizeof(struct cuModuleLoadFatBinaryStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -811,7 +784,7 @@ CUresult CUDAAPI cuModuleLoadFatBinary(CUmodule *module, const void *fatCubin){
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -820,8 +793,7 @@ CUresult CUDAAPI cuModuleUnload(CUmodule hmod){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuModuleUnloadStruct *msg_p = (struct cuModuleUnloadStruct*) malloc(sizeof(struct cuModuleUnloadStruct));
-
+    struct cuModuleUnloadStruct *msg_p = (struct cuModuleUnloadStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuModuleUnload;
 
@@ -830,14 +802,14 @@ CUresult CUDAAPI cuModuleUnload(CUmodule hmod){
     if(sendMessage((void*) msg_p, sizeof(struct cuModuleUnloadStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -846,8 +818,7 @@ CUresult CUDAAPI cuModuleGetFunction(CUfunction *hfunc, CUmodule hmod, const cha
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuModuleGetFunctionStruct *msg_p = (struct cuModuleGetFunctionStruct*) malloc(sizeof(struct cuModuleGetFunctionStruct));
-
+    struct cuModuleGetFunctionStruct *msg_p = (struct cuModuleGetFunctionStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuModuleGetFunction;
 
@@ -865,7 +836,7 @@ CUresult CUDAAPI cuModuleGetFunction(CUfunction *hfunc, CUmodule hmod, const cha
     if(sendMessage((void*) msg_p, sizeof(struct cuModuleGetFunctionStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -874,7 +845,7 @@ CUresult CUDAAPI cuModuleGetFunction(CUfunction *hfunc, CUmodule hmod, const cha
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -883,8 +854,7 @@ CUresult CUDAAPI cuModuleGetGlobal(CUdeviceptr *dptr, size_t *bytes, CUmodule hm
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuModuleGetGlobalStruct *msg_p = (struct cuModuleGetGlobalStruct*) malloc(sizeof(struct cuModuleGetGlobalStruct));
-
+    struct cuModuleGetGlobalStruct *msg_p = (struct cuModuleGetGlobalStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuModuleGetGlobal;
 
@@ -903,7 +873,7 @@ CUresult CUDAAPI cuModuleGetGlobal(CUdeviceptr *dptr, size_t *bytes, CUmodule hm
     if(sendMessage((void*) msg_p, sizeof(struct cuModuleGetGlobalStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -914,7 +884,7 @@ CUresult CUDAAPI cuModuleGetGlobal(CUdeviceptr *dptr, size_t *bytes, CUmodule hm
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -923,8 +893,7 @@ CUresult CUDAAPI cuModuleGetTexRef(CUtexref *pTexRef, CUmodule hmod, const char 
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuModuleGetTexRefStruct *msg_p = (struct cuModuleGetTexRefStruct*) malloc(sizeof(struct cuModuleGetTexRefStruct));
-
+    struct cuModuleGetTexRefStruct *msg_p = (struct cuModuleGetTexRefStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuModuleGetTexRef;
 
@@ -942,7 +911,7 @@ CUresult CUDAAPI cuModuleGetTexRef(CUtexref *pTexRef, CUmodule hmod, const char 
     if(sendMessage((void*) msg_p, sizeof(struct cuModuleGetTexRefStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -951,7 +920,7 @@ CUresult CUDAAPI cuModuleGetTexRef(CUtexref *pTexRef, CUmodule hmod, const char 
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -960,8 +929,7 @@ CUresult CUDAAPI cuModuleGetSurfRef(CUsurfref *pSurfRef, CUmodule hmod, const ch
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuModuleGetSurfRefStruct *msg_p = (struct cuModuleGetSurfRefStruct*) malloc(sizeof(struct cuModuleGetSurfRefStruct));
-
+    struct cuModuleGetSurfRefStruct *msg_p = (struct cuModuleGetSurfRefStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuModuleGetSurfRef;
 
@@ -979,7 +947,7 @@ CUresult CUDAAPI cuModuleGetSurfRef(CUsurfref *pSurfRef, CUmodule hmod, const ch
     if(sendMessage((void*) msg_p, sizeof(struct cuModuleGetSurfRefStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -988,7 +956,7 @@ CUresult CUDAAPI cuModuleGetSurfRef(CUsurfref *pSurfRef, CUmodule hmod, const ch
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -997,8 +965,7 @@ CUresult CUDAAPI cuMemGetInfo(size_t *free_, size_t *total){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemGetInfoStruct *msg_p = (struct cuMemGetInfoStruct*) malloc(sizeof(struct cuMemGetInfoStruct));
-
+    struct cuMemGetInfoStruct *msg_p = (struct cuMemGetInfoStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemGetInfo;
 
@@ -1008,7 +975,7 @@ CUresult CUDAAPI cuMemGetInfo(size_t *free_, size_t *total){
     if(sendMessage((void*) msg_p, sizeof(struct cuMemGetInfoStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -1019,7 +986,7 @@ CUresult CUDAAPI cuMemGetInfo(size_t *free_, size_t *total){
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -1028,8 +995,7 @@ CUresult CUDAAPI cuMemAlloc(CUdeviceptr *dptr, size_t bytesize){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemAllocStruct *msg_p = (struct cuMemAllocStruct*) malloc(sizeof(struct cuMemAllocStruct));
-
+    struct cuMemAllocStruct *msg_p = (struct cuMemAllocStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemAlloc;
 
@@ -1039,7 +1005,7 @@ CUresult CUDAAPI cuMemAlloc(CUdeviceptr *dptr, size_t bytesize){
     if(sendMessage((void*) msg_p, sizeof(struct cuMemAllocStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -1048,7 +1014,7 @@ CUresult CUDAAPI cuMemAlloc(CUdeviceptr *dptr, size_t bytesize){
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -1057,8 +1023,7 @@ CUresult CUDAAPI cuMemAllocPitch(CUdeviceptr *dptr, size_t *pPitch, size_t Width
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemAllocPitchStruct *msg_p = (struct cuMemAllocPitchStruct*) malloc(sizeof(struct cuMemAllocPitchStruct));
-
+    struct cuMemAllocPitchStruct *msg_p = (struct cuMemAllocPitchStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemAllocPitch;
 
@@ -1071,7 +1036,7 @@ CUresult CUDAAPI cuMemAllocPitch(CUdeviceptr *dptr, size_t *pPitch, size_t Width
     if(sendMessage((void*) msg_p, sizeof(struct cuMemAllocPitchStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -1082,7 +1047,7 @@ CUresult CUDAAPI cuMemAllocPitch(CUdeviceptr *dptr, size_t *pPitch, size_t Width
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -1091,8 +1056,7 @@ CUresult CUDAAPI cuMemFree(CUdeviceptr dptr){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemFreeStruct *msg_p = (struct cuMemFreeStruct*) malloc(sizeof(struct cuMemFreeStruct));
-
+    struct cuMemFreeStruct *msg_p = (struct cuMemFreeStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemFree;
 
@@ -1101,14 +1065,14 @@ CUresult CUDAAPI cuMemFree(CUdeviceptr dptr){
     if(sendMessage((void*) msg_p, sizeof(struct cuMemFreeStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -1117,8 +1081,7 @@ CUresult CUDAAPI cuMemGetAddressRange(CUdeviceptr *pbase, size_t *psize, CUdevic
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemGetAddressRangeStruct *msg_p = (struct cuMemGetAddressRangeStruct*) malloc(sizeof(struct cuMemGetAddressRangeStruct));
-
+    struct cuMemGetAddressRangeStruct *msg_p = (struct cuMemGetAddressRangeStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemGetAddressRange;
 
@@ -1129,7 +1092,7 @@ CUresult CUDAAPI cuMemGetAddressRange(CUdeviceptr *pbase, size_t *psize, CUdevic
     if(sendMessage((void*) msg_p, sizeof(struct cuMemGetAddressRangeStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -1140,7 +1103,7 @@ CUresult CUDAAPI cuMemGetAddressRange(CUdeviceptr *pbase, size_t *psize, CUdevic
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -1149,8 +1112,7 @@ CUresult CUDAAPI cuMemAllocHost(void **pp, size_t bytesize){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemAllocHostStruct *msg_p = (struct cuMemAllocHostStruct*) malloc(sizeof(struct cuMemAllocHostStruct));
-
+    struct cuMemAllocHostStruct *msg_p = (struct cuMemAllocHostStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemAllocHost;
 
@@ -1160,7 +1122,7 @@ CUresult CUDAAPI cuMemAllocHost(void **pp, size_t bytesize){
     if(sendMessage((void*) msg_p, sizeof(struct cuMemAllocHostStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -1168,7 +1130,7 @@ CUresult CUDAAPI cuMemAllocHost(void **pp, size_t bytesize){
     *pp = msg_p->pp;
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -1177,8 +1139,7 @@ CUresult CUDAAPI cuMemFreeHost(void *p){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemFreeHostStruct *msg_p = (struct cuMemFreeHostStruct*) malloc(sizeof(struct cuMemFreeHostStruct));
-
+    struct cuMemFreeHostStruct *msg_p = (struct cuMemFreeHostStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemFreeHost;
 
@@ -1187,7 +1148,7 @@ CUresult CUDAAPI cuMemFreeHost(void *p){
     if(sendMessage((void*) msg_p, sizeof(struct cuMemFreeHostStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -1195,7 +1156,7 @@ CUresult CUDAAPI cuMemFreeHost(void *p){
     p = msg_p->p;
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -1204,8 +1165,7 @@ CUresult CUDAAPI cuMemHostAlloc(void **pp, size_t bytesize, unsigned int Flags){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemHostAllocStruct *msg_p = (struct cuMemHostAllocStruct*) malloc(sizeof(struct cuMemHostAllocStruct));
-
+    struct cuMemHostAllocStruct *msg_p = (struct cuMemHostAllocStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemHostAlloc;
 
@@ -1216,7 +1176,7 @@ CUresult CUDAAPI cuMemHostAlloc(void **pp, size_t bytesize, unsigned int Flags){
     if(sendMessage((void*) msg_p, sizeof(struct cuMemHostAllocStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -1224,7 +1184,7 @@ CUresult CUDAAPI cuMemHostAlloc(void **pp, size_t bytesize, unsigned int Flags){
     *pp = msg_p->pp;
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -1233,8 +1193,7 @@ CUresult CUDAAPI cuMemHostGetDevicePointer(CUdeviceptr *pdptr, void *p, unsigned
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemHostGetDevicePointerStruct *msg_p = (struct cuMemHostGetDevicePointerStruct*) malloc(sizeof(struct cuMemHostGetDevicePointerStruct));
-
+    struct cuMemHostGetDevicePointerStruct *msg_p = (struct cuMemHostGetDevicePointerStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemHostGetDevicePointer;
 
@@ -1245,7 +1204,7 @@ CUresult CUDAAPI cuMemHostGetDevicePointer(CUdeviceptr *pdptr, void *p, unsigned
     if(sendMessage((void*) msg_p, sizeof(struct cuMemHostGetDevicePointerStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -1255,7 +1214,7 @@ CUresult CUDAAPI cuMemHostGetDevicePointer(CUdeviceptr *pdptr, void *p, unsigned
     p = msg_p->p;
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -1264,8 +1223,7 @@ CUresult CUDAAPI cuMemHostGetFlags(unsigned int *pFlags, void *p){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemHostGetFlagsStruct *msg_p = (struct cuMemHostGetFlagsStruct*) malloc(sizeof(struct cuMemHostGetFlagsStruct));
-
+    struct cuMemHostGetFlagsStruct *msg_p = (struct cuMemHostGetFlagsStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemHostGetFlags;
 
@@ -1275,7 +1233,7 @@ CUresult CUDAAPI cuMemHostGetFlags(unsigned int *pFlags, void *p){
     if(sendMessage((void*) msg_p, sizeof(struct cuMemHostGetFlagsStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -1285,7 +1243,7 @@ CUresult CUDAAPI cuMemHostGetFlags(unsigned int *pFlags, void *p){
     p = msg_p->p;
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -1294,8 +1252,7 @@ CUresult CUDAAPI cuMemHostRegister(void *p, size_t bytesize, unsigned int Flags)
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemHostRegisterStruct *msg_p = (struct cuMemHostRegisterStruct*) malloc(sizeof(struct cuMemHostRegisterStruct));
-
+    struct cuMemHostRegisterStruct *msg_p = (struct cuMemHostRegisterStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemHostRegister;
 
@@ -1306,7 +1263,7 @@ CUresult CUDAAPI cuMemHostRegister(void *p, size_t bytesize, unsigned int Flags)
     if(sendMessage((void*) msg_p, sizeof(struct cuMemHostRegisterStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -1314,7 +1271,7 @@ CUresult CUDAAPI cuMemHostRegister(void *p, size_t bytesize, unsigned int Flags)
     p = msg_p->p;
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -1323,8 +1280,7 @@ CUresult CUDAAPI cuMemHostUnregister(void *p){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemHostUnregisterStruct *msg_p = (struct cuMemHostUnregisterStruct*) malloc(sizeof(struct cuMemHostUnregisterStruct));
-
+    struct cuMemHostUnregisterStruct *msg_p = (struct cuMemHostUnregisterStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemHostUnregister;
 
@@ -1333,7 +1289,7 @@ CUresult CUDAAPI cuMemHostUnregister(void *p){
     if(sendMessage((void*) msg_p, sizeof(struct cuMemHostUnregisterStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -1341,7 +1297,7 @@ CUresult CUDAAPI cuMemHostUnregister(void *p){
     p = msg_p->p;
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -1350,8 +1306,7 @@ CUresult CUDAAPI cuMemcpy(CUdeviceptr dst, CUdeviceptr src, size_t ByteCount){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemcpyStruct *msg_p = (struct cuMemcpyStruct*) malloc(sizeof(struct cuMemcpyStruct));
-
+    struct cuMemcpyStruct *msg_p = (struct cuMemcpyStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemcpy;
 
@@ -1362,14 +1317,14 @@ CUresult CUDAAPI cuMemcpy(CUdeviceptr dst, CUdeviceptr src, size_t ByteCount){
     if(sendMessage((void*) msg_p, sizeof(struct cuMemcpyStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -1378,8 +1333,7 @@ CUresult CUDAAPI cuMemcpyPeer(CUdeviceptr dstDevice, CUcontext dstContext, CUdev
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemcpyPeerStruct *msg_p = (struct cuMemcpyPeerStruct*) malloc(sizeof(struct cuMemcpyPeerStruct));
-
+    struct cuMemcpyPeerStruct *msg_p = (struct cuMemcpyPeerStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemcpyPeer;
 
@@ -1392,14 +1346,14 @@ CUresult CUDAAPI cuMemcpyPeer(CUdeviceptr dstDevice, CUcontext dstContext, CUdev
     if(sendMessage((void*) msg_p, sizeof(struct cuMemcpyPeerStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -1408,8 +1362,7 @@ CUresult CUDAAPI cuMemcpyHtoD(CUdeviceptr dstDevice, const void *srcHost, size_t
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemcpyHtoDStruct *msg_p = (struct cuMemcpyHtoDStruct*) malloc(sizeof(struct cuMemcpyHtoDStruct));
-
+    struct cuMemcpyHtoDStruct *msg_p = (struct cuMemcpyHtoDStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemcpyHtoD;
 
@@ -1420,14 +1373,14 @@ CUresult CUDAAPI cuMemcpyHtoD(CUdeviceptr dstDevice, const void *srcHost, size_t
     if(sendMessage((void*) msg_p, sizeof(struct cuMemcpyHtoDStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -1436,8 +1389,7 @@ CUresult CUDAAPI cuMemcpyDtoH(void *dstHost, CUdeviceptr srcDevice, size_t ByteC
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemcpyDtoHStruct *msg_p = (struct cuMemcpyDtoHStruct*) malloc(sizeof(struct cuMemcpyDtoHStruct));
-
+    struct cuMemcpyDtoHStruct *msg_p = (struct cuMemcpyDtoHStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemcpyDtoH;
 
@@ -1448,7 +1400,7 @@ CUresult CUDAAPI cuMemcpyDtoH(void *dstHost, CUdeviceptr srcDevice, size_t ByteC
     if(sendMessage((void*) msg_p, sizeof(struct cuMemcpyDtoHStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -1456,7 +1408,7 @@ CUresult CUDAAPI cuMemcpyDtoH(void *dstHost, CUdeviceptr srcDevice, size_t ByteC
     dstHost = msg_p->dstHost;
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -1465,8 +1417,7 @@ CUresult CUDAAPI cuMemcpyDtoD(CUdeviceptr dstDevice, CUdeviceptr srcDevice, size
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemcpyDtoDStruct *msg_p = (struct cuMemcpyDtoDStruct*) malloc(sizeof(struct cuMemcpyDtoDStruct));
-
+    struct cuMemcpyDtoDStruct *msg_p = (struct cuMemcpyDtoDStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemcpyDtoD;
 
@@ -1477,14 +1428,14 @@ CUresult CUDAAPI cuMemcpyDtoD(CUdeviceptr dstDevice, CUdeviceptr srcDevice, size
     if(sendMessage((void*) msg_p, sizeof(struct cuMemcpyDtoDStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -1493,8 +1444,7 @@ CUresult CUDAAPI cuMemcpyDtoA(CUarray dstArray, size_t dstOffset, CUdeviceptr sr
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemcpyDtoAStruct *msg_p = (struct cuMemcpyDtoAStruct*) malloc(sizeof(struct cuMemcpyDtoAStruct));
-
+    struct cuMemcpyDtoAStruct *msg_p = (struct cuMemcpyDtoAStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemcpyDtoA;
 
@@ -1506,14 +1456,14 @@ CUresult CUDAAPI cuMemcpyDtoA(CUarray dstArray, size_t dstOffset, CUdeviceptr sr
     if(sendMessage((void*) msg_p, sizeof(struct cuMemcpyDtoAStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -1522,8 +1472,7 @@ CUresult CUDAAPI cuMemcpyAtoD(CUdeviceptr dstDevice, CUarray srcArray, size_t sr
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemcpyAtoDStruct *msg_p = (struct cuMemcpyAtoDStruct*) malloc(sizeof(struct cuMemcpyAtoDStruct));
-
+    struct cuMemcpyAtoDStruct *msg_p = (struct cuMemcpyAtoDStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemcpyAtoD;
 
@@ -1535,14 +1484,14 @@ CUresult CUDAAPI cuMemcpyAtoD(CUdeviceptr dstDevice, CUarray srcArray, size_t sr
     if(sendMessage((void*) msg_p, sizeof(struct cuMemcpyAtoDStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -1551,8 +1500,7 @@ CUresult CUDAAPI cuMemcpyHtoA(CUarray dstArray, size_t dstOffset, const void *sr
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemcpyHtoAStruct *msg_p = (struct cuMemcpyHtoAStruct*) malloc(sizeof(struct cuMemcpyHtoAStruct));
-
+    struct cuMemcpyHtoAStruct *msg_p = (struct cuMemcpyHtoAStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemcpyHtoA;
 
@@ -1564,14 +1512,14 @@ CUresult CUDAAPI cuMemcpyHtoA(CUarray dstArray, size_t dstOffset, const void *sr
     if(sendMessage((void*) msg_p, sizeof(struct cuMemcpyHtoAStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -1580,8 +1528,7 @@ CUresult CUDAAPI cuMemcpyAtoH(void *dstHost, CUarray srcArray, size_t srcOffset,
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemcpyAtoHStruct *msg_p = (struct cuMemcpyAtoHStruct*) malloc(sizeof(struct cuMemcpyAtoHStruct));
-
+    struct cuMemcpyAtoHStruct *msg_p = (struct cuMemcpyAtoHStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemcpyAtoH;
 
@@ -1593,7 +1540,7 @@ CUresult CUDAAPI cuMemcpyAtoH(void *dstHost, CUarray srcArray, size_t srcOffset,
     if(sendMessage((void*) msg_p, sizeof(struct cuMemcpyAtoHStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -1601,7 +1548,7 @@ CUresult CUDAAPI cuMemcpyAtoH(void *dstHost, CUarray srcArray, size_t srcOffset,
     dstHost = msg_p->dstHost;
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -1610,8 +1557,7 @@ CUresult CUDAAPI cuMemcpyAtoA(CUarray dstArray, size_t dstOffset, CUarray srcArr
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemcpyAtoAStruct *msg_p = (struct cuMemcpyAtoAStruct*) malloc(sizeof(struct cuMemcpyAtoAStruct));
-
+    struct cuMemcpyAtoAStruct *msg_p = (struct cuMemcpyAtoAStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemcpyAtoA;
 
@@ -1624,14 +1570,14 @@ CUresult CUDAAPI cuMemcpyAtoA(CUarray dstArray, size_t dstOffset, CUarray srcArr
     if(sendMessage((void*) msg_p, sizeof(struct cuMemcpyAtoAStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -1640,8 +1586,7 @@ CUresult CUDAAPI cuMemcpy2D(const CUDA_MEMCPY2D *pCopy){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemcpy2DStruct *msg_p = (struct cuMemcpy2DStruct*) malloc(sizeof(struct cuMemcpy2DStruct));
-
+    struct cuMemcpy2DStruct *msg_p = (struct cuMemcpy2DStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemcpy2D;
 
@@ -1650,14 +1595,14 @@ CUresult CUDAAPI cuMemcpy2D(const CUDA_MEMCPY2D *pCopy){
     if(sendMessage((void*) msg_p, sizeof(struct cuMemcpy2DStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -1666,8 +1611,7 @@ CUresult CUDAAPI cuMemcpy2DUnaligned(const CUDA_MEMCPY2D *pCopy){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemcpy2DUnalignedStruct *msg_p = (struct cuMemcpy2DUnalignedStruct*) malloc(sizeof(struct cuMemcpy2DUnalignedStruct));
-
+    struct cuMemcpy2DUnalignedStruct *msg_p = (struct cuMemcpy2DUnalignedStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemcpy2DUnaligned;
 
@@ -1676,14 +1620,14 @@ CUresult CUDAAPI cuMemcpy2DUnaligned(const CUDA_MEMCPY2D *pCopy){
     if(sendMessage((void*) msg_p, sizeof(struct cuMemcpy2DUnalignedStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -1692,8 +1636,7 @@ CUresult CUDAAPI cuMemcpy3D(const CUDA_MEMCPY3D *pCopy){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemcpy3DStruct *msg_p = (struct cuMemcpy3DStruct*) malloc(sizeof(struct cuMemcpy3DStruct));
-
+    struct cuMemcpy3DStruct *msg_p = (struct cuMemcpy3DStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemcpy3D;
 
@@ -1702,14 +1645,14 @@ CUresult CUDAAPI cuMemcpy3D(const CUDA_MEMCPY3D *pCopy){
     if(sendMessage((void*) msg_p, sizeof(struct cuMemcpy3DStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -1718,8 +1661,7 @@ CUresult CUDAAPI cuMemcpy3DPeer(const CUDA_MEMCPY3D_PEER *pCopy){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemcpy3DPeerStruct *msg_p = (struct cuMemcpy3DPeerStruct*) malloc(sizeof(struct cuMemcpy3DPeerStruct));
-
+    struct cuMemcpy3DPeerStruct *msg_p = (struct cuMemcpy3DPeerStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemcpy3DPeer;
 
@@ -1728,14 +1670,14 @@ CUresult CUDAAPI cuMemcpy3DPeer(const CUDA_MEMCPY3D_PEER *pCopy){
     if(sendMessage((void*) msg_p, sizeof(struct cuMemcpy3DPeerStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -1744,8 +1686,7 @@ CUresult CUDAAPI cuMemcpyAsync(CUdeviceptr dst, CUdeviceptr src, size_t ByteCoun
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemcpyAsyncStruct *msg_p = (struct cuMemcpyAsyncStruct*) malloc(sizeof(struct cuMemcpyAsyncStruct));
-
+    struct cuMemcpyAsyncStruct *msg_p = (struct cuMemcpyAsyncStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemcpyAsync;
 
@@ -1757,14 +1698,14 @@ CUresult CUDAAPI cuMemcpyAsync(CUdeviceptr dst, CUdeviceptr src, size_t ByteCoun
     if(sendMessage((void*) msg_p, sizeof(struct cuMemcpyAsyncStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -1773,8 +1714,7 @@ CUresult CUDAAPI cuMemcpyPeerAsync(CUdeviceptr dstDevice, CUcontext dstContext, 
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemcpyPeerAsyncStruct *msg_p = (struct cuMemcpyPeerAsyncStruct*) malloc(sizeof(struct cuMemcpyPeerAsyncStruct));
-
+    struct cuMemcpyPeerAsyncStruct *msg_p = (struct cuMemcpyPeerAsyncStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemcpyPeerAsync;
 
@@ -1788,14 +1728,14 @@ CUresult CUDAAPI cuMemcpyPeerAsync(CUdeviceptr dstDevice, CUcontext dstContext, 
     if(sendMessage((void*) msg_p, sizeof(struct cuMemcpyPeerAsyncStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -1804,8 +1744,7 @@ CUresult CUDAAPI cuMemcpyHtoDAsync(CUdeviceptr dstDevice, const void *srcHost, s
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemcpyHtoDAsyncStruct *msg_p = (struct cuMemcpyHtoDAsyncStruct*) malloc(sizeof(struct cuMemcpyHtoDAsyncStruct));
-
+    struct cuMemcpyHtoDAsyncStruct *msg_p = (struct cuMemcpyHtoDAsyncStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemcpyHtoDAsync;
 
@@ -1817,14 +1756,14 @@ CUresult CUDAAPI cuMemcpyHtoDAsync(CUdeviceptr dstDevice, const void *srcHost, s
     if(sendMessage((void*) msg_p, sizeof(struct cuMemcpyHtoDAsyncStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -1833,8 +1772,7 @@ CUresult CUDAAPI cuMemcpyDtoHAsync(void *dstHost, CUdeviceptr srcDevice, size_t 
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemcpyDtoHAsyncStruct *msg_p = (struct cuMemcpyDtoHAsyncStruct*) malloc(sizeof(struct cuMemcpyDtoHAsyncStruct));
-
+    struct cuMemcpyDtoHAsyncStruct *msg_p = (struct cuMemcpyDtoHAsyncStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemcpyDtoHAsync;
 
@@ -1846,7 +1784,7 @@ CUresult CUDAAPI cuMemcpyDtoHAsync(void *dstHost, CUdeviceptr srcDevice, size_t 
     if(sendMessage((void*) msg_p, sizeof(struct cuMemcpyDtoHAsyncStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -1854,7 +1792,7 @@ CUresult CUDAAPI cuMemcpyDtoHAsync(void *dstHost, CUdeviceptr srcDevice, size_t 
     dstHost = msg_p->dstHost;
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -1863,8 +1801,7 @@ CUresult CUDAAPI cuMemcpyDtoDAsync(CUdeviceptr dstDevice, CUdeviceptr srcDevice,
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemcpyDtoDAsyncStruct *msg_p = (struct cuMemcpyDtoDAsyncStruct*) malloc(sizeof(struct cuMemcpyDtoDAsyncStruct));
-
+    struct cuMemcpyDtoDAsyncStruct *msg_p = (struct cuMemcpyDtoDAsyncStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemcpyDtoDAsync;
 
@@ -1876,14 +1813,14 @@ CUresult CUDAAPI cuMemcpyDtoDAsync(CUdeviceptr dstDevice, CUdeviceptr srcDevice,
     if(sendMessage((void*) msg_p, sizeof(struct cuMemcpyDtoDAsyncStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -1892,8 +1829,7 @@ CUresult CUDAAPI cuMemcpyHtoAAsync(CUarray dstArray, size_t dstOffset, const voi
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemcpyHtoAAsyncStruct *msg_p = (struct cuMemcpyHtoAAsyncStruct*) malloc(sizeof(struct cuMemcpyHtoAAsyncStruct));
-
+    struct cuMemcpyHtoAAsyncStruct *msg_p = (struct cuMemcpyHtoAAsyncStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemcpyHtoAAsync;
 
@@ -1906,14 +1842,14 @@ CUresult CUDAAPI cuMemcpyHtoAAsync(CUarray dstArray, size_t dstOffset, const voi
     if(sendMessage((void*) msg_p, sizeof(struct cuMemcpyHtoAAsyncStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -1922,8 +1858,7 @@ CUresult CUDAAPI cuMemcpyAtoHAsync(void *dstHost, CUarray srcArray, size_t srcOf
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemcpyAtoHAsyncStruct *msg_p = (struct cuMemcpyAtoHAsyncStruct*) malloc(sizeof(struct cuMemcpyAtoHAsyncStruct));
-
+    struct cuMemcpyAtoHAsyncStruct *msg_p = (struct cuMemcpyAtoHAsyncStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemcpyAtoHAsync;
 
@@ -1936,7 +1871,7 @@ CUresult CUDAAPI cuMemcpyAtoHAsync(void *dstHost, CUarray srcArray, size_t srcOf
     if(sendMessage((void*) msg_p, sizeof(struct cuMemcpyAtoHAsyncStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -1944,7 +1879,7 @@ CUresult CUDAAPI cuMemcpyAtoHAsync(void *dstHost, CUarray srcArray, size_t srcOf
     dstHost = msg_p->dstHost;
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -1953,8 +1888,7 @@ CUresult CUDAAPI cuMemcpy2DAsync(const CUDA_MEMCPY2D *pCopy, CUstream hStream){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemcpy2DAsyncStruct *msg_p = (struct cuMemcpy2DAsyncStruct*) malloc(sizeof(struct cuMemcpy2DAsyncStruct));
-
+    struct cuMemcpy2DAsyncStruct *msg_p = (struct cuMemcpy2DAsyncStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemcpy2DAsync;
 
@@ -1964,14 +1898,14 @@ CUresult CUDAAPI cuMemcpy2DAsync(const CUDA_MEMCPY2D *pCopy, CUstream hStream){
     if(sendMessage((void*) msg_p, sizeof(struct cuMemcpy2DAsyncStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -1980,8 +1914,7 @@ CUresult CUDAAPI cuMemcpy3DAsync(const CUDA_MEMCPY3D *pCopy, CUstream hStream){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemcpy3DAsyncStruct *msg_p = (struct cuMemcpy3DAsyncStruct*) malloc(sizeof(struct cuMemcpy3DAsyncStruct));
-
+    struct cuMemcpy3DAsyncStruct *msg_p = (struct cuMemcpy3DAsyncStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemcpy3DAsync;
 
@@ -1991,14 +1924,14 @@ CUresult CUDAAPI cuMemcpy3DAsync(const CUDA_MEMCPY3D *pCopy, CUstream hStream){
     if(sendMessage((void*) msg_p, sizeof(struct cuMemcpy3DAsyncStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -2007,8 +1940,7 @@ CUresult CUDAAPI cuMemcpy3DPeerAsync(const CUDA_MEMCPY3D_PEER *pCopy, CUstream h
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemcpy3DPeerAsyncStruct *msg_p = (struct cuMemcpy3DPeerAsyncStruct*) malloc(sizeof(struct cuMemcpy3DPeerAsyncStruct));
-
+    struct cuMemcpy3DPeerAsyncStruct *msg_p = (struct cuMemcpy3DPeerAsyncStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemcpy3DPeerAsync;
 
@@ -2018,14 +1950,14 @@ CUresult CUDAAPI cuMemcpy3DPeerAsync(const CUDA_MEMCPY3D_PEER *pCopy, CUstream h
     if(sendMessage((void*) msg_p, sizeof(struct cuMemcpy3DPeerAsyncStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -2034,8 +1966,7 @@ CUresult CUDAAPI cuMemsetD8(CUdeviceptr dstDevice, unsigned char uc, size_t N){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemsetD8Struct *msg_p = (struct cuMemsetD8Struct*) malloc(sizeof(struct cuMemsetD8Struct));
-
+    struct cuMemsetD8Struct *msg_p = (struct cuMemsetD8Struct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemsetD8;
 
@@ -2046,14 +1977,14 @@ CUresult CUDAAPI cuMemsetD8(CUdeviceptr dstDevice, unsigned char uc, size_t N){
     if(sendMessage((void*) msg_p, sizeof(struct cuMemsetD8Struct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -2062,8 +1993,7 @@ CUresult CUDAAPI cuMemsetD16(CUdeviceptr dstDevice, unsigned short us, size_t N)
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemsetD16Struct *msg_p = (struct cuMemsetD16Struct*) malloc(sizeof(struct cuMemsetD16Struct));
-
+    struct cuMemsetD16Struct *msg_p = (struct cuMemsetD16Struct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemsetD16;
 
@@ -2074,14 +2004,14 @@ CUresult CUDAAPI cuMemsetD16(CUdeviceptr dstDevice, unsigned short us, size_t N)
     if(sendMessage((void*) msg_p, sizeof(struct cuMemsetD16Struct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -2090,8 +2020,7 @@ CUresult CUDAAPI cuMemsetD32(CUdeviceptr dstDevice, unsigned int ui, size_t N){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemsetD32Struct *msg_p = (struct cuMemsetD32Struct*) malloc(sizeof(struct cuMemsetD32Struct));
-
+    struct cuMemsetD32Struct *msg_p = (struct cuMemsetD32Struct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemsetD32;
 
@@ -2102,14 +2031,14 @@ CUresult CUDAAPI cuMemsetD32(CUdeviceptr dstDevice, unsigned int ui, size_t N){
     if(sendMessage((void*) msg_p, sizeof(struct cuMemsetD32Struct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -2118,8 +2047,7 @@ CUresult CUDAAPI cuMemsetD2D8(CUdeviceptr dstDevice, size_t dstPitch, unsigned c
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemsetD2D8Struct *msg_p = (struct cuMemsetD2D8Struct*) malloc(sizeof(struct cuMemsetD2D8Struct));
-
+    struct cuMemsetD2D8Struct *msg_p = (struct cuMemsetD2D8Struct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemsetD2D8;
 
@@ -2132,14 +2060,14 @@ CUresult CUDAAPI cuMemsetD2D8(CUdeviceptr dstDevice, size_t dstPitch, unsigned c
     if(sendMessage((void*) msg_p, sizeof(struct cuMemsetD2D8Struct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -2148,8 +2076,7 @@ CUresult CUDAAPI cuMemsetD2D16(CUdeviceptr dstDevice, size_t dstPitch, unsigned 
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemsetD2D16Struct *msg_p = (struct cuMemsetD2D16Struct*) malloc(sizeof(struct cuMemsetD2D16Struct));
-
+    struct cuMemsetD2D16Struct *msg_p = (struct cuMemsetD2D16Struct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemsetD2D16;
 
@@ -2162,14 +2089,14 @@ CUresult CUDAAPI cuMemsetD2D16(CUdeviceptr dstDevice, size_t dstPitch, unsigned 
     if(sendMessage((void*) msg_p, sizeof(struct cuMemsetD2D16Struct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -2178,8 +2105,7 @@ CUresult CUDAAPI cuMemsetD2D32(CUdeviceptr dstDevice, size_t dstPitch, unsigned 
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemsetD2D32Struct *msg_p = (struct cuMemsetD2D32Struct*) malloc(sizeof(struct cuMemsetD2D32Struct));
-
+    struct cuMemsetD2D32Struct *msg_p = (struct cuMemsetD2D32Struct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemsetD2D32;
 
@@ -2192,14 +2118,14 @@ CUresult CUDAAPI cuMemsetD2D32(CUdeviceptr dstDevice, size_t dstPitch, unsigned 
     if(sendMessage((void*) msg_p, sizeof(struct cuMemsetD2D32Struct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -2208,8 +2134,7 @@ CUresult CUDAAPI cuMemsetD8Async(CUdeviceptr dstDevice, unsigned char uc, size_t
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemsetD8AsyncStruct *msg_p = (struct cuMemsetD8AsyncStruct*) malloc(sizeof(struct cuMemsetD8AsyncStruct));
-
+    struct cuMemsetD8AsyncStruct *msg_p = (struct cuMemsetD8AsyncStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemsetD8Async;
 
@@ -2221,14 +2146,14 @@ CUresult CUDAAPI cuMemsetD8Async(CUdeviceptr dstDevice, unsigned char uc, size_t
     if(sendMessage((void*) msg_p, sizeof(struct cuMemsetD8AsyncStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -2237,8 +2162,7 @@ CUresult CUDAAPI cuMemsetD16Async(CUdeviceptr dstDevice, unsigned short us, size
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemsetD16AsyncStruct *msg_p = (struct cuMemsetD16AsyncStruct*) malloc(sizeof(struct cuMemsetD16AsyncStruct));
-
+    struct cuMemsetD16AsyncStruct *msg_p = (struct cuMemsetD16AsyncStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemsetD16Async;
 
@@ -2250,14 +2174,14 @@ CUresult CUDAAPI cuMemsetD16Async(CUdeviceptr dstDevice, unsigned short us, size
     if(sendMessage((void*) msg_p, sizeof(struct cuMemsetD16AsyncStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -2266,8 +2190,7 @@ CUresult CUDAAPI cuMemsetD32Async(CUdeviceptr dstDevice, unsigned int ui, size_t
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemsetD32AsyncStruct *msg_p = (struct cuMemsetD32AsyncStruct*) malloc(sizeof(struct cuMemsetD32AsyncStruct));
-
+    struct cuMemsetD32AsyncStruct *msg_p = (struct cuMemsetD32AsyncStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemsetD32Async;
 
@@ -2279,14 +2202,14 @@ CUresult CUDAAPI cuMemsetD32Async(CUdeviceptr dstDevice, unsigned int ui, size_t
     if(sendMessage((void*) msg_p, sizeof(struct cuMemsetD32AsyncStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -2295,8 +2218,7 @@ CUresult CUDAAPI cuMemsetD2D8Async(CUdeviceptr dstDevice, size_t dstPitch, unsig
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemsetD2D8AsyncStruct *msg_p = (struct cuMemsetD2D8AsyncStruct*) malloc(sizeof(struct cuMemsetD2D8AsyncStruct));
-
+    struct cuMemsetD2D8AsyncStruct *msg_p = (struct cuMemsetD2D8AsyncStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemsetD2D8Async;
 
@@ -2310,14 +2232,14 @@ CUresult CUDAAPI cuMemsetD2D8Async(CUdeviceptr dstDevice, size_t dstPitch, unsig
     if(sendMessage((void*) msg_p, sizeof(struct cuMemsetD2D8AsyncStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -2326,8 +2248,7 @@ CUresult CUDAAPI cuMemsetD2D16Async(CUdeviceptr dstDevice, size_t dstPitch, unsi
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemsetD2D16AsyncStruct *msg_p = (struct cuMemsetD2D16AsyncStruct*) malloc(sizeof(struct cuMemsetD2D16AsyncStruct));
-
+    struct cuMemsetD2D16AsyncStruct *msg_p = (struct cuMemsetD2D16AsyncStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemsetD2D16Async;
 
@@ -2341,14 +2262,14 @@ CUresult CUDAAPI cuMemsetD2D16Async(CUdeviceptr dstDevice, size_t dstPitch, unsi
     if(sendMessage((void*) msg_p, sizeof(struct cuMemsetD2D16AsyncStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -2357,8 +2278,7 @@ CUresult CUDAAPI cuMemsetD2D32Async(CUdeviceptr dstDevice, size_t dstPitch, unsi
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuMemsetD2D32AsyncStruct *msg_p = (struct cuMemsetD2D32AsyncStruct*) malloc(sizeof(struct cuMemsetD2D32AsyncStruct));
-
+    struct cuMemsetD2D32AsyncStruct *msg_p = (struct cuMemsetD2D32AsyncStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuMemsetD2D32Async;
 
@@ -2372,14 +2292,14 @@ CUresult CUDAAPI cuMemsetD2D32Async(CUdeviceptr dstDevice, size_t dstPitch, unsi
     if(sendMessage((void*) msg_p, sizeof(struct cuMemsetD2D32AsyncStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -2388,8 +2308,7 @@ CUresult CUDAAPI cuArrayCreate(CUarray *pHandle, const CUDA_ARRAY_DESCRIPTOR *pA
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuArrayCreateStruct *msg_p = (struct cuArrayCreateStruct*) malloc(sizeof(struct cuArrayCreateStruct));
-
+    struct cuArrayCreateStruct *msg_p = (struct cuArrayCreateStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuArrayCreate;
 
@@ -2399,7 +2318,7 @@ CUresult CUDAAPI cuArrayCreate(CUarray *pHandle, const CUDA_ARRAY_DESCRIPTOR *pA
     if(sendMessage((void*) msg_p, sizeof(struct cuArrayCreateStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -2408,7 +2327,7 @@ CUresult CUDAAPI cuArrayCreate(CUarray *pHandle, const CUDA_ARRAY_DESCRIPTOR *pA
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -2417,8 +2336,7 @@ CUresult CUDAAPI cuArrayGetDescriptor(CUDA_ARRAY_DESCRIPTOR *pArrayDescriptor, C
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuArrayGetDescriptorStruct *msg_p = (struct cuArrayGetDescriptorStruct*) malloc(sizeof(struct cuArrayGetDescriptorStruct));
-
+    struct cuArrayGetDescriptorStruct *msg_p = (struct cuArrayGetDescriptorStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuArrayGetDescriptor;
 
@@ -2428,7 +2346,7 @@ CUresult CUDAAPI cuArrayGetDescriptor(CUDA_ARRAY_DESCRIPTOR *pArrayDescriptor, C
     if(sendMessage((void*) msg_p, sizeof(struct cuArrayGetDescriptorStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -2437,7 +2355,7 @@ CUresult CUDAAPI cuArrayGetDescriptor(CUDA_ARRAY_DESCRIPTOR *pArrayDescriptor, C
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -2446,8 +2364,7 @@ CUresult CUDAAPI cuArrayDestroy(CUarray hArray){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuArrayDestroyStruct *msg_p = (struct cuArrayDestroyStruct*) malloc(sizeof(struct cuArrayDestroyStruct));
-
+    struct cuArrayDestroyStruct *msg_p = (struct cuArrayDestroyStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuArrayDestroy;
 
@@ -2456,14 +2373,14 @@ CUresult CUDAAPI cuArrayDestroy(CUarray hArray){
     if(sendMessage((void*) msg_p, sizeof(struct cuArrayDestroyStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -2472,8 +2389,7 @@ CUresult CUDAAPI cuArray3DCreate(CUarray *pHandle, const CUDA_ARRAY3D_DESCRIPTOR
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuArray3DCreateStruct *msg_p = (struct cuArray3DCreateStruct*) malloc(sizeof(struct cuArray3DCreateStruct));
-
+    struct cuArray3DCreateStruct *msg_p = (struct cuArray3DCreateStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuArray3DCreate;
 
@@ -2483,7 +2399,7 @@ CUresult CUDAAPI cuArray3DCreate(CUarray *pHandle, const CUDA_ARRAY3D_DESCRIPTOR
     if(sendMessage((void*) msg_p, sizeof(struct cuArray3DCreateStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -2492,7 +2408,7 @@ CUresult CUDAAPI cuArray3DCreate(CUarray *pHandle, const CUDA_ARRAY3D_DESCRIPTOR
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -2501,8 +2417,7 @@ CUresult CUDAAPI cuArray3DGetDescriptor(CUDA_ARRAY3D_DESCRIPTOR *pArrayDescripto
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuArray3DGetDescriptorStruct *msg_p = (struct cuArray3DGetDescriptorStruct*) malloc(sizeof(struct cuArray3DGetDescriptorStruct));
-
+    struct cuArray3DGetDescriptorStruct *msg_p = (struct cuArray3DGetDescriptorStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuArray3DGetDescriptor;
 
@@ -2512,7 +2427,7 @@ CUresult CUDAAPI cuArray3DGetDescriptor(CUDA_ARRAY3D_DESCRIPTOR *pArrayDescripto
     if(sendMessage((void*) msg_p, sizeof(struct cuArray3DGetDescriptorStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -2521,7 +2436,7 @@ CUresult CUDAAPI cuArray3DGetDescriptor(CUDA_ARRAY3D_DESCRIPTOR *pArrayDescripto
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -2530,8 +2445,7 @@ CUresult CUDAAPI cuPointerGetAttribute(void *data, CUpointer_attribute attribute
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuPointerGetAttributeStruct *msg_p = (struct cuPointerGetAttributeStruct*) malloc(sizeof(struct cuPointerGetAttributeStruct));
-
+    struct cuPointerGetAttributeStruct *msg_p = (struct cuPointerGetAttributeStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuPointerGetAttribute;
 
@@ -2542,7 +2456,7 @@ CUresult CUDAAPI cuPointerGetAttribute(void *data, CUpointer_attribute attribute
     if(sendMessage((void*) msg_p, sizeof(struct cuPointerGetAttributeStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -2550,7 +2464,7 @@ CUresult CUDAAPI cuPointerGetAttribute(void *data, CUpointer_attribute attribute
     data = msg_p->data;
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -2559,8 +2473,7 @@ CUresult CUDAAPI cuStreamCreate(CUstream *phStream, unsigned int Flags){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuStreamCreateStruct *msg_p = (struct cuStreamCreateStruct*) malloc(sizeof(struct cuStreamCreateStruct));
-
+    struct cuStreamCreateStruct *msg_p = (struct cuStreamCreateStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuStreamCreate;
 
@@ -2570,7 +2483,7 @@ CUresult CUDAAPI cuStreamCreate(CUstream *phStream, unsigned int Flags){
     if(sendMessage((void*) msg_p, sizeof(struct cuStreamCreateStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -2579,7 +2492,7 @@ CUresult CUDAAPI cuStreamCreate(CUstream *phStream, unsigned int Flags){
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -2588,8 +2501,7 @@ CUresult CUDAAPI cuStreamWaitEvent(CUstream hStream, CUevent hEvent, unsigned in
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuStreamWaitEventStruct *msg_p = (struct cuStreamWaitEventStruct*) malloc(sizeof(struct cuStreamWaitEventStruct));
-
+    struct cuStreamWaitEventStruct *msg_p = (struct cuStreamWaitEventStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuStreamWaitEvent;
 
@@ -2600,14 +2512,14 @@ CUresult CUDAAPI cuStreamWaitEvent(CUstream hStream, CUevent hEvent, unsigned in
     if(sendMessage((void*) msg_p, sizeof(struct cuStreamWaitEventStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -2616,8 +2528,7 @@ CUresult CUDAAPI cuStreamQuery(CUstream hStream){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuStreamQueryStruct *msg_p = (struct cuStreamQueryStruct*) malloc(sizeof(struct cuStreamQueryStruct));
-
+    struct cuStreamQueryStruct *msg_p = (struct cuStreamQueryStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuStreamQuery;
 
@@ -2626,14 +2537,14 @@ CUresult CUDAAPI cuStreamQuery(CUstream hStream){
     if(sendMessage((void*) msg_p, sizeof(struct cuStreamQueryStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -2642,8 +2553,7 @@ CUresult CUDAAPI cuStreamSynchronize(CUstream hStream){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuStreamSynchronizeStruct *msg_p = (struct cuStreamSynchronizeStruct*) malloc(sizeof(struct cuStreamSynchronizeStruct));
-
+    struct cuStreamSynchronizeStruct *msg_p = (struct cuStreamSynchronizeStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuStreamSynchronize;
 
@@ -2652,14 +2562,14 @@ CUresult CUDAAPI cuStreamSynchronize(CUstream hStream){
     if(sendMessage((void*) msg_p, sizeof(struct cuStreamSynchronizeStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -2668,8 +2578,7 @@ CUresult CUDAAPI cuStreamDestroy(CUstream hStream){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuStreamDestroyStruct *msg_p = (struct cuStreamDestroyStruct*) malloc(sizeof(struct cuStreamDestroyStruct));
-
+    struct cuStreamDestroyStruct *msg_p = (struct cuStreamDestroyStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuStreamDestroy;
 
@@ -2678,14 +2587,14 @@ CUresult CUDAAPI cuStreamDestroy(CUstream hStream){
     if(sendMessage((void*) msg_p, sizeof(struct cuStreamDestroyStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -2694,8 +2603,7 @@ CUresult CUDAAPI cuEventCreate(CUevent *phEvent, unsigned int Flags){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuEventCreateStruct *msg_p = (struct cuEventCreateStruct*) malloc(sizeof(struct cuEventCreateStruct));
-
+    struct cuEventCreateStruct *msg_p = (struct cuEventCreateStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuEventCreate;
 
@@ -2705,7 +2613,7 @@ CUresult CUDAAPI cuEventCreate(CUevent *phEvent, unsigned int Flags){
     if(sendMessage((void*) msg_p, sizeof(struct cuEventCreateStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -2714,7 +2622,7 @@ CUresult CUDAAPI cuEventCreate(CUevent *phEvent, unsigned int Flags){
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -2723,8 +2631,7 @@ CUresult CUDAAPI cuEventRecord(CUevent hEvent, CUstream hStream){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuEventRecordStruct *msg_p = (struct cuEventRecordStruct*) malloc(sizeof(struct cuEventRecordStruct));
-
+    struct cuEventRecordStruct *msg_p = (struct cuEventRecordStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuEventRecord;
 
@@ -2734,14 +2641,14 @@ CUresult CUDAAPI cuEventRecord(CUevent hEvent, CUstream hStream){
     if(sendMessage((void*) msg_p, sizeof(struct cuEventRecordStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -2750,8 +2657,7 @@ CUresult CUDAAPI cuEventQuery(CUevent hEvent){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuEventQueryStruct *msg_p = (struct cuEventQueryStruct*) malloc(sizeof(struct cuEventQueryStruct));
-
+    struct cuEventQueryStruct *msg_p = (struct cuEventQueryStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuEventQuery;
 
@@ -2760,14 +2666,14 @@ CUresult CUDAAPI cuEventQuery(CUevent hEvent){
     if(sendMessage((void*) msg_p, sizeof(struct cuEventQueryStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -2776,8 +2682,7 @@ CUresult CUDAAPI cuEventSynchronize(CUevent hEvent){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuEventSynchronizeStruct *msg_p = (struct cuEventSynchronizeStruct*) malloc(sizeof(struct cuEventSynchronizeStruct));
-
+    struct cuEventSynchronizeStruct *msg_p = (struct cuEventSynchronizeStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuEventSynchronize;
 
@@ -2786,14 +2691,14 @@ CUresult CUDAAPI cuEventSynchronize(CUevent hEvent){
     if(sendMessage((void*) msg_p, sizeof(struct cuEventSynchronizeStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -2802,8 +2707,7 @@ CUresult CUDAAPI cuEventDestroy(CUevent hEvent){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuEventDestroyStruct *msg_p = (struct cuEventDestroyStruct*) malloc(sizeof(struct cuEventDestroyStruct));
-
+    struct cuEventDestroyStruct *msg_p = (struct cuEventDestroyStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuEventDestroy;
 
@@ -2812,14 +2716,14 @@ CUresult CUDAAPI cuEventDestroy(CUevent hEvent){
     if(sendMessage((void*) msg_p, sizeof(struct cuEventDestroyStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -2828,8 +2732,7 @@ CUresult CUDAAPI cuEventElapsedTime(float *pMilliseconds, CUevent hStart, CUeven
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuEventElapsedTimeStruct *msg_p = (struct cuEventElapsedTimeStruct*) malloc(sizeof(struct cuEventElapsedTimeStruct));
-
+    struct cuEventElapsedTimeStruct *msg_p = (struct cuEventElapsedTimeStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuEventElapsedTime;
 
@@ -2840,7 +2743,7 @@ CUresult CUDAAPI cuEventElapsedTime(float *pMilliseconds, CUevent hStart, CUeven
     if(sendMessage((void*) msg_p, sizeof(struct cuEventElapsedTimeStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -2849,7 +2752,7 @@ CUresult CUDAAPI cuEventElapsedTime(float *pMilliseconds, CUevent hStart, CUeven
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -2858,8 +2761,7 @@ CUresult CUDAAPI cuFuncGetAttribute(int *pi, CUfunction_attribute attrib, CUfunc
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuFuncGetAttributeStruct *msg_p = (struct cuFuncGetAttributeStruct*) malloc(sizeof(struct cuFuncGetAttributeStruct));
-
+    struct cuFuncGetAttributeStruct *msg_p = (struct cuFuncGetAttributeStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuFuncGetAttribute;
 
@@ -2870,7 +2772,7 @@ CUresult CUDAAPI cuFuncGetAttribute(int *pi, CUfunction_attribute attrib, CUfunc
     if(sendMessage((void*) msg_p, sizeof(struct cuFuncGetAttributeStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -2879,7 +2781,7 @@ CUresult CUDAAPI cuFuncGetAttribute(int *pi, CUfunction_attribute attrib, CUfunc
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -2888,8 +2790,7 @@ CUresult CUDAAPI cuFuncSetCacheConfig(CUfunction hfunc, CUfunc_cache config){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuFuncSetCacheConfigStruct *msg_p = (struct cuFuncSetCacheConfigStruct*) malloc(sizeof(struct cuFuncSetCacheConfigStruct));
-
+    struct cuFuncSetCacheConfigStruct *msg_p = (struct cuFuncSetCacheConfigStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuFuncSetCacheConfig;
 
@@ -2899,14 +2800,14 @@ CUresult CUDAAPI cuFuncSetCacheConfig(CUfunction hfunc, CUfunc_cache config){
     if(sendMessage((void*) msg_p, sizeof(struct cuFuncSetCacheConfigStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -2915,8 +2816,7 @@ CUresult CUDAAPI cuFuncSetBlockShape(CUfunction hfunc, int x, int y, int z){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuFuncSetBlockShapeStruct *msg_p = (struct cuFuncSetBlockShapeStruct*) malloc(sizeof(struct cuFuncSetBlockShapeStruct));
-
+    struct cuFuncSetBlockShapeStruct *msg_p = (struct cuFuncSetBlockShapeStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuFuncSetBlockShape;
 
@@ -2928,14 +2828,14 @@ CUresult CUDAAPI cuFuncSetBlockShape(CUfunction hfunc, int x, int y, int z){
     if(sendMessage((void*) msg_p, sizeof(struct cuFuncSetBlockShapeStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -2944,8 +2844,7 @@ CUresult CUDAAPI cuFuncSetSharedSize(CUfunction hfunc, unsigned int bytes){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuFuncSetSharedSizeStruct *msg_p = (struct cuFuncSetSharedSizeStruct*) malloc(sizeof(struct cuFuncSetSharedSizeStruct));
-
+    struct cuFuncSetSharedSizeStruct *msg_p = (struct cuFuncSetSharedSizeStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuFuncSetSharedSize;
 
@@ -2955,14 +2854,14 @@ CUresult CUDAAPI cuFuncSetSharedSize(CUfunction hfunc, unsigned int bytes){
     if(sendMessage((void*) msg_p, sizeof(struct cuFuncSetSharedSizeStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -2971,8 +2870,7 @@ CUresult CUDAAPI cuParamSetSize(CUfunction hfunc, unsigned int numbytes){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuParamSetSizeStruct *msg_p = (struct cuParamSetSizeStruct*) malloc(sizeof(struct cuParamSetSizeStruct));
-
+    struct cuParamSetSizeStruct *msg_p = (struct cuParamSetSizeStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuParamSetSize;
 
@@ -2982,14 +2880,14 @@ CUresult CUDAAPI cuParamSetSize(CUfunction hfunc, unsigned int numbytes){
     if(sendMessage((void*) msg_p, sizeof(struct cuParamSetSizeStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -2998,8 +2896,7 @@ CUresult CUDAAPI cuParamSeti(CUfunction hfunc, int offset, unsigned int value){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuParamSetiStruct *msg_p = (struct cuParamSetiStruct*) malloc(sizeof(struct cuParamSetiStruct));
-
+    struct cuParamSetiStruct *msg_p = (struct cuParamSetiStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuParamSeti;
 
@@ -3010,14 +2907,14 @@ CUresult CUDAAPI cuParamSeti(CUfunction hfunc, int offset, unsigned int value){
     if(sendMessage((void*) msg_p, sizeof(struct cuParamSetiStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -3026,8 +2923,7 @@ CUresult CUDAAPI cuParamSetf(CUfunction hfunc, int offset, float value){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuParamSetfStruct *msg_p = (struct cuParamSetfStruct*) malloc(sizeof(struct cuParamSetfStruct));
-
+    struct cuParamSetfStruct *msg_p = (struct cuParamSetfStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuParamSetf;
 
@@ -3038,14 +2934,14 @@ CUresult CUDAAPI cuParamSetf(CUfunction hfunc, int offset, float value){
     if(sendMessage((void*) msg_p, sizeof(struct cuParamSetfStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -3054,8 +2950,7 @@ CUresult CUDAAPI cuParamSetv(CUfunction hfunc, int offset, void *ptr, unsigned i
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuParamSetvStruct *msg_p = (struct cuParamSetvStruct*) malloc(sizeof(struct cuParamSetvStruct));
-
+    struct cuParamSetvStruct *msg_p = (struct cuParamSetvStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuParamSetv;
 
@@ -3067,7 +2962,7 @@ CUresult CUDAAPI cuParamSetv(CUfunction hfunc, int offset, void *ptr, unsigned i
     if(sendMessage((void*) msg_p, sizeof(struct cuParamSetvStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -3075,7 +2970,7 @@ CUresult CUDAAPI cuParamSetv(CUfunction hfunc, int offset, void *ptr, unsigned i
     ptr = msg_p->ptr;
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -3084,8 +2979,7 @@ CUresult CUDAAPI cuLaunch(CUfunction f){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuLaunchStruct *msg_p = (struct cuLaunchStruct*) malloc(sizeof(struct cuLaunchStruct));
-
+    struct cuLaunchStruct *msg_p = (struct cuLaunchStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuLaunch;
 
@@ -3094,14 +2988,14 @@ CUresult CUDAAPI cuLaunch(CUfunction f){
     if(sendMessage((void*) msg_p, sizeof(struct cuLaunchStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -3110,8 +3004,7 @@ CUresult CUDAAPI cuLaunchGrid(CUfunction f, int grid_width, int grid_height){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuLaunchGridStruct *msg_p = (struct cuLaunchGridStruct*) malloc(sizeof(struct cuLaunchGridStruct));
-
+    struct cuLaunchGridStruct *msg_p = (struct cuLaunchGridStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuLaunchGrid;
 
@@ -3122,14 +3015,14 @@ CUresult CUDAAPI cuLaunchGrid(CUfunction f, int grid_width, int grid_height){
     if(sendMessage((void*) msg_p, sizeof(struct cuLaunchGridStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -3138,8 +3031,7 @@ CUresult CUDAAPI cuLaunchGridAsync(CUfunction f, int grid_width, int grid_height
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuLaunchGridAsyncStruct *msg_p = (struct cuLaunchGridAsyncStruct*) malloc(sizeof(struct cuLaunchGridAsyncStruct));
-
+    struct cuLaunchGridAsyncStruct *msg_p = (struct cuLaunchGridAsyncStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuLaunchGridAsync;
 
@@ -3151,14 +3043,14 @@ CUresult CUDAAPI cuLaunchGridAsync(CUfunction f, int grid_width, int grid_height
     if(sendMessage((void*) msg_p, sizeof(struct cuLaunchGridAsyncStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -3167,8 +3059,7 @@ CUresult CUDAAPI cuParamSetTexRef(CUfunction hfunc, int texunit, CUtexref hTexRe
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuParamSetTexRefStruct *msg_p = (struct cuParamSetTexRefStruct*) malloc(sizeof(struct cuParamSetTexRefStruct));
-
+    struct cuParamSetTexRefStruct *msg_p = (struct cuParamSetTexRefStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuParamSetTexRef;
 
@@ -3179,14 +3070,14 @@ CUresult CUDAAPI cuParamSetTexRef(CUfunction hfunc, int texunit, CUtexref hTexRe
     if(sendMessage((void*) msg_p, sizeof(struct cuParamSetTexRefStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -3195,8 +3086,7 @@ CUresult CUDAAPI cuTexRefSetArray(CUtexref hTexRef, CUarray hArray, unsigned int
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuTexRefSetArrayStruct *msg_p = (struct cuTexRefSetArrayStruct*) malloc(sizeof(struct cuTexRefSetArrayStruct));
-
+    struct cuTexRefSetArrayStruct *msg_p = (struct cuTexRefSetArrayStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuTexRefSetArray;
 
@@ -3207,14 +3097,14 @@ CUresult CUDAAPI cuTexRefSetArray(CUtexref hTexRef, CUarray hArray, unsigned int
     if(sendMessage((void*) msg_p, sizeof(struct cuTexRefSetArrayStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -3223,8 +3113,7 @@ CUresult CUDAAPI cuTexRefSetAddress(size_t *ByteOffset, CUtexref hTexRef, CUdevi
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuTexRefSetAddressStruct *msg_p = (struct cuTexRefSetAddressStruct*) malloc(sizeof(struct cuTexRefSetAddressStruct));
-
+    struct cuTexRefSetAddressStruct *msg_p = (struct cuTexRefSetAddressStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuTexRefSetAddress;
 
@@ -3236,7 +3125,7 @@ CUresult CUDAAPI cuTexRefSetAddress(size_t *ByteOffset, CUtexref hTexRef, CUdevi
     if(sendMessage((void*) msg_p, sizeof(struct cuTexRefSetAddressStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -3245,7 +3134,7 @@ CUresult CUDAAPI cuTexRefSetAddress(size_t *ByteOffset, CUtexref hTexRef, CUdevi
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -3254,8 +3143,7 @@ CUresult CUDAAPI cuTexRefSetAddress2D(CUtexref hTexRef, const CUDA_ARRAY_DESCRIP
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuTexRefSetAddress2DStruct *msg_p = (struct cuTexRefSetAddress2DStruct*) malloc(sizeof(struct cuTexRefSetAddress2DStruct));
-
+    struct cuTexRefSetAddress2DStruct *msg_p = (struct cuTexRefSetAddress2DStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuTexRefSetAddress2D;
 
@@ -3267,14 +3155,14 @@ CUresult CUDAAPI cuTexRefSetAddress2D(CUtexref hTexRef, const CUDA_ARRAY_DESCRIP
     if(sendMessage((void*) msg_p, sizeof(struct cuTexRefSetAddress2DStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -3283,8 +3171,7 @@ CUresult CUDAAPI cuTexRefSetFormat(CUtexref hTexRef, CUarray_format fmt, int Num
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuTexRefSetFormatStruct *msg_p = (struct cuTexRefSetFormatStruct*) malloc(sizeof(struct cuTexRefSetFormatStruct));
-
+    struct cuTexRefSetFormatStruct *msg_p = (struct cuTexRefSetFormatStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuTexRefSetFormat;
 
@@ -3295,14 +3182,14 @@ CUresult CUDAAPI cuTexRefSetFormat(CUtexref hTexRef, CUarray_format fmt, int Num
     if(sendMessage((void*) msg_p, sizeof(struct cuTexRefSetFormatStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -3311,8 +3198,7 @@ CUresult CUDAAPI cuTexRefSetAddressMode(CUtexref hTexRef, int dim, CUaddress_mod
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuTexRefSetAddressModeStruct *msg_p = (struct cuTexRefSetAddressModeStruct*) malloc(sizeof(struct cuTexRefSetAddressModeStruct));
-
+    struct cuTexRefSetAddressModeStruct *msg_p = (struct cuTexRefSetAddressModeStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuTexRefSetAddressMode;
 
@@ -3323,14 +3209,14 @@ CUresult CUDAAPI cuTexRefSetAddressMode(CUtexref hTexRef, int dim, CUaddress_mod
     if(sendMessage((void*) msg_p, sizeof(struct cuTexRefSetAddressModeStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -3339,8 +3225,7 @@ CUresult CUDAAPI cuTexRefSetFilterMode(CUtexref hTexRef, CUfilter_mode fm){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuTexRefSetFilterModeStruct *msg_p = (struct cuTexRefSetFilterModeStruct*) malloc(sizeof(struct cuTexRefSetFilterModeStruct));
-
+    struct cuTexRefSetFilterModeStruct *msg_p = (struct cuTexRefSetFilterModeStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuTexRefSetFilterMode;
 
@@ -3350,14 +3235,14 @@ CUresult CUDAAPI cuTexRefSetFilterMode(CUtexref hTexRef, CUfilter_mode fm){
     if(sendMessage((void*) msg_p, sizeof(struct cuTexRefSetFilterModeStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -3366,8 +3251,7 @@ CUresult CUDAAPI cuTexRefSetFlags(CUtexref hTexRef, unsigned int Flags){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuTexRefSetFlagsStruct *msg_p = (struct cuTexRefSetFlagsStruct*) malloc(sizeof(struct cuTexRefSetFlagsStruct));
-
+    struct cuTexRefSetFlagsStruct *msg_p = (struct cuTexRefSetFlagsStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuTexRefSetFlags;
 
@@ -3377,14 +3261,14 @@ CUresult CUDAAPI cuTexRefSetFlags(CUtexref hTexRef, unsigned int Flags){
     if(sendMessage((void*) msg_p, sizeof(struct cuTexRefSetFlagsStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -3393,8 +3277,7 @@ CUresult CUDAAPI cuTexRefGetAddress(CUdeviceptr *pdptr, CUtexref hTexRef){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuTexRefGetAddressStruct *msg_p = (struct cuTexRefGetAddressStruct*) malloc(sizeof(struct cuTexRefGetAddressStruct));
-
+    struct cuTexRefGetAddressStruct *msg_p = (struct cuTexRefGetAddressStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuTexRefGetAddress;
 
@@ -3404,7 +3287,7 @@ CUresult CUDAAPI cuTexRefGetAddress(CUdeviceptr *pdptr, CUtexref hTexRef){
     if(sendMessage((void*) msg_p, sizeof(struct cuTexRefGetAddressStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -3413,7 +3296,7 @@ CUresult CUDAAPI cuTexRefGetAddress(CUdeviceptr *pdptr, CUtexref hTexRef){
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -3422,8 +3305,7 @@ CUresult CUDAAPI cuTexRefGetArray(CUarray *phArray, CUtexref hTexRef){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuTexRefGetArrayStruct *msg_p = (struct cuTexRefGetArrayStruct*) malloc(sizeof(struct cuTexRefGetArrayStruct));
-
+    struct cuTexRefGetArrayStruct *msg_p = (struct cuTexRefGetArrayStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuTexRefGetArray;
 
@@ -3433,7 +3315,7 @@ CUresult CUDAAPI cuTexRefGetArray(CUarray *phArray, CUtexref hTexRef){
     if(sendMessage((void*) msg_p, sizeof(struct cuTexRefGetArrayStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -3442,7 +3324,7 @@ CUresult CUDAAPI cuTexRefGetArray(CUarray *phArray, CUtexref hTexRef){
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -3451,8 +3333,7 @@ CUresult CUDAAPI cuTexRefGetAddressMode(CUaddress_mode *pam, CUtexref hTexRef, i
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuTexRefGetAddressModeStruct *msg_p = (struct cuTexRefGetAddressModeStruct*) malloc(sizeof(struct cuTexRefGetAddressModeStruct));
-
+    struct cuTexRefGetAddressModeStruct *msg_p = (struct cuTexRefGetAddressModeStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuTexRefGetAddressMode;
 
@@ -3463,7 +3344,7 @@ CUresult CUDAAPI cuTexRefGetAddressMode(CUaddress_mode *pam, CUtexref hTexRef, i
     if(sendMessage((void*) msg_p, sizeof(struct cuTexRefGetAddressModeStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -3472,7 +3353,7 @@ CUresult CUDAAPI cuTexRefGetAddressMode(CUaddress_mode *pam, CUtexref hTexRef, i
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -3481,8 +3362,7 @@ CUresult CUDAAPI cuTexRefGetFilterMode(CUfilter_mode *pfm, CUtexref hTexRef){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuTexRefGetFilterModeStruct *msg_p = (struct cuTexRefGetFilterModeStruct*) malloc(sizeof(struct cuTexRefGetFilterModeStruct));
-
+    struct cuTexRefGetFilterModeStruct *msg_p = (struct cuTexRefGetFilterModeStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuTexRefGetFilterMode;
 
@@ -3492,7 +3372,7 @@ CUresult CUDAAPI cuTexRefGetFilterMode(CUfilter_mode *pfm, CUtexref hTexRef){
     if(sendMessage((void*) msg_p, sizeof(struct cuTexRefGetFilterModeStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -3501,7 +3381,7 @@ CUresult CUDAAPI cuTexRefGetFilterMode(CUfilter_mode *pfm, CUtexref hTexRef){
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -3510,8 +3390,7 @@ CUresult CUDAAPI cuTexRefGetFormat(CUarray_format *pFormat, int *pNumChannels, C
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuTexRefGetFormatStruct *msg_p = (struct cuTexRefGetFormatStruct*) malloc(sizeof(struct cuTexRefGetFormatStruct));
-
+    struct cuTexRefGetFormatStruct *msg_p = (struct cuTexRefGetFormatStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuTexRefGetFormat;
 
@@ -3522,7 +3401,7 @@ CUresult CUDAAPI cuTexRefGetFormat(CUarray_format *pFormat, int *pNumChannels, C
     if(sendMessage((void*) msg_p, sizeof(struct cuTexRefGetFormatStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -3533,7 +3412,7 @@ CUresult CUDAAPI cuTexRefGetFormat(CUarray_format *pFormat, int *pNumChannels, C
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -3542,8 +3421,7 @@ CUresult CUDAAPI cuTexRefGetFlags(unsigned int *pFlags, CUtexref hTexRef){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuTexRefGetFlagsStruct *msg_p = (struct cuTexRefGetFlagsStruct*) malloc(sizeof(struct cuTexRefGetFlagsStruct));
-
+    struct cuTexRefGetFlagsStruct *msg_p = (struct cuTexRefGetFlagsStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuTexRefGetFlags;
 
@@ -3553,7 +3431,7 @@ CUresult CUDAAPI cuTexRefGetFlags(unsigned int *pFlags, CUtexref hTexRef){
     if(sendMessage((void*) msg_p, sizeof(struct cuTexRefGetFlagsStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -3562,7 +3440,7 @@ CUresult CUDAAPI cuTexRefGetFlags(unsigned int *pFlags, CUtexref hTexRef){
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -3571,8 +3449,7 @@ CUresult CUDAAPI cuTexRefCreate(CUtexref *pTexRef){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuTexRefCreateStruct *msg_p = (struct cuTexRefCreateStruct*) malloc(sizeof(struct cuTexRefCreateStruct));
-
+    struct cuTexRefCreateStruct *msg_p = (struct cuTexRefCreateStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuTexRefCreate;
 
@@ -3581,7 +3458,7 @@ CUresult CUDAAPI cuTexRefCreate(CUtexref *pTexRef){
     if(sendMessage((void*) msg_p, sizeof(struct cuTexRefCreateStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -3590,7 +3467,7 @@ CUresult CUDAAPI cuTexRefCreate(CUtexref *pTexRef){
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -3599,8 +3476,7 @@ CUresult CUDAAPI cuTexRefDestroy(CUtexref hTexRef){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuTexRefDestroyStruct *msg_p = (struct cuTexRefDestroyStruct*) malloc(sizeof(struct cuTexRefDestroyStruct));
-
+    struct cuTexRefDestroyStruct *msg_p = (struct cuTexRefDestroyStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuTexRefDestroy;
 
@@ -3609,14 +3485,14 @@ CUresult CUDAAPI cuTexRefDestroy(CUtexref hTexRef){
     if(sendMessage((void*) msg_p, sizeof(struct cuTexRefDestroyStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -3625,8 +3501,7 @@ CUresult CUDAAPI cuSurfRefSetArray(CUsurfref hSurfRef, CUarray hArray, unsigned 
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuSurfRefSetArrayStruct *msg_p = (struct cuSurfRefSetArrayStruct*) malloc(sizeof(struct cuSurfRefSetArrayStruct));
-
+    struct cuSurfRefSetArrayStruct *msg_p = (struct cuSurfRefSetArrayStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuSurfRefSetArray;
 
@@ -3637,14 +3512,14 @@ CUresult CUDAAPI cuSurfRefSetArray(CUsurfref hSurfRef, CUarray hArray, unsigned 
     if(sendMessage((void*) msg_p, sizeof(struct cuSurfRefSetArrayStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -3653,8 +3528,7 @@ CUresult CUDAAPI cuSurfRefGetArray(CUarray *phArray, CUsurfref hSurfRef){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuSurfRefGetArrayStruct *msg_p = (struct cuSurfRefGetArrayStruct*) malloc(sizeof(struct cuSurfRefGetArrayStruct));
-
+    struct cuSurfRefGetArrayStruct *msg_p = (struct cuSurfRefGetArrayStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuSurfRefGetArray;
 
@@ -3664,7 +3538,7 @@ CUresult CUDAAPI cuSurfRefGetArray(CUarray *phArray, CUsurfref hSurfRef){
     if(sendMessage((void*) msg_p, sizeof(struct cuSurfRefGetArrayStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -3673,7 +3547,7 @@ CUresult CUDAAPI cuSurfRefGetArray(CUarray *phArray, CUsurfref hSurfRef){
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -3682,8 +3556,7 @@ CUresult CUDAAPI cuDeviceCanAccessPeer(int *canAccessPeer, CUdevice dev, CUdevic
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuDeviceCanAccessPeerStruct *msg_p = (struct cuDeviceCanAccessPeerStruct*) malloc(sizeof(struct cuDeviceCanAccessPeerStruct));
-
+    struct cuDeviceCanAccessPeerStruct *msg_p = (struct cuDeviceCanAccessPeerStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuDeviceCanAccessPeer;
 
@@ -3694,7 +3567,7 @@ CUresult CUDAAPI cuDeviceCanAccessPeer(int *canAccessPeer, CUdevice dev, CUdevic
     if(sendMessage((void*) msg_p, sizeof(struct cuDeviceCanAccessPeerStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -3703,7 +3576,7 @@ CUresult CUDAAPI cuDeviceCanAccessPeer(int *canAccessPeer, CUdevice dev, CUdevic
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -3712,8 +3585,7 @@ CUresult CUDAAPI cuCtxEnablePeerAccess(CUcontext peerContext, unsigned int Flags
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuCtxEnablePeerAccessStruct *msg_p = (struct cuCtxEnablePeerAccessStruct*) malloc(sizeof(struct cuCtxEnablePeerAccessStruct));
-
+    struct cuCtxEnablePeerAccessStruct *msg_p = (struct cuCtxEnablePeerAccessStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuCtxEnablePeerAccess;
 
@@ -3723,14 +3595,14 @@ CUresult CUDAAPI cuCtxEnablePeerAccess(CUcontext peerContext, unsigned int Flags
     if(sendMessage((void*) msg_p, sizeof(struct cuCtxEnablePeerAccessStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -3739,8 +3611,7 @@ CUresult CUDAAPI cuCtxDisablePeerAccess(CUcontext peerContext){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuCtxDisablePeerAccessStruct *msg_p = (struct cuCtxDisablePeerAccessStruct*) malloc(sizeof(struct cuCtxDisablePeerAccessStruct));
-
+    struct cuCtxDisablePeerAccessStruct *msg_p = (struct cuCtxDisablePeerAccessStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuCtxDisablePeerAccess;
 
@@ -3749,14 +3620,14 @@ CUresult CUDAAPI cuCtxDisablePeerAccess(CUcontext peerContext){
     if(sendMessage((void*) msg_p, sizeof(struct cuCtxDisablePeerAccessStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -3765,8 +3636,7 @@ CUresult CUDAAPI cuGraphicsUnregisterResource(CUgraphicsResource resource){
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuGraphicsUnregisterResourceStruct *msg_p = (struct cuGraphicsUnregisterResourceStruct*) malloc(sizeof(struct cuGraphicsUnregisterResourceStruct));
-
+    struct cuGraphicsUnregisterResourceStruct *msg_p = (struct cuGraphicsUnregisterResourceStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuGraphicsUnregisterResource;
 
@@ -3775,14 +3645,14 @@ CUresult CUDAAPI cuGraphicsUnregisterResource(CUgraphicsResource resource){
     if(sendMessage((void*) msg_p, sizeof(struct cuGraphicsUnregisterResourceStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -3791,8 +3661,7 @@ CUresult CUDAAPI cuGraphicsSubResourceGetMappedArray(CUarray *pArray, CUgraphics
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuGraphicsSubResourceGetMappedArrayStruct *msg_p = (struct cuGraphicsSubResourceGetMappedArrayStruct*) malloc(sizeof(struct cuGraphicsSubResourceGetMappedArrayStruct));
-
+    struct cuGraphicsSubResourceGetMappedArrayStruct *msg_p = (struct cuGraphicsSubResourceGetMappedArrayStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuGraphicsSubResourceGetMappedArray;
 
@@ -3804,7 +3673,7 @@ CUresult CUDAAPI cuGraphicsSubResourceGetMappedArray(CUarray *pArray, CUgraphics
     if(sendMessage((void*) msg_p, sizeof(struct cuGraphicsSubResourceGetMappedArrayStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -3813,7 +3682,7 @@ CUresult CUDAAPI cuGraphicsSubResourceGetMappedArray(CUarray *pArray, CUgraphics
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -3822,8 +3691,7 @@ CUresult CUDAAPI cuGraphicsResourceGetMappedPointer(CUdeviceptr *pDevPtr, size_t
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuGraphicsResourceGetMappedPointerStruct *msg_p = (struct cuGraphicsResourceGetMappedPointerStruct*) malloc(sizeof(struct cuGraphicsResourceGetMappedPointerStruct));
-
+    struct cuGraphicsResourceGetMappedPointerStruct *msg_p = (struct cuGraphicsResourceGetMappedPointerStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuGraphicsResourceGetMappedPointer;
 
@@ -3834,7 +3702,7 @@ CUresult CUDAAPI cuGraphicsResourceGetMappedPointer(CUdeviceptr *pDevPtr, size_t
     if(sendMessage((void*) msg_p, sizeof(struct cuGraphicsResourceGetMappedPointerStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -3845,7 +3713,7 @@ CUresult CUDAAPI cuGraphicsResourceGetMappedPointer(CUdeviceptr *pDevPtr, size_t
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -3854,8 +3722,7 @@ CUresult CUDAAPI cuGraphicsResourceSetMapFlags(CUgraphicsResource resource, unsi
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuGraphicsResourceSetMapFlagsStruct *msg_p = (struct cuGraphicsResourceSetMapFlagsStruct*) malloc(sizeof(struct cuGraphicsResourceSetMapFlagsStruct));
-
+    struct cuGraphicsResourceSetMapFlagsStruct *msg_p = (struct cuGraphicsResourceSetMapFlagsStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuGraphicsResourceSetMapFlags;
 
@@ -3865,14 +3732,14 @@ CUresult CUDAAPI cuGraphicsResourceSetMapFlags(CUgraphicsResource resource, unsi
     if(sendMessage((void*) msg_p, sizeof(struct cuGraphicsResourceSetMapFlagsStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -3881,8 +3748,7 @@ CUresult CUDAAPI cuGraphicsMapResources(unsigned int count, CUgraphicsResource *
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuGraphicsMapResourcesStruct *msg_p = (struct cuGraphicsMapResourcesStruct*) malloc(sizeof(struct cuGraphicsMapResourcesStruct));
-
+    struct cuGraphicsMapResourcesStruct *msg_p = (struct cuGraphicsMapResourcesStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuGraphicsMapResources;
 
@@ -3893,7 +3759,7 @@ CUresult CUDAAPI cuGraphicsMapResources(unsigned int count, CUgraphicsResource *
     if(sendMessage((void*) msg_p, sizeof(struct cuGraphicsMapResourcesStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -3902,7 +3768,7 @@ CUresult CUDAAPI cuGraphicsMapResources(unsigned int count, CUgraphicsResource *
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -3911,8 +3777,7 @@ CUresult CUDAAPI cuGraphicsUnmapResources(unsigned int count, CUgraphicsResource
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuGraphicsUnmapResourcesStruct *msg_p = (struct cuGraphicsUnmapResourcesStruct*) malloc(sizeof(struct cuGraphicsUnmapResourcesStruct));
-
+    struct cuGraphicsUnmapResourcesStruct *msg_p = (struct cuGraphicsUnmapResourcesStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuGraphicsUnmapResources;
 
@@ -3923,7 +3788,7 @@ CUresult CUDAAPI cuGraphicsUnmapResources(unsigned int count, CUgraphicsResource
     if(sendMessage((void*) msg_p, sizeof(struct cuGraphicsUnmapResourcesStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -3932,7 +3797,7 @@ CUresult CUDAAPI cuGraphicsUnmapResources(unsigned int count, CUgraphicsResource
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -3941,8 +3806,7 @@ CUresult CUDAAPI cuGetExportTable(const void **ppExportTable, const CUuuid *pExp
 
     CUresult respError = CUDA_ERROR_UNKNOWN;
 
-    struct cuGetExportTableStruct *msg_p = (struct cuGetExportTableStruct*) malloc(sizeof(struct cuGetExportTableStruct));
-
+    struct cuGetExportTableStruct *msg_p = (struct cuGetExportTableStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facuGetExportTable;
 
@@ -3952,14 +3816,14 @@ CUresult CUDAAPI cuGetExportTable(const void **ppExportTable, const CUuuid *pExp
     if(sendMessage((void*) msg_p, sizeof(struct cuGetExportTableStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.drvRespErr;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -3969,8 +3833,7 @@ __host__ cudaError_t CUDARTAPI cudaDeviceReset(void){
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaDeviceResetStruct *msg_p = (struct cudaDeviceResetStruct*) malloc(sizeof(struct cudaDeviceResetStruct));
-
+    struct cudaDeviceResetStruct *msg_p = (struct cudaDeviceResetStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaDeviceReset;
 
@@ -3978,14 +3841,11 @@ __host__ cudaError_t CUDARTAPI cudaDeviceReset(void){
     if(sendMessage((void*) msg_p, sizeof(struct cudaDeviceResetStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
-
+    
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.respError;
-
-    free((void*) msg_p);
 
     return respError;
 }
@@ -3994,8 +3854,7 @@ __host__ cudaError_t CUDARTAPI cudaDeviceSynchronize(void){
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaDeviceSynchronizeStruct *msg_p = (struct cudaDeviceSynchronizeStruct*) malloc(sizeof(struct cudaDeviceSynchronizeStruct));
-
+    struct cudaDeviceSynchronizeStruct *msg_p = (struct cudaDeviceSynchronizeStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaDeviceSynchronize;
 
@@ -4003,14 +3862,12 @@ __host__ cudaError_t CUDARTAPI cudaDeviceSynchronize(void){
     if(sendMessage((void*) msg_p, sizeof(struct cudaDeviceSynchronizeStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.respError;
-
-    free((void*) msg_p);
 
     return respError;
 }
@@ -4019,8 +3876,7 @@ __host__ cudaError_t CUDARTAPI cudaDeviceSetLimit(enum cudaLimit limit, size_t v
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaDeviceSetLimitStruct *msg_p = (struct cudaDeviceSetLimitStruct*) malloc(sizeof(struct cudaDeviceSetLimitStruct));
-
+    struct cudaDeviceSetLimitStruct *msg_p = (struct cudaDeviceSetLimitStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaDeviceSetLimit;
 
@@ -4030,14 +3886,14 @@ __host__ cudaError_t CUDARTAPI cudaDeviceSetLimit(enum cudaLimit limit, size_t v
     if(sendMessage((void*) msg_p, sizeof(struct cudaDeviceSetLimitStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -4046,8 +3902,7 @@ __host__ cudaError_t CUDARTAPI cudaDeviceGetLimit(size_t *pValue, enum cudaLimit
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaDeviceGetLimitStruct *msg_p = (struct cudaDeviceGetLimitStruct*) malloc(sizeof(struct cudaDeviceGetLimitStruct));
-
+    struct cudaDeviceGetLimitStruct *msg_p = (struct cudaDeviceGetLimitStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaDeviceGetLimit;
 
@@ -4057,7 +3912,7 @@ __host__ cudaError_t CUDARTAPI cudaDeviceGetLimit(size_t *pValue, enum cudaLimit
     if(sendMessage((void*) msg_p, sizeof(struct cudaDeviceGetLimitStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -4066,7 +3921,7 @@ __host__ cudaError_t CUDARTAPI cudaDeviceGetLimit(size_t *pValue, enum cudaLimit
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -4075,8 +3930,7 @@ __host__ cudaError_t CUDARTAPI cudaDeviceGetCacheConfig(enum cudaFuncCache *pCac
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaDeviceGetCacheConfigStruct *msg_p = (struct cudaDeviceGetCacheConfigStruct*) malloc(sizeof(struct cudaDeviceGetCacheConfigStruct));
-
+    struct cudaDeviceGetCacheConfigStruct *msg_p = (struct cudaDeviceGetCacheConfigStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaDeviceGetCacheConfig;
 
@@ -4085,7 +3939,7 @@ __host__ cudaError_t CUDARTAPI cudaDeviceGetCacheConfig(enum cudaFuncCache *pCac
     if(sendMessage((void*) msg_p, sizeof(struct cudaDeviceGetCacheConfigStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -4094,7 +3948,7 @@ __host__ cudaError_t CUDARTAPI cudaDeviceGetCacheConfig(enum cudaFuncCache *pCac
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -4103,8 +3957,7 @@ __host__ cudaError_t CUDARTAPI cudaDeviceSetCacheConfig(enum cudaFuncCache cache
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaDeviceSetCacheConfigStruct *msg_p = (struct cudaDeviceSetCacheConfigStruct*) malloc(sizeof(struct cudaDeviceSetCacheConfigStruct));
-
+    struct cudaDeviceSetCacheConfigStruct *msg_p = (struct cudaDeviceSetCacheConfigStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaDeviceSetCacheConfig;
 
@@ -4113,14 +3966,14 @@ __host__ cudaError_t CUDARTAPI cudaDeviceSetCacheConfig(enum cudaFuncCache cache
     if(sendMessage((void*) msg_p, sizeof(struct cudaDeviceSetCacheConfigStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -4129,8 +3982,7 @@ __host__ cudaError_t CUDARTAPI cudaThreadExit(void){
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaThreadExitStruct *msg_p = (struct cudaThreadExitStruct*) malloc(sizeof(struct cudaThreadExitStruct));
-
+    struct cudaThreadExitStruct *msg_p = (struct cudaThreadExitStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaThreadExit;
 
@@ -4138,14 +3990,14 @@ __host__ cudaError_t CUDARTAPI cudaThreadExit(void){
     if(sendMessage((void*) msg_p, sizeof(struct cudaThreadExitStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -4154,8 +4006,7 @@ __host__ cudaError_t CUDARTAPI cudaThreadSynchronize(void){
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaThreadSynchronizeStruct *msg_p = (struct cudaThreadSynchronizeStruct*) malloc(sizeof(struct cudaThreadSynchronizeStruct));
-
+    struct cudaThreadSynchronizeStruct *msg_p = (struct cudaThreadSynchronizeStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaThreadSynchronize;
 
@@ -4163,14 +4014,14 @@ __host__ cudaError_t CUDARTAPI cudaThreadSynchronize(void){
     if(sendMessage((void*) msg_p, sizeof(struct cudaThreadSynchronizeStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -4179,8 +4030,7 @@ __host__ cudaError_t CUDARTAPI cudaThreadSetLimit(enum cudaLimit limit, size_t v
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaThreadSetLimitStruct *msg_p = (struct cudaThreadSetLimitStruct*) malloc(sizeof(struct cudaThreadSetLimitStruct));
-
+    struct cudaThreadSetLimitStruct *msg_p = (struct cudaThreadSetLimitStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaThreadSetLimit;
 
@@ -4190,14 +4040,14 @@ __host__ cudaError_t CUDARTAPI cudaThreadSetLimit(enum cudaLimit limit, size_t v
     if(sendMessage((void*) msg_p, sizeof(struct cudaThreadSetLimitStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -4206,8 +4056,7 @@ __host__ cudaError_t CUDARTAPI cudaThreadGetLimit(size_t *pValue, enum cudaLimit
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaThreadGetLimitStruct *msg_p = (struct cudaThreadGetLimitStruct*) malloc(sizeof(struct cudaThreadGetLimitStruct));
-
+    struct cudaThreadGetLimitStruct *msg_p = (struct cudaThreadGetLimitStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaThreadGetLimit;
 
@@ -4217,7 +4066,7 @@ __host__ cudaError_t CUDARTAPI cudaThreadGetLimit(size_t *pValue, enum cudaLimit
     if(sendMessage((void*) msg_p, sizeof(struct cudaThreadGetLimitStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -4226,7 +4075,7 @@ __host__ cudaError_t CUDARTAPI cudaThreadGetLimit(size_t *pValue, enum cudaLimit
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -4235,8 +4084,7 @@ __host__ cudaError_t CUDARTAPI cudaThreadGetCacheConfig(enum cudaFuncCache *pCac
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaThreadGetCacheConfigStruct *msg_p = (struct cudaThreadGetCacheConfigStruct*) malloc(sizeof(struct cudaThreadGetCacheConfigStruct));
-
+    struct cudaThreadGetCacheConfigStruct *msg_p = (struct cudaThreadGetCacheConfigStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaThreadGetCacheConfig;
 
@@ -4245,7 +4093,7 @@ __host__ cudaError_t CUDARTAPI cudaThreadGetCacheConfig(enum cudaFuncCache *pCac
     if(sendMessage((void*) msg_p, sizeof(struct cudaThreadGetCacheConfigStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -4254,7 +4102,7 @@ __host__ cudaError_t CUDARTAPI cudaThreadGetCacheConfig(enum cudaFuncCache *pCac
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -4263,8 +4111,7 @@ __host__ cudaError_t CUDARTAPI cudaThreadSetCacheConfig(enum cudaFuncCache cache
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaThreadSetCacheConfigStruct *msg_p = (struct cudaThreadSetCacheConfigStruct*) malloc(sizeof(struct cudaThreadSetCacheConfigStruct));
-
+    struct cudaThreadSetCacheConfigStruct *msg_p = (struct cudaThreadSetCacheConfigStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaThreadSetCacheConfig;
 
@@ -4273,14 +4120,14 @@ __host__ cudaError_t CUDARTAPI cudaThreadSetCacheConfig(enum cudaFuncCache cache
     if(sendMessage((void*) msg_p, sizeof(struct cudaThreadSetCacheConfigStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -4289,8 +4136,7 @@ __host__ cudaError_t CUDARTAPI cudaGetLastError(void){
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaGetLastErrorStruct *msg_p = (struct cudaGetLastErrorStruct*) malloc(sizeof(struct cudaGetLastErrorStruct));
-
+    struct cudaGetLastErrorStruct *msg_p = (struct cudaGetLastErrorStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaGetLastError;
 
@@ -4298,14 +4144,14 @@ __host__ cudaError_t CUDARTAPI cudaGetLastError(void){
     if(sendMessage((void*) msg_p, sizeof(struct cudaGetLastErrorStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -4314,8 +4160,7 @@ __host__ cudaError_t CUDARTAPI cudaPeekAtLastError(void){
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaPeekAtLastErrorStruct *msg_p = (struct cudaPeekAtLastErrorStruct*) malloc(sizeof(struct cudaPeekAtLastErrorStruct));
-
+    struct cudaPeekAtLastErrorStruct *msg_p = (struct cudaPeekAtLastErrorStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaPeekAtLastError;
 
@@ -4323,14 +4168,14 @@ __host__ cudaError_t CUDARTAPI cudaPeekAtLastError(void){
     if(sendMessage((void*) msg_p, sizeof(struct cudaPeekAtLastErrorStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -4339,8 +4184,7 @@ __host__ cudaError_t CUDARTAPI cudaGetDeviceCount(int *count){
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaGetDeviceCountStruct *msg_p = (struct cudaGetDeviceCountStruct*) malloc(sizeof(struct cudaGetDeviceCountStruct));
-
+    struct cudaGetDeviceCountStruct *msg_p = (struct cudaGetDeviceCountStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaGetDeviceCount;
 
@@ -4349,7 +4193,7 @@ __host__ cudaError_t CUDARTAPI cudaGetDeviceCount(int *count){
     if(sendMessage((void*) msg_p, sizeof(struct cudaGetDeviceCountStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -4358,7 +4202,7 @@ __host__ cudaError_t CUDARTAPI cudaGetDeviceCount(int *count){
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -4367,8 +4211,7 @@ __host__ cudaError_t CUDARTAPI cudaGetDeviceProperties(struct cudaDeviceProp *pr
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaGetDevicePropertiesStruct *msg_p = (struct cudaGetDevicePropertiesStruct*) malloc(sizeof(struct cudaGetDevicePropertiesStruct));
-
+    struct cudaGetDevicePropertiesStruct *msg_p = (struct cudaGetDevicePropertiesStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaGetDeviceProperties;
 
@@ -4378,16 +4221,13 @@ __host__ cudaError_t CUDARTAPI cudaGetDeviceProperties(struct cudaDeviceProp *pr
     if(sendMessage((void*) msg_p, sizeof(struct cudaGetDevicePropertiesStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
-
-    if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
+    
+    if((recvMessage((void**) &msg_p)) == FACUDA_ERROR)
         return respError;
 
     *prop = msg_p->prop;
 
     respError = msg_p->callheader.respError;
-
-    free((void*) msg_p);
 
     return respError;
 }
@@ -4396,8 +4236,7 @@ __host__ cudaError_t CUDARTAPI cudaChooseDevice(int *device, const struct cudaDe
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaChooseDeviceStruct *msg_p = (struct cudaChooseDeviceStruct*) malloc(sizeof(struct cudaChooseDeviceStruct));
-
+    struct cudaChooseDeviceStruct *msg_p = (struct cudaChooseDeviceStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaChooseDevice;
 
@@ -4407,7 +4246,7 @@ __host__ cudaError_t CUDARTAPI cudaChooseDevice(int *device, const struct cudaDe
     if(sendMessage((void*) msg_p, sizeof(struct cudaChooseDeviceStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -4416,7 +4255,7 @@ __host__ cudaError_t CUDARTAPI cudaChooseDevice(int *device, const struct cudaDe
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -4425,8 +4264,7 @@ __host__ cudaError_t CUDARTAPI cudaSetDevice(int device){
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaSetDeviceStruct *msg_p = (struct cudaSetDeviceStruct*) malloc(sizeof(struct cudaSetDeviceStruct));
-
+    struct cudaSetDeviceStruct *msg_p = (struct cudaSetDeviceStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaSetDevice;
 
@@ -4435,14 +4273,13 @@ __host__ cudaError_t CUDARTAPI cudaSetDevice(int device){
     if(sendMessage((void*) msg_p, sizeof(struct cudaSetDeviceStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
 
     return respError;
 }
@@ -4451,8 +4288,7 @@ __host__ cudaError_t CUDARTAPI cudaGetDevice(int *device){
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaGetDeviceStruct *msg_p = (struct cudaGetDeviceStruct*) malloc(sizeof(struct cudaGetDeviceStruct));
-
+    struct cudaGetDeviceStruct *msg_p = (struct cudaGetDeviceStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaGetDevice;
 
@@ -4461,7 +4297,7 @@ __host__ cudaError_t CUDARTAPI cudaGetDevice(int *device){
     if(sendMessage((void*) msg_p, sizeof(struct cudaGetDeviceStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -4470,8 +4306,6 @@ __host__ cudaError_t CUDARTAPI cudaGetDevice(int *device){
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
-
     return respError;
 }
 
@@ -4479,8 +4313,7 @@ __host__ cudaError_t CUDARTAPI cudaSetValidDevices(int *device_arr, int len){
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaSetValidDevicesStruct *msg_p = (struct cudaSetValidDevicesStruct*) malloc(sizeof(struct cudaSetValidDevicesStruct));
-
+    struct cudaSetValidDevicesStruct *msg_p = (struct cudaSetValidDevicesStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaSetValidDevices;
 
@@ -4490,7 +4323,7 @@ __host__ cudaError_t CUDARTAPI cudaSetValidDevices(int *device_arr, int len){
     if(sendMessage((void*) msg_p, sizeof(struct cudaSetValidDevicesStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -4499,7 +4332,7 @@ __host__ cudaError_t CUDARTAPI cudaSetValidDevices(int *device_arr, int len){
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -4508,8 +4341,7 @@ __host__ cudaError_t CUDARTAPI cudaSetDeviceFlags( unsigned int flags ){
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaSetDeviceFlagsStruct *msg_p = (struct cudaSetDeviceFlagsStruct*) malloc(sizeof(struct cudaSetDeviceFlagsStruct));
-
+    struct cudaSetDeviceFlagsStruct *msg_p = (struct cudaSetDeviceFlagsStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaSetDeviceFlags;
 
@@ -4518,14 +4350,14 @@ __host__ cudaError_t CUDARTAPI cudaSetDeviceFlags( unsigned int flags ){
     if(sendMessage((void*) msg_p, sizeof(struct cudaSetDeviceFlagsStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -4534,8 +4366,7 @@ __host__ cudaError_t CUDARTAPI cudaStreamCreate(cudaStream_t *pStream){
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaStreamCreateStruct *msg_p = (struct cudaStreamCreateStruct*) malloc(sizeof(struct cudaStreamCreateStruct));
-
+    struct cudaStreamCreateStruct *msg_p = (struct cudaStreamCreateStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaStreamCreate;
 
@@ -4544,7 +4375,7 @@ __host__ cudaError_t CUDARTAPI cudaStreamCreate(cudaStream_t *pStream){
     if(sendMessage((void*) msg_p, sizeof(struct cudaStreamCreateStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -4553,7 +4384,7 @@ __host__ cudaError_t CUDARTAPI cudaStreamCreate(cudaStream_t *pStream){
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -4562,8 +4393,7 @@ __host__ cudaError_t CUDARTAPI cudaStreamDestroy(cudaStream_t stream){
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaStreamDestroyStruct *msg_p = (struct cudaStreamDestroyStruct*) malloc(sizeof(struct cudaStreamDestroyStruct));
-
+    struct cudaStreamDestroyStruct *msg_p = (struct cudaStreamDestroyStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaStreamDestroy;
 
@@ -4572,14 +4402,14 @@ __host__ cudaError_t CUDARTAPI cudaStreamDestroy(cudaStream_t stream){
     if(sendMessage((void*) msg_p, sizeof(struct cudaStreamDestroyStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -4588,8 +4418,7 @@ __host__ cudaError_t CUDARTAPI cudaStreamWaitEvent(cudaStream_t stream, cudaEven
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaStreamWaitEventStruct *msg_p = (struct cudaStreamWaitEventStruct*) malloc(sizeof(struct cudaStreamWaitEventStruct));
-
+    struct cudaStreamWaitEventStruct *msg_p = (struct cudaStreamWaitEventStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaStreamWaitEvent;
 
@@ -4600,14 +4429,14 @@ __host__ cudaError_t CUDARTAPI cudaStreamWaitEvent(cudaStream_t stream, cudaEven
     if(sendMessage((void*) msg_p, sizeof(struct cudaStreamWaitEventStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -4616,8 +4445,7 @@ __host__ cudaError_t CUDARTAPI cudaStreamSynchronize(cudaStream_t stream){
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaStreamSynchronizeStruct *msg_p = (struct cudaStreamSynchronizeStruct*) malloc(sizeof(struct cudaStreamSynchronizeStruct));
-
+    struct cudaStreamSynchronizeStruct *msg_p = (struct cudaStreamSynchronizeStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaStreamSynchronize;
 
@@ -4626,14 +4454,14 @@ __host__ cudaError_t CUDARTAPI cudaStreamSynchronize(cudaStream_t stream){
     if(sendMessage((void*) msg_p, sizeof(struct cudaStreamSynchronizeStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -4642,8 +4470,7 @@ __host__ cudaError_t CUDARTAPI cudaStreamQuery(cudaStream_t stream){
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaStreamQueryStruct *msg_p = (struct cudaStreamQueryStruct*) malloc(sizeof(struct cudaStreamQueryStruct));
-
+    struct cudaStreamQueryStruct *msg_p = (struct cudaStreamQueryStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaStreamQuery;
 
@@ -4652,14 +4479,14 @@ __host__ cudaError_t CUDARTAPI cudaStreamQuery(cudaStream_t stream){
     if(sendMessage((void*) msg_p, sizeof(struct cudaStreamQueryStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -4668,8 +4495,7 @@ __host__ cudaError_t CUDARTAPI cudaEventCreate(cudaEvent_t *event){
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaEventCreateStruct *msg_p = (struct cudaEventCreateStruct*) malloc(sizeof(struct cudaEventCreateStruct));
-
+    struct cudaEventCreateStruct *msg_p = (struct cudaEventCreateStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaEventCreate;
 
@@ -4677,8 +4503,7 @@ __host__ cudaError_t CUDARTAPI cudaEventCreate(cudaEvent_t *event){
 
     if(sendMessage((void*) msg_p, sizeof(struct cudaEventCreateStruct)) == FACUDA_ERROR)
         return respError;
-
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -4687,8 +4512,6 @@ __host__ cudaError_t CUDARTAPI cudaEventCreate(cudaEvent_t *event){
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
-
     return respError;
 }
 
@@ -4696,8 +4519,7 @@ __host__ cudaError_t CUDARTAPI cudaEventCreateWithFlags(cudaEvent_t *event, unsi
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaEventCreateWithFlagsStruct *msg_p = (struct cudaEventCreateWithFlagsStruct*) malloc(sizeof(struct cudaEventCreateWithFlagsStruct));
-
+    struct cudaEventCreateWithFlagsStruct *msg_p = (struct cudaEventCreateWithFlagsStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaEventCreateWithFlags;
 
@@ -4707,7 +4529,7 @@ __host__ cudaError_t CUDARTAPI cudaEventCreateWithFlags(cudaEvent_t *event, unsi
     if(sendMessage((void*) msg_p, sizeof(struct cudaEventCreateWithFlagsStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -4716,7 +4538,7 @@ __host__ cudaError_t CUDARTAPI cudaEventCreateWithFlags(cudaEvent_t *event, unsi
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -4725,8 +4547,7 @@ __host__ cudaError_t CUDARTAPI cudaEventRecord(cudaEvent_t event, cudaStream_t s
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaEventRecordStruct *msg_p = (struct cudaEventRecordStruct*) malloc(sizeof(struct cudaEventRecordStruct));
-
+    struct cudaEventRecordStruct *msg_p = (struct cudaEventRecordStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaEventRecord;
 
@@ -4736,14 +4557,12 @@ __host__ cudaError_t CUDARTAPI cudaEventRecord(cudaEvent_t event, cudaStream_t s
     if(sendMessage((void*) msg_p, sizeof(struct cudaEventRecordStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.respError;
-
-    free((void*) msg_p);
 
     return respError;
 }
@@ -4752,8 +4571,7 @@ __host__ cudaError_t CUDARTAPI cudaEventQuery(cudaEvent_t event){
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaEventQueryStruct *msg_p = (struct cudaEventQueryStruct*) malloc(sizeof(struct cudaEventQueryStruct));
-
+    struct cudaEventQueryStruct *msg_p = (struct cudaEventQueryStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaEventQuery;
 
@@ -4762,14 +4580,14 @@ __host__ cudaError_t CUDARTAPI cudaEventQuery(cudaEvent_t event){
     if(sendMessage((void*) msg_p, sizeof(struct cudaEventQueryStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -4778,8 +4596,7 @@ __host__ cudaError_t CUDARTAPI cudaEventSynchronize(cudaEvent_t event){
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaEventSynchronizeStruct *msg_p = (struct cudaEventSynchronizeStruct*) malloc(sizeof(struct cudaEventSynchronizeStruct));
-
+    struct cudaEventSynchronizeStruct *msg_p = (struct cudaEventSynchronizeStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaEventSynchronize;
 
@@ -4788,14 +4605,12 @@ __host__ cudaError_t CUDARTAPI cudaEventSynchronize(cudaEvent_t event){
     if(sendMessage((void*) msg_p, sizeof(struct cudaEventSynchronizeStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.respError;
-
-    free((void*) msg_p);
 
     return respError;
 }
@@ -4804,8 +4619,7 @@ __host__ cudaError_t CUDARTAPI cudaEventDestroy(cudaEvent_t event){
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaEventDestroyStruct *msg_p = (struct cudaEventDestroyStruct*) malloc(sizeof(struct cudaEventDestroyStruct));
-
+    struct cudaEventDestroyStruct *msg_p = (struct cudaEventDestroyStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaEventDestroy;
 
@@ -4814,14 +4628,12 @@ __host__ cudaError_t CUDARTAPI cudaEventDestroy(cudaEvent_t event){
     if(sendMessage((void*) msg_p, sizeof(struct cudaEventDestroyStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.respError;
-
-    free((void*) msg_p);
 
     return respError;
 }
@@ -4830,8 +4642,7 @@ __host__ cudaError_t CUDARTAPI cudaEventElapsedTime(float *ms, cudaEvent_t start
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaEventElapsedTimeStruct *msg_p = (struct cudaEventElapsedTimeStruct*) malloc(sizeof(struct cudaEventElapsedTimeStruct));
-
+    struct cudaEventElapsedTimeStruct *msg_p = (struct cudaEventElapsedTimeStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaEventElapsedTime;
 
@@ -4842,7 +4653,7 @@ __host__ cudaError_t CUDARTAPI cudaEventElapsedTime(float *ms, cudaEvent_t start
     if(sendMessage((void*) msg_p, sizeof(struct cudaEventElapsedTimeStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -4850,8 +4661,6 @@ __host__ cudaError_t CUDARTAPI cudaEventElapsedTime(float *ms, cudaEvent_t start
     *ms = msg_p->ms;
 
     respError = msg_p->callheader.respError;
-
-    free((void*) msg_p);
 
     return respError;
 }
@@ -4862,8 +4671,7 @@ __host__ cudaError_t CUDARTAPI cudaSetupArgument(const void *arg, size_t size, s
 
     cudaError_t respError;
 
-    struct cudaSetupArgumentStruct *msg_p = (struct cudaSetupArgumentStruct*) malloc(sizeof(struct cudaSetupArgumentStruct) + size);
-
+    struct cudaSetupArgumentStruct *msg_p = (struct cudaSetupArgumentStruct*) memptr;
     msg_p->guest_pid = getpid();
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaSetupArgument;
@@ -4881,13 +4689,12 @@ __host__ cudaError_t CUDARTAPI cudaSetupArgument(const void *arg, size_t size, s
     if(sendMessage((void*) msg_p, sizeof(struct cudaSetupArgumentStruct) + size) == FACUDA_ERROR)
         return cudaErrorApiFailureBase;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return cudaErrorApiFailureBase;
 
     respError = msg_p->callheader.respError;
-    free((void*) msg_p);
 
     return respError;
 
@@ -4897,8 +4704,7 @@ __host__ cudaError_t CUDARTAPI cudaFuncSetCacheConfig(const char *func, enum cud
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaFuncSetCacheConfigStruct *msg_p = (struct cudaFuncSetCacheConfigStruct*) malloc(sizeof(struct cudaFuncSetCacheConfigStruct));
-
+    struct cudaFuncSetCacheConfigStruct *msg_p = (struct cudaFuncSetCacheConfigStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaFuncSetCacheConfig;
 
@@ -4915,14 +4721,14 @@ __host__ cudaError_t CUDARTAPI cudaFuncSetCacheConfig(const char *func, enum cud
     if(sendMessage((void*) msg_p, sizeof(struct cudaFuncSetCacheConfigStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -4940,9 +4746,9 @@ __host__ cudaError_t CUDARTAPI cudaConfigureCall(dim3 gridDim, dim3 blockDim, si
             stream);*/
 
     cudaError_t respError;
+    size_t sent;
 
-    struct cudaConfigureCallStruct *msg_p = (struct cudaConfigureCallStruct*) malloc(sizeof(struct cudaConfigureCallStruct));
-
+    struct cudaConfigureCallStruct *msg_p = (struct cudaConfigureCallStruct*) memptr;
     msg_p->guest_pid = getpid();
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaConfigureCall;
@@ -4955,23 +4761,21 @@ __host__ cudaError_t CUDARTAPI cudaConfigureCall(dim3 gridDim, dim3 blockDim, si
     if(sendMessage((void*) msg_p, sizeof(struct cudaConfigureCallStruct)) == FACUDA_ERROR)
         return cudaErrorApiFailureBase;
 
-    free((void*) msg_p);
+    
 
-    if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
+    if((sent=recvMessage((void**) &msg_p)) == FACUDA_ERROR)
         return cudaErrorApiFailureBase;
 
     respError = msg_p->callheader.respError;
-    free((void*) msg_p);
 
     return respError;
 }
 
-__host__ cudaError_t CUDARTAPI cudaLaunch(const char *entry){
+__host__ cudaError_t CUDARTAPI cudaLaunch(const void *entry){
 
     cudaError_t respError;
 
-    struct cudaLaunchStruct *msg_p = (struct cudaLaunchStruct*) malloc(sizeof(struct cudaLaunchStruct));
-
+    struct cudaLaunchStruct *msg_p = (struct cudaLaunchStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaLaunch;
  
@@ -4990,13 +4794,12 @@ __host__ cudaError_t CUDARTAPI cudaLaunch(const char *entry){
     if(sendMessage((void*) msg_p, sizeof(struct cudaLaunchStruct)) == FACUDA_ERROR)
         return cudaErrorApiFailureBase;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return cudaErrorApiFailureBase;
 
     respError = msg_p->callheader.respError;
-    free((void*) msg_p);
 
     if (respError != cudaSuccess){
         
@@ -5011,8 +4814,7 @@ __host__ cudaError_t CUDARTAPI cudaFuncGetAttributes(struct cudaFuncAttributes *
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaFuncGetAttributesStruct *msg_p = (struct cudaFuncGetAttributesStruct*) malloc(sizeof(struct cudaFuncGetAttributesStruct));
-
+    struct cudaFuncGetAttributesStruct *msg_p = (struct cudaFuncGetAttributesStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaFuncGetAttributes;
 
@@ -5029,7 +4831,7 @@ __host__ cudaError_t CUDARTAPI cudaFuncGetAttributes(struct cudaFuncAttributes *
     if(sendMessage((void*) msg_p, sizeof(struct cudaFuncGetAttributesStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -5038,7 +4840,7 @@ __host__ cudaError_t CUDARTAPI cudaFuncGetAttributes(struct cudaFuncAttributes *
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -5047,8 +4849,7 @@ __host__ cudaError_t CUDARTAPI cudaSetDoubleForDevice(double *d){
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaSetDoubleForDeviceStruct *msg_p = (struct cudaSetDoubleForDeviceStruct*) malloc(sizeof(struct cudaSetDoubleForDeviceStruct));
-
+    struct cudaSetDoubleForDeviceStruct *msg_p = (struct cudaSetDoubleForDeviceStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaSetDoubleForDevice;
 
@@ -5057,7 +4858,7 @@ __host__ cudaError_t CUDARTAPI cudaSetDoubleForDevice(double *d){
     if(sendMessage((void*) msg_p, sizeof(struct cudaSetDoubleForDeviceStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -5066,7 +4867,7 @@ __host__ cudaError_t CUDARTAPI cudaSetDoubleForDevice(double *d){
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -5075,8 +4876,7 @@ __host__ cudaError_t CUDARTAPI cudaSetDoubleForHost(double *d){
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaSetDoubleForHostStruct *msg_p = (struct cudaSetDoubleForHostStruct*) malloc(sizeof(struct cudaSetDoubleForHostStruct));
-
+    struct cudaSetDoubleForHostStruct *msg_p = (struct cudaSetDoubleForHostStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaSetDoubleForHost;
 
@@ -5085,7 +4885,7 @@ __host__ cudaError_t CUDARTAPI cudaSetDoubleForHost(double *d){
     if(sendMessage((void*) msg_p, sizeof(struct cudaSetDoubleForHostStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -5094,7 +4894,7 @@ __host__ cudaError_t CUDARTAPI cudaSetDoubleForHost(double *d){
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -5102,9 +4902,9 @@ __host__ cudaError_t CUDARTAPI cudaSetDoubleForHost(double *d){
 __host__ cudaError_t CUDARTAPI cudaMalloc(void **devPtr, size_t size){
 
     cudaError_t respError = cudaErrorApiFailureBase;
+    size_t sent;
 
-    struct cudaMallocStruct *msg_p = (struct cudaMallocStruct*) malloc(sizeof(struct cudaMallocStruct));
-
+    struct cudaMallocStruct *msg_p = (struct cudaMallocStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaMalloc;
 
@@ -5114,15 +4914,13 @@ __host__ cudaError_t CUDARTAPI cudaMalloc(void **devPtr, size_t size){
     if(sendMessage((void*) msg_p, sizeof(struct cudaMallocStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
-
-    if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
+    
+    if((sent=recvMessage((void**) &msg_p)) == FACUDA_ERROR)
         return respError;
 
     *devPtr = msg_p->devPtr;
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
 
     return respError;
 }
@@ -5131,8 +4929,7 @@ __host__ cudaError_t CUDARTAPI cudaMallocHost(void **ptr, size_t size){
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaMallocHostStruct *msg_p = (struct cudaMallocHostStruct*) malloc(sizeof(struct cudaMallocHostStruct));
-
+    struct cudaMallocHostStruct *msg_p = (struct cudaMallocHostStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaMallocHost;
 
@@ -5142,7 +4939,7 @@ __host__ cudaError_t CUDARTAPI cudaMallocHost(void **ptr, size_t size){
     if(sendMessage((void*) msg_p, sizeof(struct cudaMallocHostStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -5150,7 +4947,7 @@ __host__ cudaError_t CUDARTAPI cudaMallocHost(void **ptr, size_t size){
     *ptr = msg_p->ptr;
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -5159,8 +4956,7 @@ __host__ cudaError_t CUDARTAPI cudaMallocPitch(void **devPtr, size_t *pitch, siz
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaMallocPitchStruct *msg_p = (struct cudaMallocPitchStruct*) malloc(sizeof(struct cudaMallocPitchStruct));
-
+    struct cudaMallocPitchStruct *msg_p = (struct cudaMallocPitchStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaMallocPitch;
 
@@ -5172,7 +4968,7 @@ __host__ cudaError_t CUDARTAPI cudaMallocPitch(void **devPtr, size_t *pitch, siz
     if(sendMessage((void*) msg_p, sizeof(struct cudaMallocPitchStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -5182,7 +4978,7 @@ __host__ cudaError_t CUDARTAPI cudaMallocPitch(void **devPtr, size_t *pitch, siz
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -5190,9 +4986,9 @@ __host__ cudaError_t CUDARTAPI cudaMallocPitch(void **devPtr, size_t *pitch, siz
 __host__ cudaError_t CUDARTAPI cudaFree(void *devPtr){
 
     cudaError_t respError = cudaErrorApiFailureBase;
+    size_t sent;
 
-    struct cudaFreeStruct *msg_p = (struct cudaFreeStruct*) malloc(sizeof(struct cudaFreeStruct));
-
+    struct cudaFreeStruct *msg_p = (struct cudaFreeStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaFree;
 
@@ -5201,15 +4997,14 @@ __host__ cudaError_t CUDARTAPI cudaFree(void *devPtr){
     if(sendMessage((void*) msg_p, sizeof(struct cudaFreeStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
-    if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
+    if((sent=recvMessage((void**) &msg_p)) == FACUDA_ERROR)
         return respError;
 
     devPtr = msg_p->devPtr;
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
 
     return respError;
 }
@@ -5218,8 +5013,7 @@ __host__ cudaError_t CUDARTAPI cudaFreeHost(void *ptr){
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaFreeHostStruct *msg_p = (struct cudaFreeHostStruct*) malloc(sizeof(struct cudaFreeHostStruct));
-
+    struct cudaFreeHostStruct *msg_p = (struct cudaFreeHostStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaFreeHost;
 
@@ -5228,7 +5022,7 @@ __host__ cudaError_t CUDARTAPI cudaFreeHost(void *ptr){
     if(sendMessage((void*) msg_p, sizeof(struct cudaFreeHostStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -5236,7 +5030,7 @@ __host__ cudaError_t CUDARTAPI cudaFreeHost(void *ptr){
     ptr = msg_p->ptr;
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -5245,8 +5039,7 @@ __host__ cudaError_t CUDARTAPI cudaFreeArray(struct cudaArray *array){
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaFreeArrayStruct *msg_p = (struct cudaFreeArrayStruct*) malloc(sizeof(struct cudaFreeArrayStruct));
-
+    struct cudaFreeArrayStruct *msg_p = (struct cudaFreeArrayStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaFreeArray;
 
@@ -5255,14 +5048,14 @@ __host__ cudaError_t CUDARTAPI cudaFreeArray(struct cudaArray *array){
     if(sendMessage((void*) msg_p, sizeof(struct cudaFreeArrayStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -5271,8 +5064,7 @@ __host__ cudaError_t CUDARTAPI cudaHostAlloc(void **pHost, size_t size, unsigned
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaHostAllocStruct *msg_p = (struct cudaHostAllocStruct*) malloc(sizeof(struct cudaHostAllocStruct));
-
+    struct cudaHostAllocStruct *msg_p = (struct cudaHostAllocStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaHostAlloc;
 
@@ -5283,15 +5075,13 @@ __host__ cudaError_t CUDARTAPI cudaHostAlloc(void **pHost, size_t size, unsigned
     if(sendMessage((void*) msg_p, sizeof(struct cudaHostAllocStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     *pHost = msg_p->pHost;
     respError = msg_p->callheader.respError;
-
-    free((void*) msg_p);
 
     return respError;
 }
@@ -5300,8 +5090,7 @@ __host__ cudaError_t CUDARTAPI cudaHostRegister(void *ptr, size_t size, unsigned
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaHostRegisterStruct *msg_p = (struct cudaHostRegisterStruct*) malloc(sizeof(struct cudaHostRegisterStruct));
-
+    struct cudaHostRegisterStruct *msg_p = (struct cudaHostRegisterStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaHostRegister;
 
@@ -5312,7 +5101,7 @@ __host__ cudaError_t CUDARTAPI cudaHostRegister(void *ptr, size_t size, unsigned
     if(sendMessage((void*) msg_p, sizeof(struct cudaHostRegisterStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -5320,7 +5109,7 @@ __host__ cudaError_t CUDARTAPI cudaHostRegister(void *ptr, size_t size, unsigned
     ptr = msg_p->ptr;
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -5329,8 +5118,7 @@ __host__ cudaError_t CUDARTAPI cudaHostUnregister(void *ptr){
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaHostUnregisterStruct *msg_p = (struct cudaHostUnregisterStruct*) malloc(sizeof(struct cudaHostUnregisterStruct));
-
+    struct cudaHostUnregisterStruct *msg_p = (struct cudaHostUnregisterStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaHostUnregister;
 
@@ -5339,7 +5127,7 @@ __host__ cudaError_t CUDARTAPI cudaHostUnregister(void *ptr){
     if(sendMessage((void*) msg_p, sizeof(struct cudaHostUnregisterStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -5347,7 +5135,7 @@ __host__ cudaError_t CUDARTAPI cudaHostUnregister(void *ptr){
     ptr = msg_p->ptr;
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -5356,8 +5144,7 @@ __host__ cudaError_t CUDARTAPI cudaHostGetDevicePointer(void **pDevice, void *pH
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaHostGetDevicePointerStruct *msg_p = (struct cudaHostGetDevicePointerStruct*) malloc(sizeof(struct cudaHostGetDevicePointerStruct));
-
+    struct cudaHostGetDevicePointerStruct *msg_p = (struct cudaHostGetDevicePointerStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaHostGetDevicePointer;
 
@@ -5368,7 +5155,7 @@ __host__ cudaError_t CUDARTAPI cudaHostGetDevicePointer(void **pDevice, void *pH
     if(sendMessage((void*) msg_p, sizeof(struct cudaHostGetDevicePointerStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -5377,7 +5164,7 @@ __host__ cudaError_t CUDARTAPI cudaHostGetDevicePointer(void **pDevice, void *pH
     pHost = msg_p->pHost;
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -5386,8 +5173,7 @@ __host__ cudaError_t CUDARTAPI cudaHostGetFlags(unsigned int *pFlags, void *pHos
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaHostGetFlagsStruct *msg_p = (struct cudaHostGetFlagsStruct*) malloc(sizeof(struct cudaHostGetFlagsStruct));
-
+    struct cudaHostGetFlagsStruct *msg_p = (struct cudaHostGetFlagsStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaHostGetFlags;
 
@@ -5397,7 +5183,7 @@ __host__ cudaError_t CUDARTAPI cudaHostGetFlags(unsigned int *pFlags, void *pHos
     if(sendMessage((void*) msg_p, sizeof(struct cudaHostGetFlagsStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -5407,7 +5193,7 @@ __host__ cudaError_t CUDARTAPI cudaHostGetFlags(unsigned int *pFlags, void *pHos
     pHost = msg_p->pHost;
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -5416,8 +5202,7 @@ __host__ cudaError_t CUDARTAPI cudaMalloc3D(struct cudaPitchedPtr* pitchedDevPtr
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaMalloc3DStruct *msg_p = (struct cudaMalloc3DStruct*) malloc(sizeof(struct cudaMalloc3DStruct));
-
+    struct cudaMalloc3DStruct *msg_p = (struct cudaMalloc3DStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaMalloc3D;
 
@@ -5427,7 +5212,7 @@ __host__ cudaError_t CUDARTAPI cudaMalloc3D(struct cudaPitchedPtr* pitchedDevPtr
     if(sendMessage((void*) msg_p, sizeof(struct cudaMalloc3DStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -5436,7 +5221,7 @@ __host__ cudaError_t CUDARTAPI cudaMalloc3D(struct cudaPitchedPtr* pitchedDevPtr
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -5445,8 +5230,7 @@ __host__ cudaError_t CUDARTAPI cudaMemcpy3D(const struct cudaMemcpy3DParms *p){
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaMemcpy3DStruct *msg_p = (struct cudaMemcpy3DStruct*) malloc(sizeof(struct cudaMemcpy3DStruct));
-
+    struct cudaMemcpy3DStruct *msg_p = (struct cudaMemcpy3DStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaMemcpy3D;
 
@@ -5455,14 +5239,14 @@ __host__ cudaError_t CUDARTAPI cudaMemcpy3D(const struct cudaMemcpy3DParms *p){
     if(sendMessage((void*) msg_p, sizeof(struct cudaMemcpy3DStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -5471,8 +5255,7 @@ __host__ cudaError_t CUDARTAPI cudaMemcpy3DPeer(const struct cudaMemcpy3DPeerPar
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaMemcpy3DPeerStruct *msg_p = (struct cudaMemcpy3DPeerStruct*) malloc(sizeof(struct cudaMemcpy3DPeerStruct));
-
+    struct cudaMemcpy3DPeerStruct *msg_p = (struct cudaMemcpy3DPeerStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaMemcpy3DPeer;
 
@@ -5481,14 +5264,14 @@ __host__ cudaError_t CUDARTAPI cudaMemcpy3DPeer(const struct cudaMemcpy3DPeerPar
     if(sendMessage((void*) msg_p, sizeof(struct cudaMemcpy3DPeerStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -5497,8 +5280,7 @@ __host__ cudaError_t CUDARTAPI cudaMemGetInfo(size_t *free_, size_t *total){
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaMemGetInfoStruct *msg_p = (struct cudaMemGetInfoStruct*) malloc(sizeof(struct cudaMemGetInfoStruct));
-
+    struct cudaMemGetInfoStruct *msg_p = (struct cudaMemGetInfoStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaMemGetInfo;
 
@@ -5508,7 +5290,7 @@ __host__ cudaError_t CUDARTAPI cudaMemGetInfo(size_t *free_, size_t *total){
     if(sendMessage((void*) msg_p, sizeof(struct cudaMemGetInfoStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -5519,7 +5301,7 @@ __host__ cudaError_t CUDARTAPI cudaMemGetInfo(size_t *free_, size_t *total){
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -5535,16 +5317,12 @@ __host__ cudaError_t CUDARTAPI cudaMemcpy(void *dst, const void *src, size_t cou
     switch(kind){
         case cudaMemcpyHostToHost:
 
-            for(i = 0; i < count; i++){
-                
-                ((uint8_t*)dst)[i] = ((uint8_t*)src)[i];
-            }
-
+            memcpy(dst,src,count);
             return cudaSuccess;
 
         case cudaMemcpyHostToDevice:
 
-            msg_p = (struct cudaMemcpyStruct*) malloc(sizeof(struct cudaMemcpyStruct) + count);
+            msg_p = (struct cudaMemcpyStruct*) memptr;
 
             msg_p->offset = sizeof(struct cudaMemcpyStruct);
             msg_p->callheader.head.cmdType = normCall;
@@ -5555,28 +5333,25 @@ __host__ cudaError_t CUDARTAPI cudaMemcpy(void *dst, const void *src, size_t cou
             msg_p->count = count;
             msg_p->kind = kind;
 
-            for(i = 0; i < count; i++){
-
-                ((uint8_t*)msg_p)[msg_p->offset + i] = ((uint8_t*)src)[i];
+            if(src<memptr||src>memend){ 
+                offset=0;
+                memcpy(memptr+sizeof(struct cudaMemcpyStruct),src,count);
             }
-
+            else
+                offset = (uint8_t*)src-(uint8_t*)memptr-(1024*1024);
+            
             if(sendMessage((void*) msg_p, sizeof(struct cudaMemcpyStruct) + count) == FACUDA_ERROR)
                 return respError;
-
-            free((void*) msg_p);
-
+            //
             if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
                 return respError;
-
             respError = msg_p->callheader.respError;
-
-            free((void*) msg_p);
 
             return respError;
 
         case cudaMemcpyDeviceToHost:
 
-            msg_p = (struct cudaMemcpyStruct*) malloc(sizeof(struct cudaMemcpyStruct));
+            msg_p = (struct cudaMemcpyStruct*) memptr;
 
             msg_p->callheader.head.cmdType = normCall;
             msg_p->callheader.callID = facudaMemcpy;
@@ -5586,25 +5361,18 @@ __host__ cudaError_t CUDARTAPI cudaMemcpy(void *dst, const void *src, size_t cou
             msg_p->count = count;
             msg_p->kind = kind;
 
+            if (dst<memptr||dst>memend) 
+                offset = 0;
+            else
+                offset = (uint8_t*)dst-(uint8_t*)memptr-(1024*1024);
             if(sendMessage((void*) msg_p, sizeof(struct cudaMemcpyStruct)) == FACUDA_ERROR)
                 return respError;
-
-            free((void*) msg_p);
-
             if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
                 return respError;
-
             respError = msg_p->callheader.respError;
             if (respError != cudaSuccess)
                 return respError;
-            
-            for(i = 0; i < count; i++){
-
-                ((uint8_t*)dst)[i] = ((uint8_t*)msg_p)[sizeof(struct cudaMemcpyStruct) + i];
-            }
-
-            free((void*) msg_p);
-
+            if (offset==0) memcpy(dst,memptr+sizeof(struct cudaMemcpyStruct),count);
             return respError;
 
             break;
@@ -5612,8 +5380,7 @@ __host__ cudaError_t CUDARTAPI cudaMemcpy(void *dst, const void *src, size_t cou
         case cudaMemcpyDeviceToDevice:
 
 
-            msg_p = (struct cudaMemcpyStruct*) malloc(sizeof(struct cudaMemcpyStruct));
-
+            msg_p = (struct cudaMemcpyStruct*) memptr;
             msg_p->callheader.head.cmdType = normCall;
             msg_p->callheader.callID = facudaMemcpy;
 
@@ -5625,14 +5392,12 @@ __host__ cudaError_t CUDARTAPI cudaMemcpy(void *dst, const void *src, size_t cou
             if(sendMessage((void*) msg_p, sizeof(struct cudaMemcpyStruct)) == FACUDA_ERROR)
                 return respError;
 
-            free((void*) msg_p);
+            
 
             if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
                 return respError;
 
             respError = msg_p->callheader.respError;
-
-            free((void*) msg_p);
 
             return respError;
 
@@ -5643,15 +5408,13 @@ __host__ cudaError_t CUDARTAPI cudaMemcpy(void *dst, const void *src, size_t cou
             return cudaErrorInvalidMemcpyDirection;
     }
 
-
 }
 
 __host__ cudaError_t CUDARTAPI cudaMemcpyPeer(void *dst, int dstDevice, const void *src, int srcDevice, size_t count){
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaMemcpyPeerStruct *msg_p = (struct cudaMemcpyPeerStruct*) malloc(sizeof(struct cudaMemcpyPeerStruct));
-
+    struct cudaMemcpyPeerStruct *msg_p = (struct cudaMemcpyPeerStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaMemcpyPeer;
 
@@ -5664,7 +5427,7 @@ __host__ cudaError_t CUDARTAPI cudaMemcpyPeer(void *dst, int dstDevice, const vo
     if(sendMessage((void*) msg_p, sizeof(struct cudaMemcpyPeerStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -5672,7 +5435,7 @@ __host__ cudaError_t CUDARTAPI cudaMemcpyPeer(void *dst, int dstDevice, const vo
     dst = msg_p->dst;
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -5681,8 +5444,7 @@ __host__ cudaError_t CUDARTAPI cudaMemcpyToArray(struct cudaArray *dst, size_t w
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaMemcpyToArrayStruct *msg_p = (struct cudaMemcpyToArrayStruct*) malloc(sizeof(struct cudaMemcpyToArrayStruct));
-
+    struct cudaMemcpyToArrayStruct *msg_p = (struct cudaMemcpyToArrayStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaMemcpyToArray;
 
@@ -5696,14 +5458,14 @@ __host__ cudaError_t CUDARTAPI cudaMemcpyToArray(struct cudaArray *dst, size_t w
     if(sendMessage((void*) msg_p, sizeof(struct cudaMemcpyToArrayStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -5712,8 +5474,7 @@ __host__ cudaError_t CUDARTAPI cudaMemcpyFromArray(void *dst, const struct cudaA
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaMemcpyFromArrayStruct *msg_p = (struct cudaMemcpyFromArrayStruct*) malloc(sizeof(struct cudaMemcpyFromArrayStruct));
-
+    struct cudaMemcpyFromArrayStruct *msg_p = (struct cudaMemcpyFromArrayStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaMemcpyFromArray;
 
@@ -5727,7 +5488,7 @@ __host__ cudaError_t CUDARTAPI cudaMemcpyFromArray(void *dst, const struct cudaA
     if(sendMessage((void*) msg_p, sizeof(struct cudaMemcpyFromArrayStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -5735,7 +5496,7 @@ __host__ cudaError_t CUDARTAPI cudaMemcpyFromArray(void *dst, const struct cudaA
     dst = msg_p->dst;
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -5744,8 +5505,7 @@ __host__ cudaError_t CUDARTAPI cudaMemcpy2D(void *dst, size_t dpitch, const void
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaMemcpy2DStruct *msg_p = (struct cudaMemcpy2DStruct*) malloc(sizeof(struct cudaMemcpy2DStruct));
-
+    struct cudaMemcpy2DStruct *msg_p = (struct cudaMemcpy2DStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaMemcpy2D;
 
@@ -5760,7 +5520,7 @@ __host__ cudaError_t CUDARTAPI cudaMemcpy2D(void *dst, size_t dpitch, const void
     if(sendMessage((void*) msg_p, sizeof(struct cudaMemcpy2DStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -5768,7 +5528,7 @@ __host__ cudaError_t CUDARTAPI cudaMemcpy2D(void *dst, size_t dpitch, const void
     dst = msg_p->dst;
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -5777,8 +5537,7 @@ __host__ cudaError_t CUDARTAPI cudaMemcpy2DToArray(struct cudaArray *dst, size_t
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaMemcpy2DToArrayStruct *msg_p = (struct cudaMemcpy2DToArrayStruct*) malloc(sizeof(struct cudaMemcpy2DToArrayStruct));
-
+    struct cudaMemcpy2DToArrayStruct *msg_p = (struct cudaMemcpy2DToArrayStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaMemcpy2DToArray;
 
@@ -5794,14 +5553,14 @@ __host__ cudaError_t CUDARTAPI cudaMemcpy2DToArray(struct cudaArray *dst, size_t
     if(sendMessage((void*) msg_p, sizeof(struct cudaMemcpy2DToArrayStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -5810,8 +5569,7 @@ __host__ cudaError_t CUDARTAPI cudaMemcpy2DFromArray(void *dst, size_t dpitch, c
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaMemcpy2DFromArrayStruct *msg_p = (struct cudaMemcpy2DFromArrayStruct*) malloc(sizeof(struct cudaMemcpy2DFromArrayStruct));
-
+    struct cudaMemcpy2DFromArrayStruct *msg_p = (struct cudaMemcpy2DFromArrayStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaMemcpy2DFromArray;
 
@@ -5827,7 +5585,7 @@ __host__ cudaError_t CUDARTAPI cudaMemcpy2DFromArray(void *dst, size_t dpitch, c
     if(sendMessage((void*) msg_p, sizeof(struct cudaMemcpy2DFromArrayStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -5835,7 +5593,7 @@ __host__ cudaError_t CUDARTAPI cudaMemcpy2DFromArray(void *dst, size_t dpitch, c
     dst = msg_p->dst;
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -5844,8 +5602,7 @@ __host__ cudaError_t CUDARTAPI cudaMemset(void *devPtr, int value, size_t count)
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaMemsetStruct *msg_p = (struct cudaMemsetStruct*) malloc(sizeof(struct cudaMemsetStruct));
-
+    struct cudaMemsetStruct *msg_p = (struct cudaMemsetStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaMemset;
 
@@ -5856,7 +5613,7 @@ __host__ cudaError_t CUDARTAPI cudaMemset(void *devPtr, int value, size_t count)
     if(sendMessage((void*) msg_p, sizeof(struct cudaMemsetStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -5864,7 +5621,7 @@ __host__ cudaError_t CUDARTAPI cudaMemset(void *devPtr, int value, size_t count)
     devPtr = msg_p->devPtr;
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -5873,8 +5630,7 @@ __host__ cudaError_t CUDARTAPI cudaMemset2D(void *devPtr, size_t pitch, int valu
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaMemset2DStruct *msg_p = (struct cudaMemset2DStruct*) malloc(sizeof(struct cudaMemset2DStruct));
-
+    struct cudaMemset2DStruct *msg_p = (struct cudaMemset2DStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaMemset2D;
 
@@ -5887,7 +5643,7 @@ __host__ cudaError_t CUDARTAPI cudaMemset2D(void *devPtr, size_t pitch, int valu
     if(sendMessage((void*) msg_p, sizeof(struct cudaMemset2DStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -5895,7 +5651,7 @@ __host__ cudaError_t CUDARTAPI cudaMemset2D(void *devPtr, size_t pitch, int valu
     devPtr = msg_p->devPtr;
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -5904,8 +5660,7 @@ __host__ cudaError_t CUDARTAPI cudaMemset3D(struct cudaPitchedPtr pitchedDevPtr,
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaMemset3DStruct *msg_p = (struct cudaMemset3DStruct*) malloc(sizeof(struct cudaMemset3DStruct));
-
+    struct cudaMemset3DStruct *msg_p = (struct cudaMemset3DStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaMemset3D;
 
@@ -5916,14 +5671,14 @@ __host__ cudaError_t CUDARTAPI cudaMemset3D(struct cudaPitchedPtr pitchedDevPtr,
     if(sendMessage((void*) msg_p, sizeof(struct cudaMemset3DStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -5932,8 +5687,7 @@ __host__ cudaError_t CUDARTAPI cudaGetSymbolAddress(void **devPtr, const char *s
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaGetSymbolAddressStruct *msg_p = (struct cudaGetSymbolAddressStruct*) malloc(sizeof(struct cudaGetSymbolAddressStruct));
-
+    struct cudaGetSymbolAddressStruct *msg_p = (struct cudaGetSymbolAddressStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaGetSymbolAddress;
 
@@ -5950,7 +5704,7 @@ __host__ cudaError_t CUDARTAPI cudaGetSymbolAddress(void **devPtr, const char *s
     if(sendMessage((void*) msg_p, sizeof(struct cudaGetSymbolAddressStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -5958,7 +5712,7 @@ __host__ cudaError_t CUDARTAPI cudaGetSymbolAddress(void **devPtr, const char *s
     *devPtr = msg_p->devPtr;
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -5967,8 +5721,7 @@ __host__ cudaError_t CUDARTAPI cudaGetSymbolSize(size_t *size, const char *symbo
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaGetSymbolSizeStruct *msg_p = (struct cudaGetSymbolSizeStruct*) malloc(sizeof(struct cudaGetSymbolSizeStruct));
-
+    struct cudaGetSymbolSizeStruct *msg_p = (struct cudaGetSymbolSizeStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaGetSymbolSize;
 
@@ -5985,7 +5738,7 @@ __host__ cudaError_t CUDARTAPI cudaGetSymbolSize(size_t *size, const char *symbo
     if(sendMessage((void*) msg_p, sizeof(struct cudaGetSymbolSizeStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -5994,7 +5747,7 @@ __host__ cudaError_t CUDARTAPI cudaGetSymbolSize(size_t *size, const char *symbo
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -6003,8 +5756,7 @@ __host__ cudaError_t CUDARTAPI cudaPointerGetAttributes(struct cudaPointerAttrib
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaPointerGetAttributesStruct *msg_p = (struct cudaPointerGetAttributesStruct*) malloc(sizeof(struct cudaPointerGetAttributesStruct));
-
+    struct cudaPointerGetAttributesStruct *msg_p = (struct cudaPointerGetAttributesStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaPointerGetAttributes;
 
@@ -6014,7 +5766,7 @@ __host__ cudaError_t CUDARTAPI cudaPointerGetAttributes(struct cudaPointerAttrib
     if(sendMessage((void*) msg_p, sizeof(struct cudaPointerGetAttributesStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -6024,7 +5776,7 @@ __host__ cudaError_t CUDARTAPI cudaPointerGetAttributes(struct cudaPointerAttrib
     ptr = msg_p->ptr;
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -6033,8 +5785,7 @@ __host__ cudaError_t CUDARTAPI cudaDeviceCanAccessPeer(int *canAccessPeer, int d
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaDeviceCanAccessPeerStruct *msg_p = (struct cudaDeviceCanAccessPeerStruct*) malloc(sizeof(struct cudaDeviceCanAccessPeerStruct));
-
+    struct cudaDeviceCanAccessPeerStruct *msg_p = (struct cudaDeviceCanAccessPeerStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaDeviceCanAccessPeer;
 
@@ -6045,7 +5796,7 @@ __host__ cudaError_t CUDARTAPI cudaDeviceCanAccessPeer(int *canAccessPeer, int d
     if(sendMessage((void*) msg_p, sizeof(struct cudaDeviceCanAccessPeerStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -6054,7 +5805,7 @@ __host__ cudaError_t CUDARTAPI cudaDeviceCanAccessPeer(int *canAccessPeer, int d
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -6063,8 +5814,7 @@ __host__ cudaError_t CUDARTAPI cudaDeviceEnablePeerAccess(int peerDevice, unsign
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaDeviceEnablePeerAccessStruct *msg_p = (struct cudaDeviceEnablePeerAccessStruct*) malloc(sizeof(struct cudaDeviceEnablePeerAccessStruct));
-
+    struct cudaDeviceEnablePeerAccessStruct *msg_p = (struct cudaDeviceEnablePeerAccessStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaDeviceEnablePeerAccess;
 
@@ -6074,14 +5824,14 @@ __host__ cudaError_t CUDARTAPI cudaDeviceEnablePeerAccess(int peerDevice, unsign
     if(sendMessage((void*) msg_p, sizeof(struct cudaDeviceEnablePeerAccessStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -6090,8 +5840,7 @@ __host__ cudaError_t CUDARTAPI cudaDeviceDisablePeerAccess(int peerDevice){
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaDeviceDisablePeerAccessStruct *msg_p = (struct cudaDeviceDisablePeerAccessStruct*) malloc(sizeof(struct cudaDeviceDisablePeerAccessStruct));
-
+    struct cudaDeviceDisablePeerAccessStruct *msg_p = (struct cudaDeviceDisablePeerAccessStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaDeviceDisablePeerAccess;
 
@@ -6100,14 +5849,14 @@ __host__ cudaError_t CUDARTAPI cudaDeviceDisablePeerAccess(int peerDevice){
     if(sendMessage((void*) msg_p, sizeof(struct cudaDeviceDisablePeerAccessStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -6116,8 +5865,7 @@ __host__ cudaError_t CUDARTAPI cudaGraphicsUnregisterResource(cudaGraphicsResour
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaGraphicsUnregisterResourceStruct *msg_p = (struct cudaGraphicsUnregisterResourceStruct*) malloc(sizeof(struct cudaGraphicsUnregisterResourceStruct));
-
+    struct cudaGraphicsUnregisterResourceStruct *msg_p = (struct cudaGraphicsUnregisterResourceStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaGraphicsUnregisterResource;
 
@@ -6126,14 +5874,14 @@ __host__ cudaError_t CUDARTAPI cudaGraphicsUnregisterResource(cudaGraphicsResour
     if(sendMessage((void*) msg_p, sizeof(struct cudaGraphicsUnregisterResourceStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -6142,8 +5890,7 @@ __host__ cudaError_t CUDARTAPI cudaGraphicsResourceSetMapFlags(cudaGraphicsResou
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaGraphicsResourceSetMapFlagsStruct *msg_p = (struct cudaGraphicsResourceSetMapFlagsStruct*) malloc(sizeof(struct cudaGraphicsResourceSetMapFlagsStruct));
-
+    struct cudaGraphicsResourceSetMapFlagsStruct *msg_p = (struct cudaGraphicsResourceSetMapFlagsStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaGraphicsResourceSetMapFlags;
 
@@ -6153,14 +5900,14 @@ __host__ cudaError_t CUDARTAPI cudaGraphicsResourceSetMapFlags(cudaGraphicsResou
     if(sendMessage((void*) msg_p, sizeof(struct cudaGraphicsResourceSetMapFlagsStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -6169,8 +5916,7 @@ __host__ cudaError_t CUDARTAPI cudaGraphicsResourceGetMappedPointer(void **devPt
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaGraphicsResourceGetMappedPointerStruct *msg_p = (struct cudaGraphicsResourceGetMappedPointerStruct*) malloc(sizeof(struct cudaGraphicsResourceGetMappedPointerStruct));
-
+    struct cudaGraphicsResourceGetMappedPointerStruct *msg_p = (struct cudaGraphicsResourceGetMappedPointerStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaGraphicsResourceGetMappedPointer;
 
@@ -6181,7 +5927,7 @@ __host__ cudaError_t CUDARTAPI cudaGraphicsResourceGetMappedPointer(void **devPt
     if(sendMessage((void*) msg_p, sizeof(struct cudaGraphicsResourceGetMappedPointerStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -6191,7 +5937,7 @@ __host__ cudaError_t CUDARTAPI cudaGraphicsResourceGetMappedPointer(void **devPt
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -6200,8 +5946,7 @@ __host__ cudaError_t CUDARTAPI cudaGraphicsSubResourceGetMappedArray(struct cuda
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaGraphicsSubResourceGetMappedArrayStruct *msg_p = (struct cudaGraphicsSubResourceGetMappedArrayStruct*) malloc(sizeof(struct cudaGraphicsSubResourceGetMappedArrayStruct));
-
+    struct cudaGraphicsSubResourceGetMappedArrayStruct *msg_p = (struct cudaGraphicsSubResourceGetMappedArrayStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaGraphicsSubResourceGetMappedArray;
 
@@ -6212,7 +5957,7 @@ __host__ cudaError_t CUDARTAPI cudaGraphicsSubResourceGetMappedArray(struct cuda
     if(sendMessage((void*) msg_p, sizeof(struct cudaGraphicsSubResourceGetMappedArrayStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -6220,7 +5965,7 @@ __host__ cudaError_t CUDARTAPI cudaGraphicsSubResourceGetMappedArray(struct cuda
     *array = msg_p->array;
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -6229,8 +5974,7 @@ __host__ cudaError_t CUDARTAPI cudaGetChannelDesc(struct cudaChannelFormatDesc *
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaGetChannelDescStruct *msg_p = (struct cudaGetChannelDescStruct*) malloc(sizeof(struct cudaGetChannelDescStruct));
-
+    struct cudaGetChannelDescStruct *msg_p = (struct cudaGetChannelDescStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaGetChannelDesc;
 
@@ -6240,7 +5984,7 @@ __host__ cudaError_t CUDARTAPI cudaGetChannelDesc(struct cudaChannelFormatDesc *
     if(sendMessage((void*) msg_p, sizeof(struct cudaGetChannelDescStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -6249,7 +5993,7 @@ __host__ cudaError_t CUDARTAPI cudaGetChannelDesc(struct cudaChannelFormatDesc *
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -6258,8 +6002,7 @@ __host__ cudaError_t CUDARTAPI cudaBindTexture2D(size_t *offset, const struct te
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaBindTexture2DStruct *msg_p = (struct cudaBindTexture2DStruct*) malloc(sizeof(struct cudaBindTexture2DStruct));
-
+    struct cudaBindTexture2DStruct *msg_p = (struct cudaBindTexture2DStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaBindTexture2D;
 
@@ -6274,7 +6017,7 @@ __host__ cudaError_t CUDARTAPI cudaBindTexture2D(size_t *offset, const struct te
     if(sendMessage((void*) msg_p, sizeof(struct cudaBindTexture2DStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -6283,7 +6026,7 @@ __host__ cudaError_t CUDARTAPI cudaBindTexture2D(size_t *offset, const struct te
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -6292,8 +6035,7 @@ __host__ cudaError_t CUDARTAPI cudaBindTextureToArray(const struct textureRefere
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaBindTextureToArrayStruct *msg_p = (struct cudaBindTextureToArrayStruct*) malloc(sizeof(struct cudaBindTextureToArrayStruct));
-
+    struct cudaBindTextureToArrayStruct *msg_p = (struct cudaBindTextureToArrayStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaBindTextureToArray;
 
@@ -6304,14 +6046,14 @@ __host__ cudaError_t CUDARTAPI cudaBindTextureToArray(const struct textureRefere
     if(sendMessage((void*) msg_p, sizeof(struct cudaBindTextureToArrayStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -6320,8 +6062,7 @@ __host__ cudaError_t CUDARTAPI cudaUnbindTexture(const struct textureReference *
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaUnbindTextureStruct *msg_p = (struct cudaUnbindTextureStruct*) malloc(sizeof(struct cudaUnbindTextureStruct));
-
+    struct cudaUnbindTextureStruct *msg_p = (struct cudaUnbindTextureStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaUnbindTexture;
 
@@ -6330,14 +6071,14 @@ __host__ cudaError_t CUDARTAPI cudaUnbindTexture(const struct textureReference *
     if(sendMessage((void*) msg_p, sizeof(struct cudaUnbindTextureStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -6346,8 +6087,7 @@ __host__ cudaError_t CUDARTAPI cudaGetTextureAlignmentOffset(size_t *offset, con
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaGetTextureAlignmentOffsetStruct *msg_p = (struct cudaGetTextureAlignmentOffsetStruct*) malloc(sizeof(struct cudaGetTextureAlignmentOffsetStruct));
-
+    struct cudaGetTextureAlignmentOffsetStruct *msg_p = (struct cudaGetTextureAlignmentOffsetStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaGetTextureAlignmentOffset;
 
@@ -6357,7 +6097,7 @@ __host__ cudaError_t CUDARTAPI cudaGetTextureAlignmentOffset(size_t *offset, con
     if(sendMessage((void*) msg_p, sizeof(struct cudaGetTextureAlignmentOffsetStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -6366,7 +6106,7 @@ __host__ cudaError_t CUDARTAPI cudaGetTextureAlignmentOffset(size_t *offset, con
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -6375,8 +6115,7 @@ __host__ cudaError_t CUDARTAPI cudaGetTextureReference(const struct textureRefer
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaGetTextureReferenceStruct *msg_p = (struct cudaGetTextureReferenceStruct*) malloc(sizeof(struct cudaGetTextureReferenceStruct));
-
+    struct cudaGetTextureReferenceStruct *msg_p = (struct cudaGetTextureReferenceStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaGetTextureReference;
 
@@ -6392,14 +6131,14 @@ __host__ cudaError_t CUDARTAPI cudaGetTextureReference(const struct textureRefer
     if(sendMessage((void*) msg_p, sizeof(struct cudaGetTextureReferenceStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -6408,8 +6147,7 @@ __host__ cudaError_t CUDARTAPI cudaBindSurfaceToArray(const struct surfaceRefere
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaBindSurfaceToArrayStruct *msg_p = (struct cudaBindSurfaceToArrayStruct*) malloc(sizeof(struct cudaBindSurfaceToArrayStruct));
-
+    struct cudaBindSurfaceToArrayStruct *msg_p = (struct cudaBindSurfaceToArrayStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaBindSurfaceToArray;
 
@@ -6420,14 +6158,14 @@ __host__ cudaError_t CUDARTAPI cudaBindSurfaceToArray(const struct surfaceRefere
     if(sendMessage((void*) msg_p, sizeof(struct cudaBindSurfaceToArrayStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -6436,8 +6174,7 @@ __host__ cudaError_t CUDARTAPI cudaGetSurfaceReference(const struct surfaceRefer
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaGetSurfaceReferenceStruct *msg_p = (struct cudaGetSurfaceReferenceStruct*) malloc(sizeof(struct cudaGetSurfaceReferenceStruct));
-
+    struct cudaGetSurfaceReferenceStruct *msg_p = (struct cudaGetSurfaceReferenceStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaGetSurfaceReference;
 
@@ -6453,14 +6190,14 @@ __host__ cudaError_t CUDARTAPI cudaGetSurfaceReference(const struct surfaceRefer
     if(sendMessage((void*) msg_p, sizeof(struct cudaGetSurfaceReferenceStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -6469,8 +6206,7 @@ __host__ cudaError_t CUDARTAPI cudaDriverGetVersion(int *driverVersion){
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaDriverGetVersionStruct *msg_p = (struct cudaDriverGetVersionStruct*) malloc(sizeof(struct cudaDriverGetVersionStruct));
-
+    struct cudaDriverGetVersionStruct *msg_p = (struct cudaDriverGetVersionStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaDriverGetVersion;
 
@@ -6479,7 +6215,7 @@ __host__ cudaError_t CUDARTAPI cudaDriverGetVersion(int *driverVersion){
     if(sendMessage((void*) msg_p, sizeof(struct cudaDriverGetVersionStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -6488,7 +6224,7 @@ __host__ cudaError_t CUDARTAPI cudaDriverGetVersion(int *driverVersion){
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -6497,8 +6233,7 @@ __host__ cudaError_t CUDARTAPI cudaRuntimeGetVersion(int *runtimeVersion){
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaRuntimeGetVersionStruct *msg_p = (struct cudaRuntimeGetVersionStruct*) malloc(sizeof(struct cudaRuntimeGetVersionStruct));
-
+    struct cudaRuntimeGetVersionStruct *msg_p = (struct cudaRuntimeGetVersionStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaRuntimeGetVersion;
 
@@ -6507,7 +6242,7 @@ __host__ cudaError_t CUDARTAPI cudaRuntimeGetVersion(int *runtimeVersion){
     if(sendMessage((void*) msg_p, sizeof(struct cudaRuntimeGetVersionStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
@@ -6516,7 +6251,7 @@ __host__ cudaError_t CUDARTAPI cudaRuntimeGetVersion(int *runtimeVersion){
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
@@ -6525,8 +6260,7 @@ __host__ cudaError_t CUDARTAPI cudaGetExportTable(const void **ppExportTable, co
 
     cudaError_t respError = cudaErrorApiFailureBase;
 
-    struct cudaGetExportTableStruct *msg_p = (struct cudaGetExportTableStruct*) malloc(sizeof(struct cudaGetExportTableStruct));
-
+    struct cudaGetExportTableStruct *msg_p = (struct cudaGetExportTableStruct*) memptr;
     msg_p->callheader.head.cmdType = normCall;
     msg_p->callheader.callID = facudaGetExportTable;
 
@@ -6536,15 +6270,14 @@ __host__ cudaError_t CUDARTAPI cudaGetExportTable(const void **ppExportTable, co
     if(sendMessage((void*) msg_p, sizeof(struct cudaGetExportTableStruct)) == FACUDA_ERROR)
         return respError;
 
-    free((void*) msg_p);
+    
 
     if(recvMessage((void**) &msg_p) == FACUDA_ERROR)
         return respError;
 
     respError = msg_p->callheader.respError;
 
-    free((void*) msg_p);
+    
 
     return respError;
 }
-

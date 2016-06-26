@@ -37,8 +37,8 @@ CC=g++
 # Override the default rule to compile c sources with 
 # another, that also creates dependencies
 %.o:%.c
-	$(CC) $(CFLAGS) $< -o $@
-	$(CC) $(CFLAGS) -M $< > .$*.d
+	$(CC) -nostartfiles $(CFLAGS) $< -pthread -o $@
+	$(CC) -nostartfiles $(CFLAGS) -M $< > .$*.d
 
 %.o:%.cpp
 	$(CC) $(CXXFLAGS) $< -o $@
@@ -49,15 +49,15 @@ all: lib
 
 # Attempted to separate into two stages; compiling user.o first then linking it.
 # But get error that it cannot find the entry point symbol..
-user: CFLAGS = -Wall -g -I /usr/local/cuda/include -lfakecuda -o user
-user: CXXFLAGS = -Wall -g -I /usr/local/cuda/include -lfakecuda -o user
+user: CFLAGS = -g -I /usr/local/cuda/include -lfakecuda -o user
+user: CXXFLAGS = -g -I /usr/local/cuda/include -lfakecuda -o user
 
 # Variables and their associated values are passed down prerequisites
 #
 # They override any other target-specific variable values for that same
 # variable name
-lib: CFLAGS = -g -w -pg -fPIC -Wall -c -I/usr/local/cuda/include
-lib: CXXFLAGS = -g -w -pg -fPIC -Wall -c -I/usr/local/cuda/include
+lib: CFLAGS = -g -w -pg -fPIC -c -I/usr/local/cuda/include
+lib: CXXFLAGS = -g -w -pg -fPIC -c -I/usr/local/cuda/include
 lib: libfacuvirser.so.$(VERSION)
 
 libfacuvirser.so.$(VERSION): $(LIB_FACU_VIRSER_OBJS)

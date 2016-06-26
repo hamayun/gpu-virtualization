@@ -39,10 +39,10 @@ typedef enum faCudaError{
     faCuda_error    =   1
 } faCudaError_t;
 
+int offset1;
 /* Special functions that deal with kernel code and launches */
-
+//void *memptr;
 extern "C"{
-
 /* When compiling a .cu file, nvcc uses the two following functions 
  * __cudaRegisterFatBinary() and __cudaUnregisterFatBinary() on 
  * 1) initialization, by __attribute marking the function as 
@@ -80,17 +80,11 @@ extern "C"{
 
 void** __cudaRegisterFatBinary(void* fatCubin){
 
- //   init();
-    
-    //cudaDeviceReset();
-
     struct nvFatbinSegmentStruct *fatbinDescr = (struct nvFatbinSegmentStruct*) fatCubin;
-    uint8_t* fatCubinData = (uint8_t*)fatbinDescr->d;
-    uint32_t fatCubinDataSize = ((uint32_t*)fatCubinData)[2];
+    void* fatCubinData = (void*)fatbinDescr->d;
+    uint32_t fatCubinDataSize = ((uint32_t*)fatCubinData)[2]+16;
 
-    //fprintf(stdout, "cudaRegisterFatBinary got size %u.\n", fatCubinDataSize);
-
-    uint8_t *msg = (uint8_t*) malloc(sizeof(struct cudaRegisterFatBinaryStruct) + fatCubinDataSize);
+    uint8_t *msg = (uint8_t*) memptr;
     struct cudaRegisterFatBinaryStruct *regFatBinStruct = (struct cudaRegisterFatBinaryStruct*) msg;
 
     regFatBinStruct->guest_pid = getpid();
@@ -102,22 +96,15 @@ void** __cudaRegisterFatBinary(void* fatCubin){
     regFatBinStruct->fatbinDescr.v = fatbinDescr->v;
     regFatBinStruct->fatbinDescr.f = fatbinDescr->f;
 
-    uint8_t *writepos = msg + sizeof(struct cudaRegisterFatBinaryStruct);
-
-    int i;
-    for(i = 0; i < fatCubinDataSize; i++)
-        writepos[i] = fatCubinData[i];
+    memcpy(msg + sizeof(struct cudaRegisterFatBinaryStruct),fatCubinData,fatCubinDataSize);
 
     if(sendMessage((void*) msg, sizeof(struct cudaRegisterFatBinaryStruct) + fatCubinDataSize) == FACUDA_ERROR){
         fprintf(stderr, "Unhandled error in __cudaRegisterFatBinary!\n");
     }
 
-    free((void*) msg);
-
     if(recvMessage((void**)&msg) == FACUDA_ERROR)
         fprintf(stderr, "Unhandled error in __cudaRegisterFatBinary!\n");
 
-    free((void*) msg);
 
     return (void**) 0x00;
 
@@ -126,7 +113,7 @@ void** __cudaRegisterFatBinary(void* fatCubin){
 void __cudaUnregisterFatBinary(void **fatCubinHandle){
     
     struct cudaUnRegisterFatBinaryStruct *var = 
-        (struct cudaUnRegisterFatBinaryStruct*) malloc(sizeof(struct cudaUnRegisterFatBinaryStruct));
+        (struct cudaUnRegisterFatBinaryStruct*) memptr;
 
     var->guest_pid = getpid();
     var->callhead.head.cmdType = normCall;
@@ -137,12 +124,10 @@ void __cudaUnregisterFatBinary(void **fatCubinHandle){
     if(sendMessage((void*) var, sizeof(struct cudaUnRegisterFatBinaryStruct)) == FACUDA_ERROR)
         fprintf(stderr, "Unhandled error in __cudaUnRegisterFatBinary!\n");
 
-    free((void*) var);
-
     if(recvMessage((void**)&var) == FACUDA_ERROR)
         fprintf(stderr, "Unhandled error in __cudaUnRegisterFatBinary!\n");
 
-    free((void*) var);
+    //free((void*) var);
 
 
 }
@@ -172,7 +157,7 @@ void __cudaRegisterFunction(
         int *wSize){
 
     struct cudaRegisterFunctionStruct *var = 
-        (struct cudaRegisterFunctionStruct*) malloc(sizeof(struct cudaRegisterFunctionStruct));
+        (struct cudaRegisterFunctionStruct*) memptr;
 
     var->guest_pid = getpid();
     var->callhead.head.cmdType = normCall;
@@ -201,12 +186,8 @@ void __cudaRegisterFunction(
     if(sendMessage((void*) var, sizeof(struct cudaRegisterFunctionStruct)) == FACUDA_ERROR)
         fprintf(stderr, "Unhandled error in __cudaRegisterFunction!\n");
 
-    free((void*) var);
-
     if(recvMessage((void**)&var) == FACUDA_ERROR)
         fprintf(stderr, "Unhandled error in __cudaRegisterFunction!\n");
-
-    free((void*) var);
 
 
 }

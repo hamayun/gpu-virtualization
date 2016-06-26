@@ -14,21 +14,35 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <fcntl.h>
-
-/* Initializes the fake cuda library */
-//int init();
+#include <sys/mman.h>
+#include <semaphore.h>
+#include <sys/stat.h>
 
 #define FACUDA_SUCCESS 0
 #define FACUDA_ERROR -1
+#define SIZE 256
+#define SHARED_DEV "/dev/uio0"
+#define CHAR_DEV "/dev/virtio-ports/robineier"
+#define MALLOC 1
+#define FREE 2
+#define SEM "/sem2"
 
-/*
-#include <stdint.h>         // Must include this header for uint8_t typedef
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <errno.h>
-*/
+typedef struct {
+	short func;
+	uint offset;
+	uint size;
+}input;
 
+typedef struct {
+	void *pointer;
+}output;
+
+extern void* memptr;
+extern void* memend;
+extern uint offset;
+extern int fd_shared;
+extern sem_t *sem;
+extern int fd_fifo;
 /* Hello world. */
 void testFunction(void);
 
@@ -36,7 +50,6 @@ void testFunction(void);
  *
  * Returns FACUDA_SUCCESS on success or FACUDA_ERROR on failure. */
 int sendMessage(void *msg_buf, size_t msg_sz);
-
 /* Returns the number of bytes in the message and in *msg_buf a 
  * pointer to a received message. 
  *

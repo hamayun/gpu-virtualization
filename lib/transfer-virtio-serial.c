@@ -7,12 +7,22 @@
  * transfer data between host and guest. */
 
 #include "transfer.h"
-
-#define CHAR_DEV "/dev/virtio-ports/robineier"
+#include <math.h>
+#include <string.h>
+#include <errno.h>
+#include <pthread.h>
+#include <time.h>
 
 
 static FILE *device_node;
-int fd;     // Device file descriptor
+int fd;			//Device file descriptor
+int fd_shared;	//pci device file descriptor
+int fd_fifo;	//file descriptor for the fifo
+void *memptr;	//base pointer of the shared memory
+void *memend;
+uint offset;
+char *myfifo = "/tmp/myfifo";
+sem_t *sem;
 
 void testFunction(){
     printf("testFunction: Hello world!\n");
@@ -21,98 +31,50 @@ void testFunction(){
 
 //void init(void) __attribute__((constructor));
 void __attribute__((constructor)) init(void){
-
-    device_node = fopen(CHAR_DEV, "r+");
+	device_node = fopen(CHAR_DEV, "r+");
     if(device_node == NULL){
         fprintf(stderr, "Failed opening the device node.\n");
         exit(EXIT_FAILURE);
     }
-
     fd = fileno(device_node);
-
+    fd_shared=open(SHARED_DEV, O_RDWR);
+    if ((memptr = mmap(NULL, SIZE*1024*1024, PROT_READ|PROT_WRITE, MAP_SHARED, fd_shared, 1 * getpagesize())) == (caddr_t)-1){
+        close (fd_shared);
+        exit (-1);
+    }
+    memend = (uint8_t*)memptr+(SIZE*1024*1024);
+    sem = sem_open(SEM, O_CREAT, 777, 0);
+    //printf("error : %s\n", strerror(errno));fflush(stdout);
+   	fd_fifo = open(myfifo, O_RDWR);
+   	//printf("error : %s\n", strerror(errno));fflush(stdout);
 }
 
 //void deinit(void) __attribute__((destructor));
 void __attribute((destructor)) deinit(void){
-
-    close(fd);
-
+	close(fd);
+	munmap(memptr, SIZE*1024*1024);
+    close(fd_shared);
+    close(fd_fifo);
+	sem_close(sem);
 }
 
-
-/* Sends a message to the device. 
- *
- * Returns the number of bytes sent or a negative value in
- * case of an error. */
 int sendMessage(void *msg_buf, size_t len){
-
-    //fprintf(stdout, "Writing message with fd %d\n", fd);
-
-    uint32_t msg_sz = (uint32_t) len;
-    uint32_t toWrite = msg_sz;
-    uint32_t written;
-
-    uint8_t* readPos = (uint8_t*)msg_buf;
-
-    if(write(fd, &msg_sz, 4) < 4)
-        return FACUDA_ERROR;
-
-    while(toWrite != 0){
-
-        written = write(fd, readPos, toWrite);
-        if(written <= 0)
-            return FACUDA_ERROR;
-        toWrite -= written;
-        readPos += written;
-    }
-
+    uint32_t msg_sz = (uint32_t) offset;
+    //printf("check : %d\n", len);
+    //printf("check1 : %d\n", offset);
+    //if (memptr!=msg_buf) memcpy(memptr,msg_buf,len);
+    if(write(fd, &msg_sz, 4) < 4) return FACUDA_ERROR;
     return msg_sz;
 }
 
-/* Receives a message from the virtual device. 
- *
- * Returns the size of the message and in *msg_buf a pointer
- * to the message. (In case of an error a negative value is
- * returned an no data is put in the buffer. )
- *
- * The user is responsible for freeing the buffer after use. */
 size_t recvMessage(void **msg_buf){
-    
-    // First read the message size
-    uint32_t msg_sz;
-    uint32_t toRead;
-    uint32_t justRead = 0;
-
-    uint8_t* writePos;
-
-    //fprintf(stdout, "Reading size with fd %d\n", fd);
+	uint32_t msg_sz=0;
 
     if(read(fd, &msg_sz, 4) < 4){
         perror("");
         return FACUDA_ERROR;
     }
-    
-    //fprintf(stdout, "Got response message of size %d\n", msg_sz);
-    if(msg_sz == 0){
-        *msg_buf = NULL;
-        return 0;
-    }
-    toRead = msg_sz;
-    
-    // msg_sz should now contain the message size in bytes
-
-    *msg_buf = malloc(msg_sz);
-    writePos = (uint8_t*)*msg_buf;
-    while(toRead != 0){
-        
-        justRead = read(fd, writePos, (int)toRead);
-        if(read <= 0)
-            return FACUDA_ERROR;
-        toRead -= justRead;
-        writePos += justRead;
-    }
-
+    *msg_buf = memptr;
     return (size_t)msg_sz;
 }
-
 #endif
